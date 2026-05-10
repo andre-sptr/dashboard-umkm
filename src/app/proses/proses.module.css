@@ -1,0 +1,172 @@
+.main {
+  background: #f7f4ed;
+  color: #101723;
+}
+
+.hero {
+  padding: 92px 0;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 80% 16%, rgba(240, 185, 85, 0.24), transparent 28%),
+    linear-gradient(135deg, #08111f 0%, #112138 100%);
+  color: #ffffff;
+}
+
+.heroInner {
+  max-width: 880px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: #f0b955;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 56px;
+  line-height: 1.06;
+}
+
+.hero p:last-child {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.processSection {
+  padding: 96px 0;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  max-width: 980px;
+  margin: 0 auto;
+  gap: 22px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  left: 34px;
+  width: 2px;
+  background: linear-gradient(#f0b955, rgba(16, 23, 35, 0.12));
+}
+
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+.stepNumber {
+  z-index: 1;
+  display: flex;
+  width: 68px;
+  height: 68px;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid #f7f4ed;
+  border-radius: 50%;
+  background: #101723;
+  color: #f0b955;
+  font-weight: 900;
+}
+
+.stepCard {
+  border-color: rgba(16, 23, 35, 0.1);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 22px 70px rgba(16, 23, 35, 0.08);
+}
+
+.stepCard span {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #8b5c12;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.stepCard h2 {
+  margin-bottom: 10px;
+  color: #101723;
+  font-size: 26px;
+}
+
+.stepCard p {
+  color: #5f6878;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.statusStrip {
+  display: flex;
+  max-width: 980px;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 38px auto 0;
+}
+
+.statusStrip span {
+  border: 1px solid rgba(16, 23, 35, 0.12);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: #ffffff;
+  color: #101723;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 72px 0;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .processSection {
+    padding: 72px 0;
+  }
+
+  .timeline::before {
+    left: 24px;
+  }
+
+  .step {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .stepNumber {
+    width: 50px;
+    height: 50px;
+    border-width: 6px;
+    font-size: 13px;
+  }
+}

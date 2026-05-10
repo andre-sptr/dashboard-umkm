@@ -1,0 +1,96 @@
+.footer {
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 16% 10%, rgba(240, 185, 85, 0.14), transparent 28%),
+    #101723;
+  color: #ffffff;
+  padding-top: 80px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.info {
+  max-width: 420px;
+}
+
+.logo {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.logoText {
+  color: #ffffff;
+}
+
+.logoAccent {
+  color: #f0b955;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 42px;
+}
+
+.linkGroup h4 {
+  margin-bottom: 20px;
+  color: #f0b955;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.linkGroup ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.linkGroup li {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.linkGroup a:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 0;
+  color: rgba(255, 255, 255, 0.42);
+  text-align: center;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .linksGrid {
+    grid-template-columns: 1fr;
+  }
+}
