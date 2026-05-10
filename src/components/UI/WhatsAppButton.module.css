@@ -72,19 +72,12 @@
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1320px) {
   .button {
-    right: 18px;
-    bottom: 18px;
     min-height: 56px;
     width: 56px;
     justify-content: center;
     padding: 7px;
-  }
-
-  .button svg {
-    width: 42px;
-    height: 42px;
   }
 
   .copy {
@@ -94,5 +87,17 @@
   .pulse {
     top: 8px;
     left: 37px;
+  }
+}
+
+@media (max-width: 640px) {
+  .button {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .button svg {
+    width: 42px;
+    height: 42px;
   }
 }

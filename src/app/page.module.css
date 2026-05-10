@@ -471,11 +471,16 @@
 .demoCard,
 .processCard {
   border: 1px solid rgba(16, 23, 35, 0.1);
-  border-radius: 22px;
+  border-radius: 8px;
   padding: 18px;
   background: #ffffff;
   box-shadow: 0 20px 60px rgba(16, 23, 35, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demoCard {
+  display: grid;
+  gap: 22px;
 }
 
 .demoCard:hover,
@@ -486,13 +491,23 @@
 
 .demoVisual {
   position: relative;
-  min-height: 220px;
+  min-height: 310px;
   overflow: hidden;
-  border-radius: 18px;
-  margin-bottom: 22px;
+  border-radius: 8px;
   background:
-    radial-gradient(circle at 70% 24%, rgba(240, 185, 85, 0.5), transparent 20%),
     linear-gradient(145deg, #101723, #26425f);
+}
+
+.foodDemo {
+  background: linear-gradient(145deg, #20321f, #9b4d24);
+}
+
+.retailDemo {
+  background: linear-gradient(145deg, #1d2543, #7b4b74);
+}
+
+.serviceDemo {
+  background: linear-gradient(145deg, #123238, #256f70);
 }
 
 .demoBadge {
@@ -500,7 +515,7 @@
   top: 18px;
   left: 18px;
   z-index: 1;
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 8px 12px;
   background: rgba(255, 255, 255, 0.92);
   color: #101723;
@@ -513,30 +528,41 @@
   right: 20px;
   bottom: 20px;
   left: 20px;
+  top: 66px;
   display: grid;
-  gap: 10px;
-  border-radius: 16px;
+  align-content: start;
+  gap: 12px;
+  border-radius: 8px;
   padding: 18px;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
 }
 
 .demoWindow span {
-  height: 12px;
-  border-radius: 999px;
-  background: #d7dde6;
+  color: #8b5c12;
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
-.demoWindow span:first-child {
-  width: 60%;
-  background: #f0b955;
+.demoWindow strong {
+  color: #101723;
+  font-size: 21px;
+  line-height: 1.18;
 }
 
-.demoWindow span:nth-child(2) {
-  width: 88%;
+.demoWindow small {
+  color: #5f6878;
+  line-height: 1.45;
 }
 
-.demoWindow span:nth-child(3) {
-  width: 72%;
+.demoWindowAction {
+  width: max-content;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #101723;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 900;
 }
 
 .demoCard h3,
@@ -547,6 +573,47 @@
 .demoCard p,
 .processCard p {
   color: #5f6878;
+}
+
+.demoContent {
+  display: grid;
+  gap: 18px;
+}
+
+.demoSections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.demoSections li {
+  border: 1px solid rgba(16, 23, 35, 0.1);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #3d4654;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.3;
+  background: #f8f2e8;
+}
+
+.demoStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.demoStats span {
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #eef6f4;
+  color: #1d5d58;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.demoContent a {
+  white-space: normal;
 }
 
 .pricingBox {

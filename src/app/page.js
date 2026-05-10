@@ -34,21 +34,36 @@ const valueProps = [
   },
 ];
 
-const portfolioDemos = [
+const demoProjects = [
   {
-    title: 'Kafe & Kuliner',
-    desc: 'Menu digital, promo harian, galeri tempat, dan reservasi via WhatsApp.',
-    accent: 'Signature menu',
+    title: 'Dapur Rendang Riau',
+    sector: 'Kuliner rumahan',
+    tagline: 'Nasi box kantor siap pesan.',
+    desc: 'Menonjolkan menu best seller, paket kantor, testimoni pelanggan, dan tombol pesan cepat ke WhatsApp.',
+    highlight: 'Pesanan kantor lebih mudah masuk lewat satu link.',
+    sections: ['Hero promo', 'Paket menu', 'Testimoni', 'Order WA'],
+    stats: ['3 paket', 'WA CTA', 'Galeri menu'],
+    theme: 'foodDemo',
   },
   {
-    title: 'Fashion & Retail',
-    desc: 'Katalog produk, highlight koleksi, ukuran, harga mulai, dan link order.',
-    accent: 'New collection',
+    title: 'Loka Batik Pekanbaru',
+    sector: 'Fashion & retail',
+    tagline: 'Katalog batik rapi dan premium.',
+    desc: 'Dibuat untuk memudahkan calon pembeli melihat koleksi, rentang harga, ukuran, dan cara order.',
+    highlight: 'Koleksi terlihat premium tanpa perlu toko online penuh.',
+    sections: ['Lookbook', 'Size guide', 'Harga mulai', 'Chat admin'],
+    stats: ['12 produk', 'Size guide', 'Order cepat'],
+    theme: 'retailDemo',
   },
   {
-    title: 'Jasa Profesional',
-    desc: 'Profil layanan, area kerja Pekanbaru, bukti pekerjaan, dan tombol konsultasi.',
-    accent: 'Fast response',
+    title: 'BersihKilap Home Care',
+    sector: 'Jasa profesional',
+    tagline: 'Booking cleaning lebih jelas.',
+    desc: 'Mengatur layanan, area kerja, bukti hasil, estimasi harga, dan jadwal konsultasi dalam alur yang rapi.',
+    highlight: 'Calon pelanggan cepat paham layanan dan area kerja.',
+    sections: ['Layanan', 'Before after', 'Area kerja', 'Booking WA'],
+    stats: ['4 layanan', 'Area map', 'Estimasi'],
+    theme: 'serviceDemo',
   },
 ];
 
@@ -223,23 +238,41 @@ function PortfolioSection() {
     <section className={styles.portfolioSection} id="demo">
       <div className="container">
         <div className={styles.sectionHeader}>
-          <p className={styles.eyebrowDark}>Demo portfolio</p>
-          <h2>Contoh arah landing page untuk berbagai UMKM.</h2>
-          <p>Tidak perlu menunggu portfolio asli. Calon klien bisa langsung melihat kualitas visual dan alur yang akan kalian dapatkan.</p>
+          <p className={styles.eyebrowDark}>Project demo</p>
+          <h2>Contoh project demo yang bisa langsung dibayangkan oleh pemilik UMKM.</h2>
+          <p>Setiap demo menunjukkan arah copy, struktur halaman, dan fokus konversi yang bisa disesuaikan dengan bisnis asli client.</p>
         </div>
         <div className={styles.demoGrid}>
-          {portfolioDemos.map((demo) => (
+          {demoProjects.map((demo) => (
             <article className={styles.demoCard} key={demo.title}>
-              <div className={styles.demoVisual}>
-                <div className={styles.demoBadge}>{demo.accent}</div>
+              <div className={`${styles.demoVisual} ${styles[demo.theme]}`}>
+                <div className={styles.demoBadge}>{demo.sector}</div>
                 <div className={styles.demoWindow}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                  <span>{demo.title}</span>
+                  <strong>{demo.tagline}</strong>
+                  <small>{demo.highlight}</small>
+                  <div className={styles.demoWindowAction}>Konsultasi via WhatsApp</div>
                 </div>
               </div>
-              <h3>{demo.title}</h3>
-              <p>{demo.desc}</p>
+              <div className={styles.demoContent}>
+                <div>
+                  <h3>{demo.title}</h3>
+                  <p>{demo.desc}</p>
+                </div>
+                <ul className={styles.demoSections} aria-label={`Section demo ${demo.title}`}>
+                  {demo.sections.map((section) => (
+                    <li key={section}>{section}</li>
+                  ))}
+                </ul>
+                <div className={styles.demoStats} aria-label={`Fitur utama ${demo.title}`}>
+                  {demo.stats.map((stat) => (
+                    <span key={stat}>{stat}</span>
+                  ))}
+                </div>
+                <Button as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer" variant="secondary" fullWidth>
+                  Minta Demo Serupa
+                </Button>
+              </div>
             </article>
           ))}
         </div>
