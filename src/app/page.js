@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Button from '@/components/UI/Button';
 import styles from './page.module.css';
 
@@ -44,6 +45,7 @@ const demoProjects = [
     sections: ['Hero promo', 'Paket menu', 'Testimoni', 'Order WA'],
     stats: ['3 paket', 'WA CTA', 'Galeri menu'],
     theme: 'foodDemo',
+    href: '/demo/dapur-rendang-riau',
   },
   {
     title: 'Loka Batik Pekanbaru',
@@ -54,6 +56,7 @@ const demoProjects = [
     sections: ['Lookbook', 'Size guide', 'Harga mulai', 'Chat admin'],
     stats: ['12 produk', 'Size guide', 'Order cepat'],
     theme: 'retailDemo',
+    href: '/demo/loka-batik-pekanbaru',
   },
   {
     title: 'BersihKilap Home Care',
@@ -64,6 +67,7 @@ const demoProjects = [
     sections: ['Layanan', 'Before after', 'Area kerja', 'Booking WA'],
     stats: ['4 layanan', 'Area map', 'Estimasi'],
     theme: 'serviceDemo',
+    href: '/demo/bersihkilap-home-care',
   },
 ];
 
@@ -244,14 +248,14 @@ function PortfolioSection() {
         </div>
         <div className={styles.demoGrid}>
           {demoProjects.map((demo) => (
-            <article className={styles.demoCard} key={demo.title}>
+            <Link className={styles.demoCard} href={demo.href} key={demo.title} aria-label={`Lihat demo ${demo.title}`}>
               <div className={`${styles.demoVisual} ${styles[demo.theme]}`}>
                 <div className={styles.demoBadge}>{demo.sector}</div>
                 <div className={styles.demoWindow}>
                   <span>{demo.title}</span>
                   <strong>{demo.tagline}</strong>
                   <small>{demo.highlight}</small>
-                  <div className={styles.demoWindowAction}>Konsultasi via WhatsApp</div>
+                  <div className={styles.demoWindowAction}>Lihat Demo</div>
                 </div>
               </div>
               <div className={styles.demoContent}>
@@ -269,11 +273,11 @@ function PortfolioSection() {
                     <span key={stat}>{stat}</span>
                   ))}
                 </div>
-                <Button as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer" variant="secondary" fullWidth>
-                  Minta Demo Serupa
+                <Button as="span" variant="secondary" fullWidth>
+                  Lihat Demo
                 </Button>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

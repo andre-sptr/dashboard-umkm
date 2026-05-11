@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" role="img" aria-labelledby="title desc">
+  <title id="title">Dapur Rendang Riau visual</title>
+  <desc id="desc">Stylized rendang bowl, rice box, and warm spice background.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3a1711"/>
+      <stop offset="0.55" stop-color="#9b3420"/>
+      <stop offset="1" stop-color="#f0b955"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7e8"/>
+      <stop offset="1" stop-color="#e7c996"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="840" fill="url(#bg)"/>
+  <circle cx="754" cy="106" r="132" fill="#f7d27a" opacity=".35"/>
+  <circle cx="122" cy="704" r="180" fill="#21462a" opacity=".36"/>
+  <path d="M0 575c158-63 282-60 374 8 103 76 253 79 526 10v247H0z" fill="#26120e" opacity=".35"/>
+  <g transform="translate(108 136)">
+    <rect x="58" y="350" width="640" height="210" rx="34" fill="#fff4dc" opacity=".92"/>
+    <rect x="93" y="392" width="202" height="104" rx="22" fill="#d13f23"/>
+    <rect x="328" y="392" width="320" height="22" rx="11" fill="#a92819"/>
+    <rect x="328" y="436" width="242" height="18" rx="9" fill="#d9a547"/>
+    <rect x="328" y="476" width="282" height="18" rx="9" fill="#21462a"/>
+    <ellipse cx="374" cy="258" rx="260" ry="126" fill="#2a130d" opacity=".28"/>
+    <ellipse cx="374" cy="238" rx="246" ry="118" fill="url(#plate)"/>
+    <ellipse cx="374" cy="220" rx="194" ry="86" fill="#fff7e8"/>
+    <path d="M242 206c44-60 152-80 248-48 54 18 103 54 116 93-68 72-253 87-364-45z" fill="#74301d"/>
+    <path d="M278 191c72 36 167 39 256 5 22 19 40 39 49 59-70 47-227 58-341-12 7-19 19-37 36-52z" fill="#9f3a22"/>
+    <circle cx="318" cy="219" r="26" fill="#552014"/>
+    <circle cx="421" cy="189" r="31" fill="#5e2618"/>
+    <circle cx="506" cy="226" r="25" fill="#4d1c12"/>
+    <path d="M229 161c31-38 70-63 118-75" stroke="#f0b955" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <path d="M604 151c-28-42-68-70-122-86" stroke="#f0b955" stroke-width="18" stroke-linecap="round" fill="none"/>
+    <g fill="#f7d27a">
+      <circle cx="216" cy="92" r="12"/>
+      <circle cx="648" cy="258" r="10"/>
+      <circle cx="642" cy="96" r="8"/>
+      <circle cx="178" cy="284" r="9"/>
+    </g>
+  </g>
+</svg>

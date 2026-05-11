@@ -481,10 +481,12 @@
 .demoCard {
   display: grid;
   gap: 22px;
+  color: inherit;
 }
 
 .demoCard:hover,
 .processCard:hover {
+  opacity: 1;
   transform: translateY(-4px);
   box-shadow: 0 28px 70px rgba(16, 23, 35, 0.12);
 }
