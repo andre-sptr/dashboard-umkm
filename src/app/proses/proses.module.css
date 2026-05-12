@@ -1,18 +1,29 @@
 .main {
-  background: #f7f4ed;
-  color: #101723;
+  background-color: var(--almost-black);
+  color: var(--pure-white);
 }
 
 .hero {
-  padding: 92px 0;
+  padding: var(--space-12) 0 var(--space-10);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 80% 16%, rgba(240, 185, 85, 0.24), transparent 28%),
-    linear-gradient(135deg, #08111f 0%, #112138 100%);
-  color: #ffffff;
+  background-color: var(--almost-black);
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(197, 184, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(197, 184, 255, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+  pointer-events: none;
 }
 
 .heroInner {
+  position: relative;
   max-width: 880px;
 }
 
@@ -20,38 +31,38 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 18px;
-  color: #f0b955;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+  color: var(--primary-accent);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .eyebrow::before {
   content: '';
   width: 34px;
-  height: 1px;
-  background: currentColor;
+  height: 2px;
+  background: var(--electric-blue);
 }
 
 .hero h1 {
   max-width: 820px;
-  margin-bottom: 20px;
-  color: #ffffff;
-  font-size: 56px;
-  line-height: 1.06;
+  margin-bottom: var(--space-4);
+  color: var(--pure-white);
 }
 
 .hero p:last-child {
   max-width: 680px;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 18px;
-  line-height: 1.7;
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .processSection {
-  padding: 96px 0;
+  padding: var(--section-gap-desktop) 0;
+  background-color: var(--navy-deep);
 }
 
 .timeline {
@@ -59,24 +70,24 @@
   display: grid;
   max-width: 980px;
   margin: 0 auto;
-  gap: 22px;
+  gap: var(--space-6);
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  top: 28px;
-  bottom: 28px;
+  top: 34px;
+  bottom: 34px;
   left: 34px;
   width: 2px;
-  background: linear-gradient(#f0b955, rgba(16, 23, 35, 0.12));
+  background: linear-gradient(var(--electric-blue), rgba(110, 104, 150, 0.2));
 }
 
 .step {
   position: relative;
   display: grid;
   grid-template-columns: 68px minmax(0, 1fr);
-  gap: 24px;
+  gap: var(--space-5);
   align-items: stretch;
 }
 
@@ -87,86 +98,81 @@
   height: 68px;
   align-items: center;
   justify-content: center;
-  border: 8px solid #f7f4ed;
+  border: 8px solid var(--navy-deep);
   border-radius: 50%;
-  background: #101723;
-  color: #f0b955;
-  font-weight: 900;
+  background: var(--almost-black);
+  color: var(--primary-accent);
+  font-weight: 700;
+  box-shadow: var(--shadow-raised);
 }
 
 .stepCard {
-  border-color: rgba(16, 23, 35, 0.1);
-  border-radius: 24px;
-  background: #ffffff;
-  box-shadow: 0 22px 70px rgba(16, 23, 35, 0.08);
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-lg);
+  background: var(--almost-black);
+  box-shadow: var(--shadow-lifted);
 }
 
 .stepCard span {
   display: inline-block;
-  margin-bottom: 14px;
-  color: #8b5c12;
+  margin-bottom: var(--space-3);
+  color: var(--primary-accent);
   font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .stepCard h2 {
-  margin-bottom: 10px;
-  color: #101723;
-  font-size: 26px;
+  margin-bottom: var(--space-2);
+  color: var(--pure-white);
+  font-size: 24px;
 }
 
 .stepCard p {
-  color: #5f6878;
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--charcoal);
+  font-size: 15px;
 }
 
 .statusStrip {
   display: flex;
   max-width: 980px;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 38px auto 0;
+  gap: var(--space-2);
+  margin: var(--space-8) auto 0;
 }
 
 .statusStrip span {
-  border: 1px solid rgba(16, 23, 35, 0.12);
-  border-radius: 999px;
-  padding: 10px 14px;
-  background: #ffffff;
-  color: #101723;
-  font-size: 13px;
-  font-weight: 900;
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--pure-white);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 @media (max-width: 640px) {
   .hero {
-    padding: 72px 0;
-  }
-
-  .hero h1 {
-    font-size: 38px;
+    padding: var(--section-gap-mobile) 0;
   }
 
   .processSection {
-    padding: 72px 0;
+    padding: var(--section-gap-mobile) 0;
   }
 
   .timeline::before {
-    left: 24px;
+    left: 25px;
   }
 
   .step {
     grid-template-columns: 50px minmax(0, 1fr);
-    gap: 16px;
+    gap: var(--space-3);
   }
 
   .stepNumber {
     width: 50px;
     height: 50px;
     border-width: 6px;
-    font-size: 13px;
   }
 }

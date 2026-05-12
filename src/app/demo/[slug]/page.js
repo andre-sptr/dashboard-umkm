@@ -37,7 +37,6 @@ export default async function DemoPage({ params }) {
     <div className={`${styles.page} ${styles[demo.theme]}`}>
       <Hero demo={demo} />
       <ProductSection demo={demo} />
-      <ProofSection demo={demo} />
       <FinalCta demo={demo} />
     </div>
   );
@@ -99,27 +98,6 @@ function ProductSection({ demo }) {
             </article>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function ProofSection({ demo }) {
-  return (
-    <section className={styles.proofSection}>
-      <div className={`container ${styles.proofGrid}`}>
-        <div className={styles.proofPanel}>
-          <h2>{demo.proofTitle}</h2>
-          <ul>
-            {demo.proofItems.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <figure className={styles.testimonial}>
-          <blockquote>{demo.testimonial.quote}</blockquote>
-          <figcaption>{demo.testimonial.person}</figcaption>
-        </figure>
       </div>
     </section>
   );

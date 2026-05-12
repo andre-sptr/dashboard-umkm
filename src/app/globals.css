@@ -1,53 +1,74 @@
 :root {
-  /* Colors - Nusantara Digital Growth System */
-  --background: #f9f9fc;
-  --foreground: #1a1c1e;
+  /* Colors - Light Clean Theme */
   
-  --primary: #004aad;
-  --on-primary: #ffffff;
-  --primary-container: #d9e2ff;
-  --on-primary-container: #001945;
+  /* Primary & Accents */
+  --primary-accent: #e0e7ff; /* Very light soft blue for backgrounds/hover */
+  --electric-blue: #004aad; /* Primary CTA, brand moments - softer but strong blue */
+  --sky-blue: #2563eb; /* Secondary interactive */
   
-  --secondary: #ff8c00;
-  --on-secondary: #ffffff;
-  --secondary-container: #ffdcc3;
-  --on-secondary-container: #2f1500;
+  /* Additional Accents */
+  --lavender-light: #f3f4f6; /* Subtle bg, secondary accents */
+  --purple-muted: #9ca3af; /* Disabled states, low emphasis */
   
-  --tertiary: #008080;
-  --on-tertiary: #ffffff;
-  --tertiary-container: #93f2f2;
-  --on-tertiary-container: #002020;
+  /* Interactive Backgrounds */
+  --deep-indigo: #ffffff; /* White interactive bg */
+  --navy-deep: #f8f9fa; /* Primary surface layer - very soft gray/off-white */
   
-  --surface: #f9f9fc;
-  --surface-dim: #dadadc;
-  --surface-bright: #f9f9fc;
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f3f3f6;
-  --surface-container: #eeeef0;
-  --surface-container-high: #e8e8ea;
-  --surface-container-highest: #e2e2e5;
+  /* Neutral Scale */
+  --pure-black: #ffffff; /* Re-mapped for compatibility if needed, but using direct variables below */
+  --pure-white: #0f172a; /* Re-mapped: foreground text */
+  --charcoal: #475569; /* Secondary text */
+  --dark-gray: #e2e8f0; /* Borders */
+  --almost-black: #ffffff; /* Deepest bg layer - now white */
+  --medium-gray: #64748b; /* Tertiary text */
   
-  --outline: #737784;
-  --outline-variant: #c3c6d5;
+  /* Surfaces & Borders */
+  --purple-glow: #e2e8f0; /* Card borders - soft gray */
   
-  /* Shapes */
-  --radius-sm: 0.25rem;
-  --radius-default: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-full: 9999px;
+  /* Typography Variables */
+  --font-display: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
+  --font-heading: 'Switzer', system-ui, -apple-system, sans-serif;
+  --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
   
-  /* Spacing */
-  --spacing-base: 8px;
-  --container-max: 1280px;
-  --section-padding: 80px;
-  --margin-mobile: 16px;
+  /* Shapes / Border Radius */
+  --radius-none: 0px;
+  --radius-sm: 8px; /* Inputs, ghost buttons */
+  --radius-md: 12px; /* Nested UI */
+  --radius-lg: 16px; /* Primary cards */
+  --radius-pill: 17px; /* Badges */
+  --radius-full: 40px; /* Fully rounded buttons */
+  
+  /* Spacing System */
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 36px;
+  --space-8: 40px;
+  --space-9: 56px;
+  --space-10: 76px;
+  --space-11: 80px;
+  --space-12: 120px;
+  
+  /* Contextual Spacing */
+  --container-max: 1440px;
   --margin-desktop: 40px;
+  --margin-mobile: 20px;
+  --section-gap-desktop: var(--space-12);
+  --section-gap-tablet: var(--space-11);
+  --section-gap-mobile: var(--space-9);
   
-  /* Elevation */
-  --shadow-soft: 0 4px 20px rgba(0, 74, 173, 0.08);
-  --shadow-medium: 0 8px 30px rgba(0, 74, 173, 0.12);
+  /* Elevation / Shadows (Softer for light theme) */
+  --shadow-flat: none;
+  --shadow-raised: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-lifted: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 0px 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-floating: 0px 10px 15px -3px rgba(0, 0, 0, 0.05), 0px 4px 6px -2px rgba(0, 0, 0, 0.03);
+  
+  /* Core layout variables */
+  --background: #ffffff;
+  --foreground: #0f172a;
 }
 
 * {
@@ -68,23 +89,90 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6, .font-display {
-  font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+/* Typography Hierarchy */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 86.4px;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+h2, .h2 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 62.4px;
+  letter-spacing: -0.01em;
+  color: #0f172a;
+}
+
+h3, .h3 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 60px;
+  letter-spacing: 0;
+  color: #1e293b;
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 33.8px;
+  letter-spacing: 0;
+  color: #1e293b;
+}
+
+p, .body-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
+  letter-spacing: 0;
+  color: var(--charcoal);
+}
+
+.caption {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.4px;
+}
+
+code {
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16.8px;
+}
+
+@media (max-width: 1023px) {
+  h1, .h1 { font-size: 56px; line-height: 67px; }
+  h2, .h2 { font-size: 40px; line-height: 48px; }
+}
+
+@media (max-width: 479px) {
+  h1, .h1 { font-size: 44px; line-height: 52px; }
+  h2, .h2 { font-size: 32px; line-height: 38px; }
+  h3, .h3 { font-size: 26px; line-height: 33px; }
+  h4, .h4 { font-size: 20px; line-height: 26px; }
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-a:hover {
-  opacity: 0.8;
+  transition: color 0.2s ease;
 }
 
 ul {
@@ -98,70 +186,63 @@ button {
   font: inherit;
 }
 
-/* Typography Utilities */
-.display-lg {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+/* Layout Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--margin-desktop);
+  width: 100%;
 }
 
-@media (max-width: 768px) {
-  .display-lg {
-    font-size: 36px;
+@media (max-width: 1023px) {
+  .container {
+    padding: 0 32px;
   }
 }
 
-.headline-md {
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-.headline-sm {
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.body-lg {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.body-md {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.label-md {
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-}
-
-.label-sm {
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-/* Layout Utilities */
-.container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--margin-desktop);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 479px) {
   .container {
     padding: 0 var(--margin-mobile);
   }
 }
 
 .section {
-  padding: var(--section-padding) 0;
+  padding: var(--section-gap-desktop) 0;
+  background-color: var(--navy-deep);
 }
+
+.section-alt {
+  padding: var(--section-gap-desktop) 0;
+  background-color: var(--almost-black);
+}
+
+@media (max-width: 1023px) {
+  .section, .section-alt {
+    padding: var(--section-gap-tablet) 0;
+  }
+}
+
+@media (max-width: 479px) {
+  .section, .section-alt {
+    padding: var(--section-gap-mobile) 0;
+  }
+}
+
+/* Animations for Reveal Component */
+.reveal-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-wrapper.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-delay-500 { transition-delay: 500ms; }

@@ -10,7 +10,7 @@ export default function Proses() {
   const steps = [
     { title: 'Konsultasi awal', desc: 'Kami gali jenis usaha, target pelanggan, area layanan, dan penawaran utama yang perlu terlihat kuat.' },
     { title: 'Materi & struktur', desc: 'Logo, foto, daftar layanan, harga, testimoni, dan CTA disusun menjadi alur landing page yang mudah dijual.' },
-    { title: 'Desain & development', desc: 'Tampilan premium dibuat responsif, cepat, dan konsisten dengan karakter bisnis Anda.' },
+    { title: 'Desain & development', desc: 'Pembangunan sistem dengan desain eksklusif yang ringan, responsif, dan mencerminkan identitas unik bisnis Anda secara konsisten.' },
     { title: 'Review & launch', desc: 'Setelah revisi final, website dipublikasikan dengan WhatsApp aktif dan opsi AI atau WA chatbot sesuai paket.' },
   ];
 

@@ -1,26 +1,66 @@
 .card {
-  background: var(--surface-container-lowest);
+  position: relative;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--outline-variant);
-  box-shadow: var(--shadow-soft);
-  transition: all 0.3s ease;
+  background: var(--almost-black);
+  color: var(--pure-white);
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Feature Card Default (Lifted) */
+.card {
+  border: 1px solid var(--purple-glow);
+  box-shadow: var(--shadow-lifted);
 }
 
 .hover:hover {
-  box-shadow: var(--shadow-medium);
-  transform: translateY(-4px);
-  border-color: var(--primary-container);
+  border-color: var(--sky-blue);
+  box-shadow: var(--shadow-floating);
+  transform: translateY(-2px);
+}
+
+/* Depth Variants */
+.flat {
+  border: 1px solid var(--purple-glow);
+  background: var(--navy-deep);
+  box-shadow: var(--shadow-flat);
+}
+
+.raised {
+  box-shadow: var(--shadow-raised);
+}
+
+.floating {
+  box-shadow: var(--shadow-floating);
+}
+
+/* Nested Container Style */
+.nested {
+  background: var(--lavender-light);
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: none;
+}
+
+/* Padding Variants */
+.none {
+  padding: 0;
+}
+
+.sm {
+  padding: var(--space-3);
 }
 
 .md {
-  padding: 24px;
+  padding: var(--space-5);
 }
 
 .lg {
-  padding: 40px;
+  padding: var(--space-6);
 }
 
-.none {
-  padding: 0;
+@media (max-width: 479px) {
+  .md, .lg {
+    padding: var(--space-4);
+  }
 }

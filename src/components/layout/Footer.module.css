@@ -1,18 +1,16 @@
 .footer {
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  background:
-    radial-gradient(circle at 16% 10%, rgba(240, 185, 85, 0.14), transparent 28%),
-    #101723;
-  color: #ffffff;
-  padding-top: 80px;
+  border-top: 1px solid var(--purple-glow);
+  background-color: var(--navy-deep);
+  color: var(--pure-white);
+  padding-top: var(--space-11);
 }
 
 .container {
   display: flex;
   justify-content: space-between;
-  gap: 60px;
-  margin-bottom: 60px;
+  gap: var(--space-9);
+  margin-bottom: var(--space-9);
 }
 
 .info {
@@ -22,75 +20,80 @@
 .logo {
   display: flex;
   gap: 4px;
-  margin-bottom: 20px;
-  font-family: var(--font-plus-jakarta-sans);
-  font-size: 28px;
-  font-weight: 900;
+  margin-bottom: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .logoText {
-  color: #ffffff;
+  color: var(--pure-white);
 }
 
 .logoAccent {
-  color: #f0b955;
+  color: var(--electric-blue);
 }
 
 .description {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 16px;
-  line-height: 1.7;
+  color: var(--charcoal);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .linksGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 42px;
+  gap: var(--space-8);
 }
 
 .linkGroup h4 {
-  margin-bottom: 20px;
-  color: #f0b955;
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+  color: var(--electric-blue);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .linkGroup ul {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-2);
 }
 
 .linkGroup li {
-  color: rgba(255, 255, 255, 0.66);
-  font-size: 15px;
+  color: var(--charcoal);
+  font-size: 14px;
   line-height: 1.5;
 }
 
+.linkGroup a {
+  transition: color 0.2s ease;
+}
+
 .linkGroup a:hover {
-  color: #ffffff;
-  opacity: 1;
+  color: var(--sky-blue);
 }
 
 .bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 24px 0;
-  color: rgba(255, 255, 255, 0.42);
+  border-top: 1px solid var(--purple-glow);
+  padding: var(--space-5) 0;
+  color: var(--medium-gray);
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .container {
     flex-direction: column;
-    gap: 40px;
+    gap: var(--space-8);
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 479px) {
   .linksGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
   }
 }

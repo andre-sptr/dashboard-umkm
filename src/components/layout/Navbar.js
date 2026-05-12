@@ -22,7 +22,7 @@ export default function Navbar() {
           <li><Link href="/kontak">Kontak</Link></li>
         </ul>
         
-        <div className={styles.cta}>
+        <div className={styles.cta} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <Button as={Link} href="/kontak" size="sm">Konsultasi Gratis</Button>
         </div>
       </div>
