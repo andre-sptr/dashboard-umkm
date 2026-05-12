@@ -1,43 +1,48 @@
 :root {
-  /* Colors - Soft Light Theme */
-  
-  /* Primary & Accents */
-  --primary-accent: #eff6ff; /* Soft blue background for active/hover */
-  --electric-blue: #2563eb; /* Primary CTA - clean blue */
-  --sky-blue: #3b82f6; /* Secondary interactive */
-  
-  /* Additional Accents */
-  --lavender-light: #f1f5f9; /* Subtle bg, secondary accents */
-  --purple-muted: #94a3b8; /* Disabled states, low emphasis */
-  
-  /* Interactive Backgrounds */
-  --deep-indigo: #ffffff; /* White interactive bg */
-  --navy-deep: #ffffff; /* Primary surface layer - white */
-  
-  /* Neutral Scale */
-  --pure-black: #000000;
-  --pure-white: #0f172a; /* Re-mapped: foreground text (slate-900) */
-  --charcoal: #475569; /* Secondary text (slate-600) */
-  --dark-gray: #cbd5e1; /* Borders (slate-300) */
-  --almost-black: #fafafa; /* Deepest bg layer - soft off-white (zinc-50) */
-  --medium-gray: #64748b; /* Tertiary text (slate-500) */
-  
-  /* Surfaces & Borders */
-  --purple-glow: #e2e8f0; /* Card borders - soft gray (slate-200) */
-  
-  /* Typography Variables */
+  /* Colors */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Brand Blue */
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #0369a1;
+  --blue-800: #1d4ed8;
+
+  /* Accent */
+  --amber-500: #f59e0b;
+  --accent-warm: var(--amber-500);
+
+  /* Demo extension palette */
+  --demo-accent-rendang: var(--accent-warm);
+  --demo-accent-batik: #a16207;
+  --demo-accent-cleaning: #0e7490;
+
+  /* Functional tokens */
+  --focus-ring: var(--blue-700);
+
+  /* Typography */
   --font-display: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
-  --font-heading: 'Switzer', system-ui, -apple-system, sans-serif;
-  --font-body: 'Satoshi', system-ui, -apple-system, sans-serif;
-  
+
   /* Shapes / Border Radius */
-  --radius-none: 0px;
-  --radius-sm: 8px; /* Inputs, ghost buttons */
-  --radius-md: 12px; /* Nested UI */
-  --radius-lg: 16px; /* Primary cards */
-  --radius-pill: 17px; /* Badges */
-  --radius-full: 40px; /* Fully rounded buttons */
-  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 17px;
+  --radius-full: 40px;
+
   /* Spacing System */
   --space-1: 8px;
   --space-2: 12px;
@@ -45,30 +50,57 @@
   --space-4: 20px;
   --space-5: 24px;
   --space-6: 32px;
-  --space-7: 36px;
-  --space-8: 40px;
-  --space-9: 56px;
-  --space-10: 76px;
-  --space-11: 80px;
-  --space-12: 120px;
-  
+  --space-7: 40px;
+  --space-8: 56px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 120px;
+
   /* Contextual Spacing */
   --container-max: 1280px;
   --margin-desktop: 40px;
   --margin-mobile: 20px;
-  --section-gap-desktop: var(--space-12);
-  --section-gap-tablet: var(--space-11);
-  --section-gap-mobile: var(--space-9);
-  
-  /* Elevation / Shadows (Soft for light theme) */
-  --shadow-flat: none;
-  --shadow-raised: 0px 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-lifted: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 0px 2px 4px -1px rgba(0, 0, 0, 0.03);
-  --shadow-floating: 0px 10px 15px -3px rgba(0, 0, 0, 0.06), 0px 4px 6px -2px rgba(0, 0, 0, 0.03);
-  
+  --section-gap-desktop: var(--space-11);
+  --section-gap-tablet: var(--space-10);
+  --section-gap-mobile: var(--space-8);
+
+  /* Elevation / Shadows */
+  --shadow-sm: 0px 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 0px 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.06), 0px 4px 6px -2px rgba(0, 0, 0, 0.03);
+
   /* Core layout variables */
   --background: var(--almost-black);
   --foreground: var(--pure-white);
+
+  /* Temporary alias block */
+  --pure-black: var(--black);
+  --pure-white: var(--gray-900);
+  --navy-deep: var(--white);
+  --almost-black: var(--gray-50);
+  --deep-indigo: var(--white);
+  --charcoal: var(--gray-600);
+  --medium-gray: var(--gray-500);
+  --purple-muted: var(--gray-400);
+  --dark-gray: var(--gray-300);
+  --purple-glow: var(--gray-200);
+  --lavender-light: var(--gray-100);
+
+  --electric-blue: var(--blue-700);
+  --sky-blue: var(--blue-500);
+  --primary-accent: var(--blue-50);
+
+  --shadow-flat: none;
+  --shadow-raised: var(--shadow-sm);
+  --shadow-lifted: var(--shadow-md);
+  --shadow-floating: var(--shadow-lg);
+
+  --font-heading: var(--font-display);
+  --font-body: var(--font-display);
+
+  --space-9-legacy: 56px;
+  --space-11-legacy: 80px;
+  --space-12: 120px;
 }
 
 * {
@@ -247,3 +279,27 @@ button {
 .reveal-delay-300 { transition-delay: 300ms; }
 .reveal-delay-400 { transition-delay: 400ms; }
 .reveal-delay-500 { transition-delay: 500ms; }
+
+/* TOKEN MIGRATION CHECKLIST — DELETE IN T10
+ * --pure-white       → --gray-900
+ * --navy-deep        → --white
+ * --almost-black     → --gray-50
+ * --deep-indigo      → --white
+ * --charcoal         → --gray-600
+ * --medium-gray      → --gray-500
+ * --purple-muted     → --gray-400
+ * --dark-gray        → --gray-300
+ * --purple-glow      → --gray-200
+ * --lavender-light   → --gray-100
+ * --electric-blue    → --blue-700
+ * --sky-blue         → --blue-500
+ * --primary-accent   → --blue-50
+ * --shadow-raised    → --shadow-sm
+ * --shadow-lifted    → --shadow-md
+ * --shadow-floating  → --shadow-lg
+ * --font-heading     → --font-display
+ * --font-body        → --font-display
+ * --space-9          → --space-9 (legacy shift)
+ * --space-11         → --space-11 (legacy shift)
+ * --space-12         → --space-11
+ */
