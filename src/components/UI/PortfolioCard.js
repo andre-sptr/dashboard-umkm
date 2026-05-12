@@ -2,14 +2,22 @@ import Link from 'next/link';
 import Button from './Button';
 import styles from './PortfolioCard.module.css';
 
-export default function PortfolioCard({ demo = {}, className = '' }) {
+export default function PortfolioCard({ demo = {}, className = '', ctaLabel }) {
   const sections = demo.sections ?? [];
   const stats = demo.stats ?? [];
-  const cardClass = [styles.demoCard, className].filter(Boolean).join(' ');
+  const href = demo.href;
+  const isPlaceholder = demo.isPlaceholder ?? demo.placeholder ?? !href;
+  const isLinked = Boolean(href) && !isPlaceholder;
+  const actionLabel = ctaLabel ?? demo.ctaLabel ?? (isLinked ? 'Lihat Detail Demo' : 'Coming soon');
+  const cardClass = [styles.demoCard, !isLinked ? styles.placeholderCard : '', className].filter(Boolean).join(' ');
   const visualClass = [styles.demoVisual, demo.theme ? styles[demo.theme] : ''].filter(Boolean).join(' ');
+  const Wrapper = isLinked ? Link : 'article';
+  const wrapperProps = isLinked
+    ? { href, 'aria-label': `Lihat demo ${demo.title}` }
+    : { 'aria-label': demo.title };
 
   return (
-    <Link className={cardClass} href={demo.href ?? '#'} aria-label={`Lihat demo ${demo.title}`}>
+    <Wrapper className={cardClass} {...wrapperProps}>
       <div className={visualClass}>
         <div className={styles.demoBadge}>{demo.sector}</div>
         <div className={styles.demoPreview}>
@@ -34,11 +42,11 @@ export default function PortfolioCard({ demo = {}, className = '' }) {
           ))}
         </div>
         <div className={styles.demoAction}>
-          <Button as="span" variant="secondary" fullWidth>
-            Lihat Detail Demo
+          <Button as="span" variant="secondary" fullWidth aria-disabled={!isLinked || undefined}>
+            {actionLabel}
           </Button>
         </div>
       </div>
-    </Link>
+    </Wrapper>
   );
 }

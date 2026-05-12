@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Button from '@/components/UI/Button';
+import Eyebrow from '@/components/UI/Eyebrow';
 import Reveal from '@/components/UI/Reveal';
-import { whatsappUrl } from '@/data/homeData';
 import styles from '@/app/page.module.css';
 
 const ADD_ONS = [
@@ -40,25 +40,25 @@ export default function PricingSection() {
       <div className={`container ${styles.pricingBox}`}>
         <Reveal>
           <div>
-            <p className={styles.eyebrow}>Investasi awal</p>
+            <Eyebrow>Investasi awal</Eyebrow>
             <h2>Simulasikan investasi landing page UMKM Anda.</h2>
             <p>
               Sesuaikan dengan kebutuhan bisnis Anda. Paket dasar sudah mencakup landing page, integrasi tombol WhatsApp, dan desain responsif.
             </p>
             
-            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem' }}>Tambahan Opsional:</h3>
+            <div className={styles.addonList}>
+              <h3 className={styles.addonTitle}>Tambahan Opsional:</h3>
               {ADD_ONS.map((addon) => (
-                <label key={addon.id} style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer', padding: '12px', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.1)', transition: 'background 0.2s' }} onMouseOver={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.1)'} onMouseOut={(e) => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}>
+                <label key={addon.id} className={styles.addonOption}>
                   <input 
                     type="checkbox" 
                     checked={selectedAddons.includes(addon.id)}
                     onChange={() => handleToggleAddon(addon.id)}
-                    style={{ width: '20px', height: '20px', cursor: 'pointer', accentColor: '#f0b955' }}
+                    className={styles.addonCheckbox}
                   />
-                  <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontWeight: '500' }}>{addon.name}</span>
-                    <span style={{ color: '#f0b955', fontWeight: 'bold' }}>+ {formatRupiah(addon.price)}</span>
+                  <div className={styles.addonMeta}>
+                    <span>{addon.name}</span>
+                    <span className={styles.addonPrice}>+ {formatRupiah(addon.price)}</span>
                   </div>
                 </label>
               ))}
@@ -68,7 +68,7 @@ export default function PricingSection() {
         <Reveal delay={200}>
           <div className={styles.pricePanel}>
             <span>Estimasi Total</span>
-            <strong style={{ fontSize: '42px', wordBreak: 'break-word' }}>{formatRupiah(totalPrice)}</strong>
+            <strong className={styles.priceValue}>{formatRupiah(totalPrice)}</strong>
             <small>Termasuk paket dasar {formatRupiah(basePrice)}</small>
             <Button as="a" href={dynamicWhatsappUrl} target="_blank" rel="noopener noreferrer" fullWidth>
               Kirim Simulasi via WA

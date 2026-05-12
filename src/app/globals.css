@@ -26,7 +26,7 @@
   --accent-warm: var(--amber-500);
 
   /* Demo extension palette */
-  --demo-accent-rendang: var(--accent-warm);
+  --demo-accent-rendang: #b45309;
   --demo-accent-batik: #a16207;
   --demo-accent-cleaning: #0e7490;
 
@@ -57,12 +57,6 @@
   --space-11: 80px;
   --space-12: 120px;
 
-  /* Temporary next spacing scale for consumer migration tickets */
-  --space-next-8: 56px;
-  --space-next-9: 64px;
-  --space-next-10: 80px;
-  --space-next-11: 120px;
-
   /* Contextual Spacing */
   --container-max: 1280px;
   --margin-desktop: 40px;
@@ -86,33 +80,8 @@
   --reveal-distance: 20px;
 
   /* Core layout variables */
-  --background: var(--almost-black);
-  --foreground: var(--pure-white);
-
-  /* Temporary alias block */
-  --pure-black: var(--black);
-  --pure-white: var(--gray-900);
-  --navy-deep: var(--white);
-  --almost-black: var(--gray-50);
-  --deep-indigo: var(--white);
-  --charcoal: var(--gray-600);
-  --medium-gray: var(--gray-500);
-  --purple-muted: var(--gray-400);
-  --dark-gray: var(--gray-300);
-  --purple-glow: var(--gray-200);
-  --lavender-light: var(--gray-100);
-
-  --electric-blue: var(--blue-700);
-  --sky-blue: var(--blue-500);
-  --primary-accent: var(--blue-50);
-
-  --shadow-flat: none;
-  --shadow-raised: var(--shadow-sm);
-  --shadow-lifted: var(--shadow-md);
-  --shadow-floating: var(--shadow-lg);
-
-  --font-heading: var(--font-display);
-  --font-body: var(--font-display);
+  --background: var(--gray-50);
+  --foreground: var(--gray-900);
 
 }
 
@@ -134,7 +103,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 15px;
   font-weight: 500;
   line-height: 1.6;
@@ -171,7 +140,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 600;
   line-height: 1.4;
@@ -180,16 +149,16 @@ h4, .h4 {
 }
 
 p, .body-text {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0;
-  color: var(--charcoal);
+  color: var(--gray-600);
 }
 
 .caption {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 13px;
   font-weight: 500;
   line-height: 1.5;
@@ -218,7 +187,7 @@ code {
 a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 ul {
@@ -230,6 +199,17 @@ button {
   border: none;
   background: none;
   font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .skip-link {
@@ -277,12 +257,12 @@ button {
 
 .section {
   padding: var(--section-gap-desktop) 0;
-  background-color: var(--navy-deep);
+  background-color: var(--white);
 }
 
 .section-alt {
   padding: var(--section-gap-desktop) 0;
-  background-color: var(--almost-black);
+  background-color: var(--gray-50);
 }
 
 @media (max-width: 1023px) {
@@ -300,8 +280,10 @@ button {
 /* Animations for Reveal Component */
 .reveal-wrapper {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transform: translateY(var(--reveal-distance));
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
   will-change: opacity, transform;
 }
 
@@ -316,30 +298,11 @@ button {
 .reveal-delay-400 { transition-delay: 400ms; }
 .reveal-delay-500 { transition-delay: 500ms; }
 
-/* TOKEN MIGRATION CHECKLIST — DELETE IN T10
- * --pure-white       → --gray-900
- * --navy-deep        → --white
- * --almost-black     → --gray-50
- * --deep-indigo      → --white
- * --charcoal         → --gray-600
- * --medium-gray      → --gray-500
- * --purple-muted     → --gray-400
- * --dark-gray        → --gray-300
- * --purple-glow      → --gray-200
- * --lavender-light   → --gray-100
- * --electric-blue    → --blue-700
- * --sky-blue         → --blue-500
- * --primary-accent   → --blue-50
- * --shadow-flat      → (deleted — use box-shadow: none directly)
- * --shadow-raised    → --shadow-sm
- * --shadow-lifted    → --shadow-md
- * --shadow-floating  → --shadow-lg
- * --font-heading     → --font-display
- * --font-body        → --font-display
- * Public spacing names stay backward-compatible during Phase 1:
- * --space-8          → --space-next-8
- * --space-9          → --space-next-9
- * --space-10         → --space-next-9 (value corrected from 76px to 64px)
- * --space-11         → --space-next-10
- * --space-12         → --space-next-11
- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-wrapper {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+

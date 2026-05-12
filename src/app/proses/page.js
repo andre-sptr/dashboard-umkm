@@ -1,4 +1,5 @@
 import Card from '@/components/UI/Card';
+import Eyebrow from '@/components/UI/Eyebrow';
 import styles from './proses.module.css';
 
 export const metadata = {
@@ -18,7 +19,7 @@ export default function Proses() {
     <div className={styles.main}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <p className={styles.eyebrow}>Delivery workflow</p>
+          <Eyebrow>Delivery workflow</Eyebrow>
           <h1>Dari brief singkat sampai landing page siap dipakai jualan.</h1>
           <p>Proses dibuat sederhana untuk UMKM, tapi tetap rapi secara eksekusi: jelas tahapnya, jelas outputnya, dan jelas kapan website bisa digunakan.</p>
         </div>

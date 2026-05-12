@@ -5,7 +5,7 @@
   display: flex;
   min-height: 78px;
   align-items: center;
-  border-bottom: 1px solid var(--purple-glow);
+  border-bottom: 1px solid var(--gray-200);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(18px);
 }
@@ -24,7 +24,7 @@
   min-width: max-content;
   align-items: center;
   gap: 12px;
-  color: var(--pure-white);
+  color: var(--gray-900);
   font-family: var(--font-display);
 }
 
@@ -35,11 +35,11 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--radius-sm);
-  background: var(--electric-blue);
+  background: var(--blue-700);
   color: #ffffff;
   font-size: 16px;
   font-weight: 700;
-  box-shadow: var(--shadow-raised);
+  box-shadow: var(--shadow-sm);
 }
 
 .logoCopy {
@@ -49,14 +49,14 @@
 }
 
 .logoText {
-  color: var(--pure-white);
+  color: var(--gray-900);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0;
 }
 
 .logoAccent {
-  color: var(--electric-blue);
+  color: var(--blue-700);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -73,21 +73,23 @@
   display: inline-flex;
   align-items: center;
   padding: 8px 0px;
-  color: var(--charcoal);
+  color: var(--gray-600);
   font-size: 14px;
   font-weight: 500;
-  font-family: var(--font-body);
-  transition: color 0.2s ease, border-color 0.2s ease;
+  font-family: var(--font-display);
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
   border-bottom: 2px solid transparent;
 }
 
 .links a:hover,
 .links a.active {
-  color: var(--electric-blue);
+  color: var(--blue-700);
 }
 
 .links a.active {
-  border-bottom: 2px solid var(--electric-blue);
+  border-bottom: 2px solid var(--blue-700);
 }
 
 .cta {

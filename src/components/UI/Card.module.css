@@ -1,42 +1,45 @@
 .card {
   position: relative;
   border-radius: var(--radius-lg);
-  background: var(--almost-black);
-  color: var(--pure-white);
+  background: var(--gray-50);
+  color: var(--gray-900);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 
 /* Feature Card Default (Lifted) */
 .card {
-  border: 1px solid var(--purple-glow);
-  box-shadow: var(--shadow-lifted);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-md);
 }
 
 .hover:hover {
-  border-color: var(--sky-blue);
-  box-shadow: var(--shadow-floating);
+  border-color: var(--blue-500);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
 }
 
 /* Depth Variants */
 .flat {
-  border: 1px solid var(--purple-glow);
-  background: var(--navy-deep);
-  box-shadow: var(--shadow-flat);
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  box-shadow: none;
 }
 
 .raised {
-  box-shadow: var(--shadow-raised);
+  box-shadow: var(--shadow-sm);
 }
 
 .floating {
-  box-shadow: var(--shadow-floating);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Nested Container Style */
 .nested {
-  background: var(--lavender-light);
+  background: var(--gray-100);
   border-radius: var(--radius-md);
   border: none;
   box-shadow: none;

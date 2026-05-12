@@ -1,5 +1,6 @@
 import Card from '@/components/UI/Card';
 import Button from '@/components/UI/Button';
+import Eyebrow from '@/components/UI/Eyebrow';
 import styles from './harga.module.css';
 
 const whatsappNumber = '6282387025429';
@@ -47,7 +48,7 @@ export default function Harga() {
     <div className={styles.main}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <p className={styles.eyebrow}>Pricing command center</p>
+          <Eyebrow>Pricing command center</Eyebrow>
           <h1>Paket website yang jelas, premium, dan siap dipakai jualan.</h1>
           <p>Mulai dari landing page ringkas dengan AI chatbot sampai paket Pro dengan WA chatbot yang terhubung ke produk UMKM Anda.</p>
         </div>

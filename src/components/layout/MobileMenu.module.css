@@ -82,6 +82,11 @@
   color: var(--blue-700);
 }
 
+.navLinkActive {
+  border-bottom-color: var(--blue-200);
+  color: var(--blue-700);
+}
+
 .cta {
   margin-top: auto;
 }

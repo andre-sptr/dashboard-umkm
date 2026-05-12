@@ -6,8 +6,8 @@
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 120px 0 100px;
-  background-color: var(--background);
+  padding: 64px 0 100px;
+  background-color: var(--gray-50);
 }
 
 .hero::before {
@@ -15,8 +15,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 74, 173, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 74, 173, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(3, 105, 161, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 105, 161, 0.05) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: linear-gradient(to bottom, black, transparent 82%);
   pointer-events: none;
@@ -30,42 +30,17 @@
   gap: var(--space-9);
 }
 
-.heroContent {
-  color: var(--pure-white);
-}
-
-.eyebrow,
-.eyebrowDark {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 24px;
-  color: var(--sky-blue);
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.eyebrow::before,
-.eyebrowDark::before {
-  content: '';
-  width: 34px;
-  height: 2px;
-  background: var(--electric-blue);
-}
-
 .heroContent h1 {
   max-width: 760px;
-  margin-bottom: 32px;
-  color: var(--pure-white);
+  margin-bottom: 24px;
+  color: var(--gray-900);
+  font-size: 52px;
 }
 
 .heroLead {
   max-width: 610px;
-  margin-bottom: 40px;
-  color: var(--charcoal);
+  margin-bottom: 20px;
+  color: var(--gray-600);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -74,7 +49,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-3);
 }
 
 .trustBar {
@@ -84,117 +59,94 @@
 }
 
 .trustBar span {
-  background: var(--lavender-light);
-  color: var(--electric-blue);
-  padding: 6px 16px;
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  background: var(--white);
+  color: var(--blue-700);
   font-size: 12px;
-  font-weight: 600;
-  border: 1px solid var(--purple-glow);
+  font-weight: 700;
 }
 
 .commandShell {
   position: relative;
-  border: 1px solid var(--purple-glow);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-3);
-  background: var(--navy-deep);
-  box-shadow: var(--shadow-floating);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
 }
 
 .commandTop {
   display: flex;
   align-items: center;
-  gap: 8px;
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-  padding: 12px 16px;
-  background: var(--almost-black);
-  border-bottom: 1px solid var(--purple-glow);
-  color: var(--charcoal);
-}
-
-.commandTop span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--purple-muted);
-}
-
-.commandTop span:nth-child(2) {
-  background: var(--sky-blue);
-}
-
-.commandTop span:nth-child(3) {
-  background: var(--electric-blue);
+  gap: 12px;
+  border-bottom: 1px solid var(--gray-200);
+  padding: 12px 12px 16px;
+  color: var(--gray-500);
 }
 
 .commandTop strong {
   margin-left: auto;
+  color: var(--gray-600);
   font-size: 12px;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--charcoal);
 }
 
-.commandGrid {
+.browserBar {
+  display: block;
+  width: 120px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--gray-100);
+}
+
+.productPreview {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(180px, 0.7fr);
-  gap: var(--space-2);
-  padding: var(--space-2) 0 0 0;
-  background: transparent;
-}
-
-.websitePreview,
-.signalCard,
-.chatCard,
-.mapCard {
-  border: 1px solid var(--purple-glow);
-  background: var(--almost-black);
-  border-radius: var(--radius-md);
-}
-
-.websitePreview {
+  gap: var(--space-4);
   min-height: 420px;
-  overflow: hidden;
+  padding: var(--space-4);
 }
 
 .previewNav {
   display: flex;
   justify-content: space-between;
-  gap: 14px;
-  padding: 16px;
-  color: var(--pure-white);
+  gap: var(--space-3);
+  color: var(--gray-900);
 }
 
 .previewNav span {
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .previewNav small {
-  color: var(--sky-blue);
-  font-weight: 600;
+  color: var(--blue-700);
+  font-weight: 700;
 }
 
 .previewHero {
-  margin: 0 16px;
-  border-radius: var(--radius-sm);
-  padding: 24px;
-  background: var(--navy-deep);
-  color: var(--pure-white);
-  border: 1px solid var(--purple-glow);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  background: var(--gray-50);
+  color: var(--gray-900);
 }
 
 .previewHero p {
   margin-bottom: 12px;
-  color: var(--sky-blue);
+  color: var(--blue-700);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .previewHero h3 {
-  margin-bottom: 20px;
-  font-size: 24px;
+  max-width: 420px;
+  margin-bottom: 24px;
+  color: var(--gray-900);
+  font-size: 28px;
   line-height: 1.2;
 }
 
@@ -202,117 +154,42 @@
   width: max-content;
   border-radius: var(--radius-full);
   padding: 10px 20px;
-  background: var(--electric-blue);
-  color: #ffffff;
+  background: var(--blue-700);
+  color: var(--white);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
-.previewCards {
+.previewSections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  padding: 16px;
 }
 
-.previewCards span {
-  min-height: 90px;
+.previewSections span {
+  min-height: 92px;
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-sm);
-  background: var(--lavender-light);
-  border: 1px solid var(--purple-glow);
-}
-
-.signalStack {
-  display: grid;
-  gap: var(--space-2);
-}
-
-.signalCard,
-.chatCard,
-.mapCard {
-  padding: 16px;
-}
-
-.signalCard {
-  display: grid;
-  gap: 8px;
-}
-
-.signalCard small,
-.chatCard small {
-  color: var(--charcoal);
+  padding: 14px;
+  background: var(--white);
+  color: var(--gray-600);
   font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;
 }
 
-.signalCard strong {
-  color: var(--pure-white);
-  font-size: 48px;
-  line-height: 1;
-  font-family: var(--font-display);
-}
-
-.signalCard span {
-  color: var(--sky-blue);
-  font-weight: 600;
-  font-size: 12px;
-}
-
-.chatCard {
-  background: var(--lavender-light);
-  border-color: var(--purple-glow);
-}
-
-.chatCard p {
-  margin-top: 8px;
-  color: var(--pure-white);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.mapCard {
-  position: relative;
-  display: flex;
-  min-height: 120px;
-  align-items: flex-end;
-  overflow: hidden;
-  background: var(--navy-deep);
-}
-
-.mapCard span {
-  position: relative;
-  z-index: 1;
-  color: var(--electric-blue);
-  font-weight: 700;
-  font-size: 12px;
-}
-
-.mapPulse {
-  position: absolute;
-  top: 36px;
-  right: 42px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--electric-blue);
-  box-shadow: 0 0 0 14px var(--lavender-light);
-}
-
-/* Sections */
 .problemSection,
 .portfolioSection,
 .processSection,
-.solutionSection,
-.pricingSection,
-.faqSection,
 .finalCta {
   padding: var(--section-gap-desktop) 0;
-  background-color: var(--almost-black);
+  background-color: var(--white);
 }
 
-.problemSection, .portfolioSection, .processSection, .finalCta {
-  background-color: var(--navy-deep);
+.solutionSection,
+.pricingSection,
+.faqSection {
+  padding: var(--section-gap-desktop) 0;
+  background-color: var(--gray-50);
 }
 
 .problemGrid {
@@ -327,8 +204,8 @@
 .pricingBox h2,
 .faqGrid h2,
 .finalCtaBox h2 {
-  color: var(--pure-white);
   margin-bottom: var(--space-4);
+  color: var(--gray-900);
 }
 
 .problemList {
@@ -341,19 +218,20 @@
   grid-template-columns: auto 1fr;
   gap: var(--space-4);
   align-items: start;
-  border: 1px solid var(--purple-glow);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  background: var(--almost-black);
+  background: var(--gray-50);
+  box-shadow: var(--shadow-sm);
 }
 
 .problemItem span {
-  color: var(--electric-blue);
+  color: var(--blue-700);
   font-weight: 900;
 }
 
 .problemItem p {
-  color: var(--charcoal);
+  color: var(--gray-600);
   font-size: 16px;
 }
 
@@ -365,7 +243,7 @@
 .sectionHeader p:last-child,
 .pricingBox p,
 .faqItem p {
-  color: var(--charcoal);
+  color: var(--gray-600);
   font-size: 16px;
 }
 
@@ -378,77 +256,76 @@
 }
 
 .valueGrid {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: stretch;
+}
+
+.supportingValues {
+  display: grid;
+  gap: var(--space-4);
 }
 
 .valueCard {
-  border: 1px solid var(--purple-glow);
+  height: 100%;
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  background: var(--almost-black);
+  background: var(--white);
+  box-shadow: var(--shadow-sm);
+}
+
+.featuredValue {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-8);
+  background: var(--blue-50);
 }
 
 .valueCard span {
   display: block;
   margin-bottom: var(--space-5);
-  color: var(--electric-blue);
+  color: var(--blue-700);
   font-size: 32px;
+  font-weight: 800;
+}
+
+.featuredValue span {
+  font-size: 56px;
+  line-height: 1;
 }
 
 .valueCard h3,
-.demoCard h3,
 .processCard h3,
 .faqItem h3 {
   margin-bottom: var(--space-2);
-  color: var(--pure-white);
+  color: var(--gray-900);
 }
 
 .valueCard p,
-.demoCard p,
 .processCard p {
-  color: var(--charcoal);
+  color: var(--gray-600);
 }
 
-.demoCard,
 .processCard {
-  border: 1px solid var(--purple-glow);
-  border-radius: var(--radius-lg);
-  padding: var(--space-5);
-  background: var(--almost-black);
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: var(--gray-50);
+  box-shadow: var(--shadow-sm);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 
-.demoCard:hover,
 .processCard:hover {
-  border-color: var(--sky-blue);
+  border-color: var(--blue-700);
+  box-shadow: var(--shadow-lg);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-floating);
-}
-
-.demoVisual {
-  position: relative;
-  min-height: 240px;
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: var(--navy-deep);
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--purple-glow);
-}
-
-.demoBadge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 1;
-  border-radius: var(--radius-pill);
-  padding: 6px 12px;
-  background: var(--almost-black);
-  color: var(--pure-white);
-  font-size: 12px;
-  font-weight: 700;
-  border: 1px solid var(--purple-glow);
 }
 
 .pricingBox {
@@ -456,28 +333,92 @@
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: var(--space-8);
   align-items: center;
-  border: 1px solid var(--purple-glow);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
-  background: var(--almost-black);
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.addonList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.addonTitle {
+  margin-bottom: var(--space-1);
+  color: var(--gray-900);
+  font-size: 20px;
+}
+
+.addonOption {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  background: var(--gray-50);
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.addonOption:hover {
+  border-color: var(--blue-500);
+  background: var(--blue-50);
+}
+
+.addonCheckbox {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  cursor: pointer;
+  accent-color: var(--accent-warm);
+}
+
+.addonMeta {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+.addonPrice {
+  color: var(--accent-warm);
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .pricePanel {
   display: grid;
   gap: var(--space-2);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  background: var(--navy-deep);
-  border: 1px solid var(--purple-glow);
-  color: var(--pure-white);
-  box-shadow: var(--shadow-lifted);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  box-shadow: var(--shadow-md);
 }
 
 .pricePanel span {
-  color: var(--electric-blue);
-  font-weight: 700;
-  text-transform: uppercase;
+  color: var(--blue-700);
   font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.priceValue {
+  color: var(--gray-900);
+  font-size: 42px;
+  line-height: 1.1;
+  word-break: break-word;
 }
 
 .processCard span {
@@ -486,12 +427,12 @@
   height: 40px;
   align-items: center;
   justify-content: center;
+  border: 1px solid var(--gray-200);
   border-radius: 50%;
   margin-bottom: var(--space-4);
-  background: var(--lavender-light);
-  color: var(--electric-blue);
-  font-weight: 700;
-  border: 1px solid var(--purple-glow);
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-weight: 800;
 }
 
 .faqGrid {
@@ -506,22 +447,27 @@
 }
 
 .faqItem {
-  border-bottom: 1px solid var(--purple-glow);
+  border-bottom: 1px solid var(--gray-200);
   padding-bottom: var(--space-4);
 }
 
 .finalCtaBox {
   overflow: hidden;
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-9) var(--space-5);
+  background: var(--white);
   text-align: center;
-  background: var(--almost-black);
-  border: 1px solid var(--purple-glow);
+  box-shadow: var(--shadow-md);
 }
 
 .finalCtaBox h2 {
   max-width: 800px;
   margin: 0 auto var(--space-5);
+}
+
+.finalCtaBox p:first-child {
+  justify-content: center;
 }
 
 @media (max-width: 1023px) {
@@ -531,9 +477,13 @@
   .faqGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .valueGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .supportingValues {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .pricePanel {
@@ -542,15 +492,23 @@
 }
 
 @media (max-width: 767px) {
-  .commandGrid,
-  .valueGrid,
   .demoGrid,
-  .processGrid {
+  .processGrid,
+  .supportingValues,
+  .previewSections {
     grid-template-columns: 1fr;
   }
 
-  .signalStack {
-    grid-template-columns: repeat(3, 1fr);
+  .hero {
+    padding: 72px 0 64px;
+  }
+
+  .heroContent h1 {
+    font-size: 44px;
+  }
+
+  .productPreview {
+    min-height: auto;
   }
 }
 
@@ -560,7 +518,21 @@
     width: 100%;
   }
 
-  .signalStack {
-    grid-template-columns: 1fr;
+  .previewHero {
+    padding: var(--space-4);
+  }
+
+  .previewHero h3,
+  .priceValue {
+    font-size: 28px;
+  }
+
+  .heroContent h1 {
+    font-size: 40px;
+  }
+
+  .addonMeta {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

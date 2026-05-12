@@ -49,7 +49,7 @@
 .linkGroup h4 {
   margin-bottom: var(--space-4);
   color: var(--blue-700);
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -69,7 +69,7 @@
 }
 
 .linkGroup a {
-  transition: color 0.2s ease;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .linkGroup a:hover {

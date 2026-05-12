@@ -1,5 +1,6 @@
 import Card from '@/components/UI/Card';
 import Button from '@/components/UI/Button';
+import Eyebrow from '@/components/UI/Eyebrow';
 import styles from './kontak.module.css';
 
 const whatsappNumber = '6282387025429';
@@ -20,7 +21,7 @@ export default function Kontak() {
     <div className={styles.main}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <p className={styles.eyebrow}>Contact command center</p>
+          <Eyebrow>Contact command center</Eyebrow>
           <h1>Konsultasi cepat untuk landing page UMKM yang lebih meyakinkan.</h1>
           <p>Ceritakan jenis usaha, target pelanggan, dan kebutuhan website Anda. Kami bantu susun arah landing page yang paling masuk akal untuk dijual.</p>
         </div>
@@ -29,7 +30,7 @@ export default function Kontak() {
       <section className={styles.contactSection}>
         <div className={`container ${styles.content}`}>
           <div className={styles.contactInfo}>
-            <p className={styles.kicker}>Kontak utama</p>
+            <Eyebrow>Kontak utama</Eyebrow>
             <h2>Mulai dari chat singkat, lanjut jadi brief yang jelas.</h2>
             <p>Untuk respons tercepat, gunakan WhatsApp. Email tetap tersedia untuk materi bisnis, logo, foto produk, atau dokumen penawaran.</p>
 
@@ -47,8 +48,9 @@ export default function Kontak() {
           </div>
 
           <Card className={styles.contactForm} padding="lg">
-            <span className={styles.formBadge}>Free consultation</span>
+            <Eyebrow>Free consultation</Eyebrow>
             <h2>Siapkan brief awal</h2>
+            <p className={styles.formIntro}>Isi brief singkat di bawah, lalu kami terima percakapannya di WhatsApp.</p>
             <form className={styles.form}>
               <div className={styles.formGroup}>
                 <label htmlFor="name">Nama bisnis</label>
@@ -69,7 +71,7 @@ export default function Kontak() {
                 <textarea id="message" rows="5" placeholder="Ceritakan layanan, produk, atau goal website Anda"></textarea>
               </div>
               <Button as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer" size="lg" className={styles.submitBtn} fullWidth>
-                Chat via WhatsApp
+                Kirim brief via WhatsApp
               </Button>
             </form>
           </Card>

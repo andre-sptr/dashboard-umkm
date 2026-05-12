@@ -42,9 +42,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="id" suppressHydrationWarning>
-      <head>
-        <link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
-      </head>
       <body className={plusJakartaSans.variable}>
         <a href="#main" className="skip-link">Lewati ke konten utama</a>
         <Navbar />

@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Button from '@/components/UI/Button';
+import Eyebrow from '@/components/UI/Eyebrow';
 import { demoPages, getDemoPage } from '../demoData';
 import styles from './demo.module.css';
 
@@ -37,6 +39,7 @@ export default async function DemoPage({ params }) {
     <div className={`${styles.page} ${styles[demo.theme]}`}>
       <Hero demo={demo} />
       <ProductSection demo={demo} />
+      <ProofSection demo={demo} />
       <FinalCta demo={demo} />
     </div>
   );
@@ -47,16 +50,22 @@ function Hero({ demo }) {
     <section className={styles.hero}>
       <div className={`container ${styles.heroGrid}`}>
         <div className={styles.heroCopy}>
-          <p className={styles.brandLine}>{demo.businessType}</p>
+          <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>
           <h1>{demo.heroTitle}</h1>
           <p className={styles.heroLead}>{demo.heroLead}</p>
           <div className={styles.heroActions}>
-            <a className={styles.primaryButton} href={demo.whatsappUrl} target="_blank" rel="noopener noreferrer">
+            <Button
+              as="a"
+              className={styles.accentButton}
+              href={demo.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {demo.primaryCta}
-            </a>
-            <a className={styles.secondaryButton} href="#paket">
+            </Button>
+            <Button as="a" variant="secondary" className={styles.outlineButton} href="#paket">
               {demo.secondaryCta}
-            </a>
+            </Button>
           </div>
           <ul className={styles.highlightList} aria-label={`Keunggulan ${demo.title}`}>
             {demo.highlights.map((item) => (
@@ -86,7 +95,7 @@ function ProductSection({ demo }) {
     <section className={styles.productSection} id="paket">
       <div className={`container ${styles.sectionGrid}`}>
         <div className={styles.sectionIntro}>
-          <p>{demo.title}</p>
+          <Eyebrow className={styles.demoEyebrow}>{demo.title}</Eyebrow>
           <h2>{demo.productsTitle}</h2>
         </div>
         <div className={styles.productGrid}>
@@ -103,15 +112,43 @@ function ProductSection({ demo }) {
   );
 }
 
+function ProofSection({ demo }) {
+  return (
+    <section className={styles.proofSection}>
+      <div className={`container ${styles.proofGrid}`}>
+        <div className={styles.proofPanel}>
+          <Eyebrow className={styles.demoEyebrow}>Bukti konversi</Eyebrow>
+          <h2>{demo.proofTitle}</h2>
+          <ul>
+            {demo.proofItems.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <figure className={styles.testimonial}>
+          <blockquote>{demo.testimonial.quote}</blockquote>
+          <figcaption>{demo.testimonial.person}</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
 function FinalCta({ demo }) {
   return (
     <section className={styles.finalSection}>
       <div className={`container ${styles.finalBox}`}>
         <h2>{demo.finalTitle}</h2>
         <p>Struktur demo ini bisa disesuaikan dengan foto, harga, area layanan, dan karakter brand asli client.</p>
-        <a className={styles.primaryButton} href={demo.whatsappUrl} target="_blank" rel="noopener noreferrer">
+        <Button
+          as="a"
+          className={styles.accentButton}
+          href={demo.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {demo.primaryCta}
-        </a>
+        </Button>
       </div>
     </section>
   );

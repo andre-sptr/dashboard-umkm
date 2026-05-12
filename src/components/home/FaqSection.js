@@ -1,4 +1,5 @@
 import { faqs } from '@/data/homeData';
+import Eyebrow from '@/components/UI/Eyebrow';
 import Reveal from '@/components/UI/Reveal';
 import styles from '@/app/page.module.css';
 
@@ -8,7 +9,7 @@ export default function FaqSection() {
       <div className={`container ${styles.faqGrid}`}>
         <Reveal>
           <div>
-            <p className={styles.eyebrow}>FAQ</p>
+            <Eyebrow>FAQ</Eyebrow>
             <h2>Pertanyaan sebelum mulai.</h2>
           </div>
         </Reveal>

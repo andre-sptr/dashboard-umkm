@@ -31,14 +31,14 @@
 
 /* Variants */
 .primary {
-  background: var(--electric-blue);
+  background: var(--blue-700);
   color: #ffffff;
   border: none;
   border-radius: var(--radius-full);
 }
 
 .primary:hover:not(:disabled) {
-  background: var(--sky-blue);
+  background: var(--blue-500);
   color: #ffffff;
 }
 
@@ -48,21 +48,21 @@
 }
 
 .primary:disabled {
-  background: var(--purple-muted);
+  background: var(--gray-400);
   color: #ffffff;
   opacity: 0.6;
 }
 
 .secondary {
   background: transparent;
-  color: var(--electric-blue);
-  border: 1px solid var(--purple-glow);
+  color: var(--blue-700);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-full);
 }
 
 .secondary:hover:not(:disabled) {
-  background: var(--lavender-light);
-  border-color: var(--lavender-light);
+  background: var(--gray-100);
+  border-color: var(--gray-100);
 }
 
 .secondary:active:not(:disabled) {
@@ -71,30 +71,30 @@
 
 .secondary:disabled {
   opacity: 0.6;
-  color: var(--purple-muted);
+  color: var(--gray-400);
 }
 
 .ghost {
   background: transparent;
-  color: var(--electric-blue);
-  border: 1px solid var(--electric-blue);
+  color: var(--blue-700);
+  border: 1px solid var(--blue-700);
   border-radius: var(--radius-sm);
 }
 
 .ghost:hover:not(:disabled) {
-  background: var(--primary-accent);
-  color: var(--electric-blue);
+  background: var(--blue-50);
+  color: var(--blue-700);
 }
 
 .ghost:active:not(:disabled) {
-  background: var(--electric-blue);
+  background: var(--blue-700);
   color: #ffffff;
 }
 
 .ghost:disabled {
   opacity: 0.6;
-  border-color: var(--purple-muted);
-  color: var(--purple-muted);
+  border-color: var(--gray-400);
+  color: var(--gray-400);
 }
 
 /* Sizes */

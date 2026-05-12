@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import Button from '../UI/Button';
 import styles from './MobileMenu.module.css';
@@ -23,10 +24,17 @@ const focusableSelector = [
   '[tabindex]:not([tabindex="-1"])',
 ].join(',');
 
+const menuTabbableSelector = [
+  '[data-mobile-menu-nav-link]',
+  '[data-mobile-menu-cta]',
+  '[data-mobile-menu-close]',
+].join(',');
+
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef(null);
   const triggerRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isOpen) {
@@ -37,9 +45,23 @@ export default function MobileMenu() {
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
+    const mobileViewport = window.matchMedia('(max-width: 820px)');
+    const handleViewportChange = (event) => {
+      if (!event.matches) {
+        setIsOpen(false);
+      }
+    };
+
+    mobileViewport.addEventListener('change', handleViewportChange);
+
     const panel = panelRef.current;
-    const focusable = panel ? [...panel.querySelectorAll(focusableSelector)] : [];
-    const firstFocusable = focusable[0];
+    const menuTabbables = panel ? [...panel.querySelectorAll(menuTabbableSelector)] : [];
+    const focusable = menuTabbables.length
+      ? menuTabbables
+      : panel
+        ? [...panel.querySelectorAll(focusableSelector)]
+        : [];
+    const firstFocusable = menuTabbables[0] ?? focusable[0];
     firstFocusable?.focus();
 
     const handleKeyDown = (event) => {
@@ -69,6 +91,7 @@ export default function MobileMenu() {
     return () => {
       document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
+      mobileViewport.removeEventListener('change', handleViewportChange);
     };
   }, [isOpen]);
 
@@ -111,22 +134,29 @@ export default function MobileMenu() {
                 className={styles.closeButton}
                 aria-label="Tutup menu navigasi"
                 onClick={closeMenu}
+                data-mobile-menu-close
               >
                 <X size={22} aria-hidden="true" />
               </button>
             </div>
 
             <nav className={styles.navLinks} aria-label="Navigasi mobile">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={styles.navLink}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`${styles.navLink} ${isActive ? styles.navLinkActive : ''}`}
+                    aria-current={isActive ? 'page' : undefined}
+                    onClick={closeMenu}
+                    data-mobile-menu-nav-link
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <Button
@@ -136,6 +166,7 @@ export default function MobileMenu() {
               fullWidth
               className={styles.cta}
               onClick={closeMenu}
+              data-mobile-menu-cta
             >
               Konsultasi Gratis
             </Button>

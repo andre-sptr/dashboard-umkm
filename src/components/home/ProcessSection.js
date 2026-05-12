@@ -1,4 +1,5 @@
 import { processSteps } from '@/data/homeData';
+import Eyebrow from '@/components/UI/Eyebrow';
 import Reveal from '@/components/UI/Reveal';
 import styles from '@/app/page.module.css';
 
@@ -8,7 +9,7 @@ export default function ProcessSection() {
       <div className="container">
         <Reveal>
           <div className={styles.sectionHeader}>
-            <p className={styles.eyebrowDark}>Flow kerja</p>
+            <Eyebrow>Flow kerja</Eyebrow>
             <h2>Proses ringkas, hasilnya tetap terasa serius.</h2>
           </div>
         </Reveal>

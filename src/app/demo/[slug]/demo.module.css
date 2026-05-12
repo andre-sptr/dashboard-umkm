@@ -1,50 +1,36 @@
 .page {
-  /* Default Theme (aligning closer to main app theme) */
-  --demo-bg: var(--navy-deep);
-  --demo-bg-soft: var(--almost-black);
-  --demo-text: var(--pure-white);
-  --demo-muted: var(--charcoal);
-  --demo-accent: var(--primary-accent);
-  --demo-accent-strong: var(--electric-blue);
-  --demo-accent-soft: rgba(197, 184, 255, 0.15);
-  --demo-panel: var(--deep-indigo);
-  --demo-line: var(--purple-glow);
-  --demo-shadow: var(--shadow-floating);
-  
-  background: var(--demo-bg);
-  color: var(--demo-text);
+  --demo-bg: var(--white);
+  --demo-bg-soft: var(--gray-50);
+  --demo-panel: var(--white);
+  --demo-text: var(--gray-900);
+  --demo-muted: var(--gray-600);
+  --demo-line: color-mix(in srgb, var(--demo-accent) 24%, white);
+  --demo-accent-soft: color-mix(in srgb, var(--demo-accent) 12%, white);
+  --demo-accent-hover: color-mix(in srgb, var(--demo-accent) 86%, black);
+  --demo-shadow: var(--shadow-lg);
+
   min-height: 100vh;
+  background: var(--white);
+  color: var(--gray-900);
 }
 
-/* We'll override variables for each theme slightly to give them flavor 
-   while keeping them within the dark LiteLLM-inspired bounds */
-
 .rendang {
-  --demo-accent: #ff8c00;
-  --demo-accent-strong: #d45d00;
-  --demo-accent-soft: rgba(255, 140, 0, 0.15);
-  --demo-line: rgba(255, 140, 0, 0.3);
+  --demo-accent: var(--demo-accent-rendang);
 }
 
 .batik {
-  --demo-accent: #f0b955;
-  --demo-accent-strong: #d48a1f;
-  --demo-accent-soft: rgba(240, 185, 85, 0.15);
-  --demo-line: rgba(240, 185, 85, 0.3);
+  --demo-accent: var(--demo-accent-batik);
 }
 
 .cleaning {
-  --demo-accent: #00e5ff;
-  --demo-accent-strong: #0099cc;
-  --demo-accent-soft: rgba(0, 229, 255, 0.15);
-  --demo-line: rgba(0, 229, 255, 0.3);
+  --demo-accent: var(--demo-accent-cleaning);
 }
 
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 120px 0 80px;
-  background-color: var(--demo-bg-soft);
+  padding: var(--space-12) 0 var(--space-11);
+  background-color: var(--gray-50);
 }
 
 .hero::before {
@@ -52,11 +38,10 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(var(--demo-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--demo-line) 1px, transparent 1px);
-  background-size: 56px 56px;
-  opacity: 0.2;
-  mask-image: linear-gradient(to bottom, black, transparent 82%);
+    linear-gradient(var(--gray-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-200) 1px, transparent 1px);
+  background-size: var(--space-9) var(--space-9);
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
   pointer-events: none;
 }
 
@@ -68,28 +53,22 @@
   align-items: center;
 }
 
-.brandLine {
-  margin-bottom: 24px;
+.demoEyebrow {
   color: var(--demo-accent);
-  font-family: var(--font-heading);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .heroCopy h1 {
   max-width: 760px;
-  margin-bottom: 32px;
+  margin-bottom: var(--space-6);
   color: var(--demo-text);
 }
 
 .heroLead {
   max-width: 650px;
-  margin-bottom: 40px;
+  margin-bottom: var(--space-7);
   color: var(--demo-muted);
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .heroActions {
@@ -99,55 +78,44 @@
   margin-bottom: var(--space-6);
 }
 
-.primaryButton,
-.secondaryButton {
-  display: inline-flex;
-  min-height: 40px;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  padding: 12px 24px;
-  font-size: 12px;
-  font-weight: 500;
-  font-family: sans-serif;
-  transition: all 0.2s ease;
-}
-
-.primaryButton {
-  background: var(--demo-accent-strong);
-  color: #ffffff;
-}
-
-.secondaryButton {
-  border: 1px solid var(--demo-line);
-  color: var(--pure-white);
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.primaryButton:hover {
+.page .accentButton {
+  border: 1px solid var(--demo-accent);
   background: var(--demo-accent);
-  color: #ffffff;
+  color: var(--white);
 }
 
-.secondaryButton:hover {
+.page .accentButton:hover {
+  border-color: var(--demo-accent-hover);
+  background: var(--demo-accent-hover);
+  color: var(--white);
+}
+
+.page .outlineButton {
+  border-color: var(--demo-line);
+  color: var(--demo-accent);
+}
+
+.page .outlineButton:hover {
+  border-color: var(--demo-accent-soft);
   background: var(--demo-accent-soft);
-  border-color: var(--demo-accent);
+  color: var(--demo-accent);
 }
 
 .highlightList {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-2);
 }
 
 .highlightList li {
   border: 1px solid var(--demo-line);
   border-radius: var(--radius-sm);
-  padding: 8px 16px;
-  background: rgba(0, 0, 0, 0.2);
-  color: var(--demo-muted);
-  font-size: 12px;
-  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
 }
 
 .heroVisual {
@@ -168,15 +136,16 @@
 
 .assetLabel {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: var(--space-3);
+  left: var(--space-3);
   z-index: 1;
+  border: 1px solid var(--demo-line);
   border-radius: var(--radius-sm);
-  padding: 6px 12px;
+  padding: 6px var(--space-2);
   background: var(--demo-accent-soft);
   color: var(--demo-accent);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   backdrop-filter: blur(8px);
@@ -197,13 +166,13 @@
 
 .statItem {
   display: grid;
-  gap: 8px;
+  gap: var(--space-1);
   padding: var(--space-5);
-  background: var(--demo-panel);
+  background: var(--white);
 }
 
 .statItem strong {
-  color: var(--pure-white);
+  color: var(--gray-900);
   font-family: var(--font-display);
   font-size: 40px;
   line-height: 1;
@@ -212,7 +181,7 @@
 .statItem span {
   color: var(--demo-accent);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -222,8 +191,13 @@
   padding: var(--section-gap-desktop) 0;
 }
 
-.productSection {
-  background: var(--demo-bg);
+.productSection,
+.finalSection {
+  background: var(--white);
+}
+
+.proofSection {
+  background: var(--gray-50);
 }
 
 .sectionGrid {
@@ -231,16 +205,6 @@
   grid-template-columns: 0.78fr 1.22fr;
   gap: var(--space-9);
   align-items: start;
-}
-
-.sectionIntro p {
-  margin-bottom: 16px;
-  color: var(--demo-accent);
-  font-size: 14px;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .sectionIntro h2,
@@ -257,29 +221,33 @@
 
 .productCard {
   display: grid;
-  gap: 12px;
-  border: 1px solid var(--demo-line);
+  gap: var(--space-2);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
   padding: var(--space-5);
-  background: var(--demo-panel);
-  box-shadow: var(--shadow-lifted);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
 }
 
 .productCard:hover {
   transform: translateY(-2px);
-  border-color: var(--demo-accent);
+  border-color: var(--demo-line);
+  box-shadow: var(--shadow-lg);
 }
 
 .productCard span {
   color: var(--demo-accent);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
 .productCard h3 {
-  color: var(--demo-text);
+  color: var(--gray-900);
   font-size: 20px;
   line-height: 1.2;
 }
@@ -287,11 +255,7 @@
 .productCard p,
 .finalBox p {
   color: var(--demo-muted);
-  font-size: 14px;
-}
-
-.proofSection {
-  background: var(--demo-bg-soft);
+  font-size: 15px;
 }
 
 .proofGrid {
@@ -304,10 +268,10 @@
 .proofPanel,
 .testimonial,
 .finalBox {
-  border: 1px solid var(--demo-line);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
-  background: var(--demo-panel);
-  box-shadow: var(--shadow-floating);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
 }
 
 .proofPanel {
@@ -326,7 +290,7 @@
 
 .proofPanel li {
   position: relative;
-  padding-left: 28px;
+  padding-left: var(--space-6);
   color: var(--demo-muted);
   line-height: 1.6;
 }
@@ -334,12 +298,13 @@
 .proofPanel li::before {
   content: '';
   position: absolute;
-  top: 6px;
+  top: 8px;
   left: 0;
   width: 12px;
   height: 12px;
   border-radius: 3px;
   background: var(--demo-accent);
+  box-shadow: 0 0 0 4px var(--demo-accent-soft);
 }
 
 .testimonial {
@@ -347,24 +312,21 @@
   align-content: end;
   gap: var(--space-5);
   padding: var(--space-6);
+  border-color: var(--demo-line);
 }
 
 .testimonial blockquote {
-  color: var(--demo-text);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.4;
-  font-family: var(--font-heading);
+  color: var(--gray-900);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.45;
 }
 
 .testimonial figcaption {
-  color: var(--demo-accent-strong);
-  font-weight: 600;
+  color: var(--demo-accent);
   font-size: 14px;
-}
-
-.finalSection {
-  background: var(--demo-bg);
+  font-weight: 800;
 }
 
 .finalBox {
@@ -409,8 +371,7 @@
   }
 
   .heroActions,
-  .primaryButton,
-  .secondaryButton {
+  .heroActions a {
     width: 100%;
   }
 

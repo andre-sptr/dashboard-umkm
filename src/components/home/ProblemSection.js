@@ -1,4 +1,5 @@
 import { painPoints } from '@/data/homeData';
+import Eyebrow from '@/components/UI/Eyebrow';
 import Reveal from '@/components/UI/Reveal';
 import styles from '@/app/page.module.css';
 
@@ -8,7 +9,7 @@ export default function ProblemSection() {
       <div className={`container ${styles.problemGrid}`}>
         <Reveal>
           <div>
-            <p className={styles.eyebrowDark}>Masalah yang sering terjadi</p>
+            <Eyebrow>Masalah yang sering terjadi</Eyebrow>
             <h2>Bisnis bagus bisa terlihat biasa saja kalau halaman digitalnya tidak meyakinkan.</h2>
           </div>
         </Reveal>
