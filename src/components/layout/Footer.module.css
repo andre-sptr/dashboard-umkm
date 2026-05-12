@@ -1,8 +1,8 @@
 .footer {
   margin-top: auto;
-  border-top: 1px solid var(--purple-glow);
-  background-color: var(--navy-deep);
-  color: var(--pure-white);
+  border-top: 1px solid var(--gray-200);
+  background-color: var(--white);
+  color: var(--gray-900);
   padding-top: var(--space-11);
 }
 
@@ -27,15 +27,15 @@
 }
 
 .logoText {
-  color: var(--pure-white);
+  color: var(--gray-900);
 }
 
 .logoAccent {
-  color: var(--electric-blue);
+  color: var(--blue-700);
 }
 
 .description {
-  color: var(--charcoal);
+  color: var(--gray-600);
   font-size: 14px;
   line-height: 1.6;
 }
@@ -48,7 +48,7 @@
 
 .linkGroup h4 {
   margin-bottom: var(--space-4);
-  color: var(--electric-blue);
+  color: var(--blue-700);
   font-family: var(--font-heading);
   font-size: 14px;
   font-weight: 700;
@@ -63,7 +63,7 @@
 }
 
 .linkGroup li {
-  color: var(--charcoal);
+  color: var(--gray-600);
   font-size: 14px;
   line-height: 1.5;
 }
@@ -73,13 +73,13 @@
 }
 
 .linkGroup a:hover {
-  color: var(--sky-blue);
+  color: var(--blue-500);
 }
 
 .bottom {
-  border-top: 1px solid var(--purple-glow);
+  border-top: 1px solid var(--gray-200);
   padding: var(--space-5) 0;
-  color: var(--medium-gray);
+  color: var(--gray-500);
   text-align: center;
   font-size: 12px;
 }

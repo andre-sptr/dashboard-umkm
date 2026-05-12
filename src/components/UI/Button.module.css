@@ -2,17 +2,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
+  min-height: 44px;
   padding: 12px 24px;
-  font-family: sans-serif;
-  font-size: 12px;
+  font-family: var(--font-display);
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.0;
+  line-height: 1;
   letter-spacing: 0;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
   white-space: nowrap;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .button:disabled {
@@ -89,14 +99,13 @@
 
 /* Sizes */
 .sm {
-  min-height: 36px;
+  min-height: 44px;
   padding: 8px 16px;
 }
 
 .lg {
   min-height: 48px;
   padding: 14px 28px;
-  font-size: 14px;
 }
 
 /* Utilities */

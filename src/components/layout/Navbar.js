@@ -1,6 +1,15 @@
 import Link from 'next/link';
 import Button from '../UI/Button';
+import MobileMenu from './MobileMenu';
 import styles from './Navbar.module.css';
+
+const navLinks = [
+  { href: '/', label: 'Beranda' },
+  { href: '/proses', label: 'Proses' },
+  { href: '/portofolio', label: 'Portofolio' },
+  { href: '/harga', label: 'Harga' },
+  { href: '/kontak', label: 'Kontak' },
+];
 
 export default function Navbar() {
   return (
@@ -15,16 +24,17 @@ export default function Navbar() {
         </Link>
         
         <ul className={styles.links}>
-          <li><Link href="/">Beranda</Link></li>
-          <li><Link href="/proses">Proses</Link></li>
-          <li><Link href="/portofolio">Portofolio</Link></li>
-          <li><Link href="/harga">Harga</Link></li>
-          <li><Link href="/kontak">Kontak</Link></li>
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
         </ul>
         
-        <div className={styles.cta} style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        <div className={styles.cta}>
           <Button as={Link} href="/kontak" size="sm">Konsultasi Gratis</Button>
         </div>
+        <MobileMenu />
       </div>
     </nav>
   );

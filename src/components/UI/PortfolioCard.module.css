@@ -1,0 +1,178 @@
+.demoCard {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background: var(--white);
+  color: inherit;
+  text-decoration: none;
+  box-shadow: var(--shadow-lifted);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.demoCard:hover {
+  border-color: var(--blue-700);
+  box-shadow: var(--shadow-floating);
+  transform: translateY(-2px);
+}
+
+.demoCard:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+.demoCard h3 {
+  margin-bottom: var(--space-2);
+  color: var(--foreground);
+  font-size: 20px;
+}
+
+.demoCard p {
+  color: var(--charcoal);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.demoVisual {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  background: var(--lavender-light);
+}
+
+.demoVisual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(3, 105, 161, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(3, 105, 161, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.demoBadge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1;
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  background: var(--white);
+  color: var(--blue-700);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.demoPreview {
+  position: absolute;
+  inset: auto 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  background: var(--white);
+  box-shadow: var(--shadow-lifted);
+}
+
+.demoPreview span {
+  margin-bottom: 4px;
+  color: var(--blue-700);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.demoPreview strong {
+  color: var(--foreground);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.demoPreview small {
+  margin-top: 4px;
+  color: var(--charcoal);
+  font-size: 12px;
+}
+
+.demoContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demoSections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.demoSections li {
+  border: 1px solid var(--purple-glow);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  background: var(--lavender-light);
+  color: var(--charcoal);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.demoStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.demoStats span {
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.demoAction {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.foodDemo {
+  background-color: #fef3c7;
+}
+
+.retailDemo {
+  background-color: #ede9fe;
+}
+
+.serviceDemo {
+  background-color: #dbeafe;
+}
+
+@media (max-width: 640px) {
+  .demoCard {
+    padding: var(--space-4);
+  }
+
+  .demoVisual {
+    min-height: 220px;
+  }
+
+  .demoSections {
+    grid-template-columns: 1fr;
+  }
+}

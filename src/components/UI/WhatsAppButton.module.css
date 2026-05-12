@@ -4,19 +4,24 @@
   bottom: 28px;
   z-index: 1000;
   display: inline-flex;
-  min-height: 62px;
   align-items: center;
+  min-height: 62px;
   gap: 12px;
-  border: 1px solid rgba(240, 185, 85, 0.28);
+  border: 1px solid rgba(37, 211, 102, 0.34);
   border-radius: 999px;
   padding: 10px 18px 10px 12px;
-  background:
-    radial-gradient(circle at 18% 0%, rgba(37, 211, 102, 0.28), transparent 34%),
-    linear-gradient(135deg, rgba(8, 17, 31, 0.98), rgba(16, 23, 35, 0.94));
-  color: #ffffff;
-  box-shadow: 0 22px 54px rgba(8, 17, 31, 0.32), 0 0 0 6px rgba(240, 185, 85, 0.08);
-  backdrop-filter: blur(16px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background: var(--white);
+  color: var(--foreground);
+  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.18), 0 0 0 6px rgba(37, 211, 102, 0.1);
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 4px;
 }
 
 .button svg {
@@ -26,15 +31,19 @@
   flex: 0 0 auto;
   border-radius: 50%;
   padding: 10px;
-  background: linear-gradient(135deg, #25d366, #17a765);
+  background: #25D366;
   color: #ffffff;
-  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.3);
 }
 
 .button:hover {
-  border-color: rgba(240, 185, 85, 0.58);
-  box-shadow: 0 28px 70px rgba(8, 17, 31, 0.4), 0 0 0 8px rgba(240, 185, 85, 0.12);
+  border-color: rgba(37, 211, 102, 0.72);
+  box-shadow: 0 24px 58px rgba(15, 23, 42, 0.22), 0 0 0 8px rgba(37, 211, 102, 0.13);
   transform: translateY(-3px);
+}
+
+.button:active {
+  transform: translateY(-1px);
 }
 
 .pulse {
@@ -43,9 +52,9 @@
   left: 43px;
   width: 10px;
   height: 10px;
-  border: 2px solid #101723;
+  border: 2px solid var(--white);
   border-radius: 50%;
-  background: #25d366;
+  background: #25D366;
   box-shadow: 0 0 0 5px rgba(37, 211, 102, 0.18);
 }
 
@@ -57,14 +66,14 @@
 }
 
 .copy strong {
-  color: #ffffff;
+  color: var(--foreground);
   font-size: 14px;
   font-weight: 900;
   white-space: nowrap;
 }
 
 .copy small {
-  color: #f0b955;
+  color: #128C4A;
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.06em;
