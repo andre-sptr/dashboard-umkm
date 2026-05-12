@@ -21,30 +21,30 @@ export default function PortfolioSection() {
               <Link className={styles.demoCard} href={demo.href} aria-label={`Lihat demo ${demo.title}`} style={{ display: 'flex', flexDirection: 'column', height: '100%', textDecoration: 'none' }}>
                 <div className={`${styles.demoVisual} ${styles[demo.theme]}`}>
                   <div className={styles.demoBadge}>{demo.sector}</div>
-                  <div style={{ position: 'absolute', inset: '60px 20px 20px 20px', background: 'var(--almost-black)', borderRadius: 'var(--radius-sm)', padding: '20px', border: '1px solid var(--purple-glow)', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <span style={{ color: 'var(--electric-blue)', fontSize: '12px', fontWeight: 'bold', textTransform: 'uppercase' }}>{demo.title}</span>
-                    <strong style={{ color: 'var(--pure-white)', fontSize: '20px', lineHeight: '1.2' }}>{demo.tagline}</strong>
-                    <small style={{ color: 'var(--charcoal)', marginTop: '4px' }}>{demo.highlight}</small>
+                  <div style={{ position: 'absolute', inset: 'auto 20px 20px 20px', background: 'var(--navy-deep)', borderRadius: 'var(--radius-sm)', padding: '16px', border: '1px solid var(--purple-glow)', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <span style={{ color: 'var(--electric-blue)', fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', marginBottom: '4px' }}>{demo.title}</span>
+                    <strong style={{ color: 'var(--pure-white)', fontSize: '18px', lineHeight: '1.2' }}>{demo.tagline}</strong>
+                    <small style={{ color: 'var(--charcoal)', marginTop: '4px', fontSize: '12px' }}>{demo.highlight}</small>
                   </div>
                 </div>
-                <div className={styles.demoContent} style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: '20px' }}>
+                <div className={styles.demoContent} style={{ display: 'flex', flexDirection: 'column', flex: 1, gap: '16px' }}>
                   <div>
-                    <h3>{demo.title}</h3>
-                    <p>{demo.desc}</p>
+                    <h3 style={{ fontSize: '20px', marginBottom: '8px' }}>{demo.title}</h3>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5' }}>{demo.desc}</p>
                   </div>
                   <ul className={styles.demoSections} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }} aria-label={`Section demo ${demo.title}`}>
                     {demo.sections.map((section) => (
-                      <li key={section} style={{ background: 'var(--navy-deep)', border: '1px solid var(--purple-glow)', padding: '8px', borderRadius: 'var(--radius-sm)', fontSize: '12px', color: 'var(--charcoal)', fontWeight: '600' }}>{section}</li>
+                      <li key={section} style={{ background: 'var(--lavender-light)', border: '1px solid var(--purple-glow)', padding: '6px 10px', borderRadius: 'var(--radius-sm)', fontSize: '12px', color: 'var(--charcoal)', fontWeight: '600' }}>{section}</li>
                     ))}
                   </ul>
-                  <div className={styles.demoStats} style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }} aria-label={`Fitur utama ${demo.title}`}>
+                  <div className={styles.demoStats} style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }} aria-label={`Fitur utama ${demo.title}`}>
                     {demo.stats.map((stat) => (
-                      <span key={stat} style={{ background: 'var(--lavender-light)', color: 'var(--electric-blue)', padding: '6px 10px', borderRadius: 'var(--radius-sm)', fontSize: '12px', fontWeight: '600' }}>{stat}</span>
+                      <span key={stat} style={{ background: 'var(--lavender-light)', color: 'var(--electric-blue)', padding: '4px 8px', borderRadius: 'var(--radius-sm)', fontSize: '11px', fontWeight: '700' }}>{stat}</span>
                     ))}
                   </div>
-                  <div style={{ marginTop: 'auto', paddingTop: '10px' }}>
+                  <div style={{ marginTop: 'auto', paddingTop: '16px' }}>
                     <Button as="span" variant="secondary" fullWidth>
-                      Lihat Demo
+                      Lihat Detail Demo
                     </Button>
                   </div>
                 </div>
