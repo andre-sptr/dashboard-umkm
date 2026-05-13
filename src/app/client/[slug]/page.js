@@ -5,19 +5,35 @@ import Eyebrow from '@/components/UI/Eyebrow';
 import prisma from '@/utils/prisma';
 import styles from './client.module.css';
 
-export const dynamic = 'force-dynamic'; // Ensure Next.js doesn't try to statically build this without DB
+import { 
+  Flame, Briefcase, Gift, Star, Package, Clock, Camera, MessageCircleHeart, Send,
+  Shirt, Scissors, Users, Layers, Ruler, Truck, Image as ImageIcon, BookOpen, Maximize,
+  Sparkles, Droplets, Wrench, Home, CheckSquare, MapPin, ImagePlus, ListChecks, Map, CheckCircle, Check
+} from 'lucide-react';
+
+const IconMap = {
+  Flame, Briefcase, Gift, Star, Package, Clock, Camera, MessageCircleHeart, Send,
+  Shirt, Scissors, Users, Layers, Ruler, Truck, Image: ImageIcon, BookOpen, Maximize,
+  Sparkles, Droplets, Wrench, Home, CheckSquare, MapPin, ImagePlus, ListChecks, Map, CheckCircle
+};
+
+function DynamicIcon({ name, className, size = 24 }) {
+  const Icon = IconMap[name] || CheckCircle;
+  return <Icon className={className} size={size} />;
+}
+
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   
-  // Safe Prisma fetch
   let clientData = null;
   try {
     clientData = await prisma.client.findUnique({
       where: { slug }
     });
   } catch (error) {
-    console.error("Database error during metadata generation. Please check DATABASE_URL and ensure migrations are run.");
+    console.error("Database error during metadata generation.");
   }
 
   if (!clientData) {
@@ -41,19 +57,17 @@ export default async function ClientPage({ params }) {
       where: { slug }
     });
   } catch (error) {
-    console.error(`Database error during page generation for slug "${slug}". Please check DATABASE_URL and ensure migrations are run.`);
+    console.error(`Database error during page generation for slug "${slug}".`);
   }
 
   if (!clientData) {
     notFound();
   }
 
-  // Construct WhatsApp URL
   const defaultWaMessage = 'Halo, saya ingin konsultasi dari halaman landing page.';
   const message = clientData.whatsappMessage || defaultWaMessage;
   const whatsappUrl = `https://wa.me/${clientData.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
-  // Parse JSON fields securely (since SQLite stores them as Strings)
   const safeJsonParse = (str, fallback = []) => {
     if (!str) return fallback;
     try {
@@ -63,7 +77,6 @@ export default async function ClientPage({ params }) {
     }
   };
 
-  // Map database fields to the UI component expectations
   const demo = {
     theme: clientData.theme || 'default',
     businessType: clientData.businessType,
@@ -73,7 +86,7 @@ export default async function ClientPage({ params }) {
     secondaryCta: clientData.secondaryCta,
     whatsappUrl: whatsappUrl,
     accentLabel: clientData.accentLabel || 'Pilihan Utama',
-    heroAsset: clientData.heroAssetUrl || '/demo/dapur-rendang-riau.svg', // Fallback
+    heroAsset: clientData.heroAssetUrl || '/demo/dapur-rendang-riau.svg',
     highlights: safeJsonParse(clientData.highlights),
     stats: safeJsonParse(clientData.stats),
     title: clientData.businessName,
@@ -128,27 +141,45 @@ function Hero({ demo }) {
           </div>
           {demo.highlights && demo.highlights.length > 0 && (
             <ul className={styles.highlightList} aria-label={`Keunggulan ${demo.title}`}>
-              {demo.highlights.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              {demo.highlights.map((item, i) => {
+                const text = typeof item === 'string' ? item : item.text;
+                const icon = typeof item === 'object' ? item.icon : 'CheckCircle';
+                return (
+                  <li key={i}>
+                    <DynamicIcon name={icon} size={16} className={styles.highlightIcon} />
+                    {text}
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>
         <div className={styles.heroVisual}>
+          <div className={styles.visualBackdrop} />
           {demo.accentLabel && (
             <span className={styles.assetLabel}>{demo.accentLabel}</span>
           )}
-          <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority />
+          <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.heroImage} />
         </div>
       </div>
       {demo.stats && demo.stats.length > 0 && (
         <div className={`container ${styles.statStrip}`} aria-label={`Statistik ${demo.title}`}>
-          {demo.stats.map((stat) => (
-            <div className={styles.statItem} key={stat.label}>
-              <strong>{stat.value}</strong>
-              <span>{stat.label}</span>
-            </div>
-          ))}
+          {demo.stats.map((stat, i) => {
+            const label = typeof stat === 'string' ? stat : stat.label;
+            const value = typeof stat === 'string' ? '' : stat.value;
+            const icon = typeof stat === 'object' ? stat.icon : 'Star';
+            return (
+              <div className={styles.statItem} key={i}>
+                <div className={styles.statIconWrapper}>
+                  <DynamicIcon name={icon} size={28} className={styles.statIcon} />
+                </div>
+                <div className={styles.statContent}>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </section>
@@ -165,13 +196,27 @@ function ProductSection({ demo }) {
           {demo.productsTitle && (
             <h2>{demo.productsTitle}</h2>
           )}
+          <p className={styles.sectionLead}>Pilih paket yang paling sesuai dengan kebutuhan Anda. Hubungi kami jika butuh kustomisasi.</p>
         </div>
         <div className={styles.productGrid}>
-          {demo.products.map((product) => (
-            <article className={styles.productCard} key={product.name}>
-              <span>{product.price}</span>
-              <h3>{product.name}</h3>
-              <p>{product.desc}</p>
+          {demo.products.map((product, i) => (
+            <article className={`${styles.productCard} ${product.popular ? styles.productCardPopular : ''}`} key={i}>
+              {product.popular && <span className={styles.popularBadge}>Paling Diminati</span>}
+              <div className={styles.productHeader}>
+                <h3>{product.name}</h3>
+                <span className={styles.productPrice}>{product.price}</span>
+              </div>
+              <p className={styles.productDesc}>{product.desc}</p>
+              {product.features && product.features.length > 0 && (
+                <ul className={styles.featureList}>
+                  {product.features.map((feat, fi) => (
+                    <li key={fi}>
+                      <Check size={16} className={styles.featureIcon} />
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </article>
           ))}
         </div>
@@ -186,20 +231,41 @@ function ProofSection({ demo }) {
     <section className={styles.proofSection}>
       <div className={`container ${styles.proofGrid}`}>
         <div className={styles.proofPanel}>
-          <Eyebrow className={styles.demoEyebrow}>Bukti konversi</Eyebrow>
+          <Eyebrow className={styles.demoEyebrow}>Alasan memilih kami</Eyebrow>
           <h2>{demo.proofTitle}</h2>
           {demo.proofItems && demo.proofItems.length > 0 && (
-            <ul>
-              {demo.proofItems.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <div className={styles.proofList}>
+              {demo.proofItems.map((item, i) => {
+                const title = typeof item === 'string' ? item : item.title;
+                const desc = typeof item === 'string' ? '' : item.desc;
+                const icon = typeof item === 'object' ? item.icon : 'CheckCircle';
+                
+                return (
+                  <div className={styles.proofItem} key={i}>
+                    <div className={styles.proofIconWrapper}>
+                      <DynamicIcon name={icon} size={24} className={styles.proofIcon} />
+                    </div>
+                    <div>
+                      <h4 className={styles.proofItemTitle}>{title}</h4>
+                      {desc && <p className={styles.proofItemDesc}>{desc}</p>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           )}
         </div>
         {demo.testimonial && demo.testimonial.quote && (
           <figure className={styles.testimonial}>
-            <blockquote>{demo.testimonial.quote}</blockquote>
-            <figcaption>{demo.testimonial.person}</figcaption>
+            <div className={styles.testimonialIcon}>
+              <Star size={32} />
+              <Star size={32} />
+              <Star size={32} />
+              <Star size={32} />
+              <Star size={32} />
+            </div>
+            <blockquote>&quot;{demo.testimonial.quote}&quot;</blockquote>
+            <figcaption>— {demo.testimonial.person}</figcaption>
           </figure>
         )}
       </div>
@@ -211,17 +277,20 @@ function FinalCta({ demo }) {
   return (
     <section className={styles.finalSection}>
       <div className={`container ${styles.finalBox}`}>
-        <h2>{demo.finalTitle}</h2>
-        <p>Hubungi kami langsung via WhatsApp untuk pertanyaan lebih lanjut.</p>
-        <Button
-          as="a"
-          className={styles.accentButton}
-          href={demo.whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {demo.primaryCta}
-        </Button>
+        <div className={styles.finalBoxBg} />
+        <div className={styles.finalContent}>
+          <h2>{demo.finalTitle}</h2>
+          <p>Hubungi kami langsung via WhatsApp untuk pertanyaan lebih lanjut atau memulai pesanan Anda sekarang juga.</p>
+          <Button
+            as="a"
+            className={styles.accentButton}
+            href={demo.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {demo.primaryCta}
+          </Button>
+        </div>
       </div>
     </section>
   );
