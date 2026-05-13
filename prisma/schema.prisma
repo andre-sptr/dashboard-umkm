@@ -3,11 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Client {
-  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  id                 String   @id @default(uuid())
   slug               String   @unique
   businessName       String   @map("business_name")
   businessType       String?  @map("business_type")
@@ -21,17 +22,17 @@ model Client {
   accentLabel        String?  @map("accent_label")
   heroAssetUrl       String?  @map("hero_asset_url")
   productsTitle      String?  @map("products_title")
-  products           Json?
-  highlights         Json?
-  stats              Json?
+  products           String?  // JSON stringified
+  highlights         String?  // JSON stringified
+  stats              String?  // JSON stringified
   proofTitle         String?  @map("proof_title")
-  proofItems         Json?    @map("proof_items")
+  proofItems         String?  @map("proof_items") // JSON stringified
   testimonialQuote   String?  @map("testimonial_quote")
   testimonialPerson  String?  @map("testimonial_person")
   finalTitle         String?  @map("final_title")
   metaTitle          String?  @map("meta_title")
   metaDescription    String?  @map("meta_description")
-  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz
+  createdAt          DateTime @default(now()) @map("created_at")
 
   @@map("clients")
 }

@@ -17,7 +17,6 @@ export async function generateMetadata({ params }) {
       where: { slug }
     });
   } catch (error) {
-    // Only log the message, not the full error object to avoid Next.js dev overlay
     console.error("Database error during metadata generation. Please check DATABASE_URL and ensure migrations are run.");
   }
 
@@ -42,7 +41,6 @@ export default async function ClientPage({ params }) {
       where: { slug }
     });
   } catch (error) {
-    // Only log the message to avoid Next.js development overlay crash
     console.error(`Database error during page generation for slug "${slug}". Please check DATABASE_URL and ensure migrations are run.`);
   }
 
@@ -55,8 +53,17 @@ export default async function ClientPage({ params }) {
   const message = clientData.whatsappMessage || defaultWaMessage;
   const whatsappUrl = `https://wa.me/${clientData.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
+  // Parse JSON fields securely (since SQLite stores them as Strings)
+  const safeJsonParse = (str, fallback = []) => {
+    if (!str) return fallback;
+    try {
+      return JSON.parse(str);
+    } catch (e) {
+      return fallback;
+    }
+  };
+
   // Map database fields to the UI component expectations
-  // Prisma generates camelCase properties based on the schema @map attributes
   const demo = {
     theme: clientData.theme || 'default',
     businessType: clientData.businessType,
@@ -67,13 +74,13 @@ export default async function ClientPage({ params }) {
     whatsappUrl: whatsappUrl,
     accentLabel: clientData.accentLabel || 'Pilihan Utama',
     heroAsset: clientData.heroAssetUrl || '/demo/dapur-rendang-riau.svg', // Fallback
-    highlights: clientData.highlights || [],
-    stats: clientData.stats || [],
+    highlights: safeJsonParse(clientData.highlights),
+    stats: safeJsonParse(clientData.stats),
     title: clientData.businessName,
     productsTitle: clientData.productsTitle,
-    products: clientData.products || [],
+    products: safeJsonParse(clientData.products),
     proofTitle: clientData.proofTitle,
-    proofItems: clientData.proofItems || [],
+    proofItems: safeJsonParse(clientData.proofItems),
     testimonial: {
       quote: clientData.testimonialQuote,
       person: clientData.testimonialPerson
