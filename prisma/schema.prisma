@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Client {
+  id                 String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  slug               String   @unique
+  businessName       String   @map("business_name")
+  businessType       String?  @map("business_type")
+  theme              String?
+  whatsappNumber     String   @map("whatsapp_number")
+  whatsappMessage    String?  @map("whatsapp_message")
+  heroTitle          String   @map("hero_title")
+  heroLead           String?  @map("hero_lead")
+  primaryCta         String?  @map("primary_cta")
+  secondaryCta       String?  @map("secondary_cta")
+  accentLabel        String?  @map("accent_label")
+  heroAssetUrl       String?  @map("hero_asset_url")
+  productsTitle      String?  @map("products_title")
+  products           Json?
+  highlights         Json?
+  stats              Json?
+  proofTitle         String?  @map("proof_title")
+  proofItems         Json?    @map("proof_items")
+  testimonialQuote   String?  @map("testimonial_quote")
+  testimonialPerson  String?  @map("testimonial_person")
+  finalTitle         String?  @map("final_title")
+  metaTitle          String?  @map("meta_title")
+  metaDescription    String?  @map("meta_description")
+  createdAt          DateTime @default(now()) @map("created_at") @db.Timestamptz
+
+  @@map("clients")
+}

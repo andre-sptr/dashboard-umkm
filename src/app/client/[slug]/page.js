@@ -2,14 +2,23 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Button from '@/components/UI/Button';
 import Eyebrow from '@/components/UI/Eyebrow';
-import { getClientBySlug } from '@/utils/supabase';
+import prisma from '@/utils/prisma';
 import styles from './client.module.css';
 
-export const dynamicParams = true; // Allow dynamic fetching from Supabase
+export const dynamic = 'force-dynamic'; // Ensure Next.js doesn't try to statically build this without DB
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const clientData = await getClientBySlug(slug);
+  
+  // Safe Prisma fetch
+  let clientData = null;
+  try {
+    clientData = await prisma.client.findUnique({
+      where: { slug }
+    });
+  } catch (error) {
+    console.error("Database connection error during metadata generation:", error);
+  }
 
   if (!clientData) {
     return {
@@ -18,14 +27,22 @@ export async function generateMetadata({ params }) {
   }
 
   return {
-    title: clientData.meta_title || `${clientData.business_name} | PekanWeb Studio`,
-    description: clientData.meta_description || clientData.hero_lead,
+    title: clientData.metaTitle || `${clientData.businessName} | PekanWeb Studio`,
+    description: clientData.metaDescription || clientData.heroLead,
   };
 }
 
 export default async function ClientPage({ params }) {
   const { slug } = await params;
-  const clientData = await getClientBySlug(slug);
+  
+  let clientData = null;
+  try {
+    clientData = await prisma.client.findUnique({
+      where: { slug }
+    });
+  } catch (error) {
+    console.error("Database connection error during page generation:", error);
+  }
 
   if (!clientData) {
     notFound();
@@ -33,32 +50,33 @@ export default async function ClientPage({ params }) {
 
   // Construct WhatsApp URL
   const defaultWaMessage = 'Halo, saya ingin konsultasi dari halaman landing page.';
-  const message = clientData.whatsapp_message || defaultWaMessage;
-  const whatsappUrl = `https://wa.me/${clientData.whatsapp_number}?text=${encodeURIComponent(message)}`;
+  const message = clientData.whatsappMessage || defaultWaMessage;
+  const whatsappUrl = `https://wa.me/${clientData.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   // Map database fields to the UI component expectations
+  // Prisma generates camelCase properties based on the schema @map attributes
   const demo = {
     theme: clientData.theme || 'default',
-    businessType: clientData.business_type,
-    heroTitle: clientData.hero_title,
-    heroLead: clientData.hero_lead,
-    primaryCta: clientData.primary_cta || 'Chat WhatsApp',
-    secondaryCta: clientData.secondary_cta,
+    businessType: clientData.businessType,
+    heroTitle: clientData.heroTitle,
+    heroLead: clientData.heroLead,
+    primaryCta: clientData.primaryCta || 'Chat WhatsApp',
+    secondaryCta: clientData.secondaryCta,
     whatsappUrl: whatsappUrl,
-    accentLabel: clientData.accent_label || 'Pilihan Utama',
-    heroAsset: clientData.hero_asset_url || '/demo/dapur-rendang-riau.svg', // Fallback
+    accentLabel: clientData.accentLabel || 'Pilihan Utama',
+    heroAsset: clientData.heroAssetUrl || '/demo/dapur-rendang-riau.svg', // Fallback
     highlights: clientData.highlights || [],
     stats: clientData.stats || [],
-    title: clientData.business_name,
-    productsTitle: clientData.products_title,
+    title: clientData.businessName,
+    productsTitle: clientData.productsTitle,
     products: clientData.products || [],
-    proofTitle: clientData.proof_title,
-    proofItems: clientData.proof_items || [],
+    proofTitle: clientData.proofTitle,
+    proofItems: clientData.proofItems || [],
     testimonial: {
-      quote: clientData.testimonial_quote,
-      person: clientData.testimonial_person
+      quote: clientData.testimonialQuote,
+      person: clientData.testimonialPerson
     },
-    finalTitle: clientData.final_title || 'Mulai konsultasi sekarang'
+    finalTitle: clientData.finalTitle || 'Mulai konsultasi sekarang'
   };
 
   return (
