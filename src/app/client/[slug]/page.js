@@ -17,7 +17,8 @@ export async function generateMetadata({ params }) {
       where: { slug }
     });
   } catch (error) {
-    console.error("Database connection error during metadata generation:", error);
+    // Only log the message, not the full error object to avoid Next.js dev overlay
+    console.error("Database error during metadata generation. Please check DATABASE_URL and ensure migrations are run.");
   }
 
   if (!clientData) {
@@ -41,7 +42,8 @@ export default async function ClientPage({ params }) {
       where: { slug }
     });
   } catch (error) {
-    console.error("Database connection error during page generation:", error);
+    // Only log the message to avoid Next.js development overlay crash
+    console.error(`Database error during page generation for slug "${slug}". Please check DATABASE_URL and ensure migrations are run.`);
   }
 
   if (!clientData) {
