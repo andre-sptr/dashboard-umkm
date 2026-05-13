@@ -41,7 +41,7 @@ export const demoProjects = [
     sections: ['Hero promo', 'Paket menu', 'Testimoni', 'Order WA'],
     stats: ['3 paket', 'WA CTA', 'Galeri menu'],
     theme: 'foodDemo',
-    href: '/demo/dapur-rendang-riau',
+    href: '/client/dapur-rendang-riau',
   },
   {
     title: 'Loka Batik Pekanbaru',
@@ -52,7 +52,7 @@ export const demoProjects = [
     sections: ['Lookbook', 'Size guide', 'Harga mulai', 'Chat admin'],
     stats: ['12 produk', 'Size guide', 'Order cepat'],
     theme: 'retailDemo',
-    href: '/demo/loka-batik-pekanbaru',
+    href: '/client/loka-batik-pekanbaru',
   },
   {
     title: 'BersihKilap Home Care',
@@ -63,7 +63,7 @@ export const demoProjects = [
     sections: ['Layanan', 'Before after', 'Area kerja', 'Booking WA'],
     stats: ['4 layanan', 'Area map', 'Estimasi'],
     theme: 'serviceDemo',
-    href: '/demo/bersihkilap-home-care',
+    href: '/client/bersihkilap-home-care',
   },
 ];
 

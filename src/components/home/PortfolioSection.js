@@ -6,7 +6,7 @@ import styles from '@/app/page.module.css';
 
 export default function PortfolioSection() {
   return (
-    <section className={styles.portfolioSection} id="demo">
+    <section className={styles.portfolioSection} id="client">
       <div className="container">
         <Reveal>
           <div className={styles.sectionHeader}>

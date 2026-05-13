@@ -46,7 +46,7 @@ export default function HeroSection() {
               <Button as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer" size="lg">
                 Konsultasi via WhatsApp
               </Button>
-              <Button as="a" href="#demo" variant="secondary" size="lg">
+              <Button as="a" href="#client" variant="secondary" size="lg">
                 Lihat Demo
               </Button>
             </div>
