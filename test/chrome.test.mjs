@@ -15,10 +15,14 @@ test('navbar chrome exposes a complete mobile menu contract', () => {
   assert.match(navbar, /MobileMenu/);
   assert.doesNotMatch(navbar, /style=\{\{/);
 
-  for (const href of ['/', '/proses', '/portofolio', '/harga', '/kontak']) {
+  for (const href of ['/', '/proses', '/demo', '/harga', '/kontak']) {
     assert.match(mobileMenu, new RegExp(`href: ['"]${href.replace('/', '\\/')}['"]`));
   }
 
+  assert.match(navbar, /label: 'Demo'/);
+  assert.match(mobileMenu, /label: 'Demo'/);
+  assert.doesNotMatch(navbar, /Portofolio/);
+  assert.doesNotMatch(mobileMenu, /Portofolio/);
   assert.match(mobileMenu, /Konsultasi/);
   assert.match(mobileMenu, /usePathname/);
   assert.match(mobileMenu, /const isActive = pathname === link\.href/);

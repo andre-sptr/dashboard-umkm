@@ -29,7 +29,7 @@ export default function Footer() {
             <h4>Perusahaan</h4>
             <ul>
               <li><Link href="/proses">Proses Kerja</Link></li>
-              <li><Link href="/portofolio">Portofolio</Link></li>
+              <li><Link href="/demo">Demo</Link></li>
               <li><Link href="/harga">Harga Paket</Link></li>
             </ul>
           </div>

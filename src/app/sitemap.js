@@ -9,7 +9,7 @@ export default function sitemap() {
       priority: 1,
     },
     {
-      url: 'https://pekanweb.studio/portofolio',
+      url: 'https://pekanweb.studio/demo',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

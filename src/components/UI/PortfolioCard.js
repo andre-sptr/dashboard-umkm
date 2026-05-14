@@ -20,6 +20,9 @@ export default function PortfolioCard({ demo = {}, className = '', ctaLabel }) {
     <Wrapper className={cardClass} {...wrapperProps}>
       <div className={visualClass}>
         <div className={styles.demoBadge}>{demo.sector}</div>
+        {demo.choiceLabel && (
+          <div className={styles.choiceBadge}>{demo.choiceLabel}</div>
+        )}
         <div className={styles.demoPreview}>
           <span>{demo.title}</span>
           <strong>{demo.tagline}</strong>
@@ -29,6 +32,7 @@ export default function PortfolioCard({ demo = {}, className = '', ctaLabel }) {
       <div className={styles.demoContent}>
         <div>
           <h3>{demo.title}</h3>
+          {demo.choiceLabel && <strong className={styles.choiceLabel}>{demo.choiceLabel}</strong>}
           <p>{demo.desc}</p>
         </div>
         <ul className={styles.demoSections} aria-label={`Section demo ${demo.title}`}>

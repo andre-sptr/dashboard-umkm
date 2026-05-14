@@ -171,8 +171,9 @@ test('UI primitives import and render standalone with representative props', () 
   assert.match(eyebrow, /Demo UMKM/);
   assert.match(button, /href="\/kontak"/);
   assert.match(button, /Konsultasi/);
-  assert.match(card, /href="\/demo\/dapur-rendang-riau"/);
+  assert.match(card, /href="\/client\/dapur-rendang-riau"/);
   assert.match(card, /Dapur Rendang Riau/);
+  assert.match(card, /Gaya promo menu/);
   assert.match(card, /Lihat Detail Demo/);
   assert.match(whatsapp, /href="https:\/\/wa\.me\/628123456789\?text=Halo"/);
   assert.match(whatsapp, /Chat PekanWeb/);
@@ -196,7 +197,8 @@ test('portfolio card renders linked and placeholder modes without fake hrefs', (
   }));
 
   assert.match(linked, /<a /);
-  assert.match(linked, /href="\/demo\/loka-batik-pekanbaru"/);
+  assert.match(linked, /href="\/client\/loka-batik-pekanbaru"/);
+  assert.match(linked, /Gaya lookbook premium/);
   assert.match(linked, /Lihat Detail Demo/);
   assert.match(placeholder, /<article /);
   assert.match(placeholder, /Coming Soon UMKM/);

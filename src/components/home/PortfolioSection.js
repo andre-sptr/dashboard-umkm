@@ -11,8 +11,8 @@ export default function PortfolioSection() {
         <Reveal>
           <div className={styles.sectionHeader}>
             <Eyebrow>Project demo</Eyebrow>
-            <h2>Contoh project demo yang bisa langsung dibayangkan oleh pemilik UMKM.</h2>
-            <p>Setiap demo menunjukkan arah copy, struktur halaman, dan fokus konversi yang bisa disesuaikan dengan bisnis asli client.</p>
+            <h2>Tiga gaya demo berbeda supaya calon client bisa pilih arah website.</h2>
+            <p>Setiap demo punya layout, ritme konten, dan fokus konversi yang berbeda: promo menu, lookbook produk, atau booking jasa.</p>
           </div>
         </Reveal>
         <div className={styles.demoGrid}>

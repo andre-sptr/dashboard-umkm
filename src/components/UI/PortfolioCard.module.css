@@ -82,6 +82,20 @@
   font-weight: 700;
 }
 
+.choiceBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1;
+  border: 1px solid color-mix(in srgb, var(--blue-700) 24%, white);
+  border-radius: var(--radius-pill);
+  padding: 6px 12px;
+  background: color-mix(in srgb, var(--white) 90%, transparent);
+  color: var(--gray-800);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .demoPreview {
   position: absolute;
   inset: auto 20px 20px;
@@ -120,6 +134,14 @@
   flex: 1;
   flex-direction: column;
   gap: 16px;
+}
+
+.choiceLabel {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--blue-700);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .demoSections {

@@ -10,7 +10,7 @@ import styles from './MobileMenu.module.css';
 const navLinks = [
   { href: '/', label: 'Beranda' },
   { href: '/proses', label: 'Proses' },
-  { href: '/portofolio', label: 'Portofolio' },
+  { href: '/demo', label: 'Demo' },
   { href: '/harga', label: 'Harga' },
   { href: '/kontak', label: 'Kontak' },
 ];

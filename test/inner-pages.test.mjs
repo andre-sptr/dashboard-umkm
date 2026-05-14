@@ -6,7 +6,7 @@ const read = (path) => readFileSync(path, 'utf8');
 
 const innerPages = [
   ['proses', 'src/app/proses/page.js', 'src/app/proses/proses.module.css'],
-  ['portofolio', 'src/app/portofolio/page.js', 'src/app/portofolio/portofolio.module.css'],
+  ['demo', 'src/app/demo/page.js', 'src/app/demo/demo.module.css'],
   ['harga', 'src/app/harga/page.js', 'src/app/harga/harga.module.css'],
   ['kontak', 'src/app/kontak/page.js', 'src/app/kontak/kontak.module.css'],
 ];
@@ -33,12 +33,13 @@ test('inner page styles use light surfaces without dark rgba panel leftovers', (
   }
 });
 
-test('portofolio page reuses live demo projects plus one placeholder card', () => {
-  const page = read('src/app/portofolio/page.js');
-  const css = read('src/app/portofolio/portofolio.module.css');
+test('demo page reuses live demo projects plus one placeholder card', () => {
+  const page = read('src/app/demo/page.js');
+  const css = read('src/app/demo/demo.module.css');
 
   assert.match(page, /demoProjects/);
   assert.match(page, /PortfolioCard/);
+  assert.match(page, /Demo dashboard/);
   assert.match(page, /\[\.\.\.demoProjects,\s*comingSoon\]\.map/);
   assert.match(page, /isPlaceholder:\s*true/);
   assert.doesNotMatch(page, /Warung Kopi Nuri|Batik Riau Abadi|Klinik Cantik Pekanbaru|Jasa Servis AC Lancang|Pekanbaru Tour Guide|Agro Riau Mandiri/);
