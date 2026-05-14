@@ -368,6 +368,195 @@ async function main() {
     }
   })
 
+  const additionalClients = [
+    {
+      slug: "studio-yoga-senja",
+      businessName: "Studio Yoga Senja",
+      businessType: "Wellness studio & kelas kecil",
+      theme: "wellness",
+      whatsappNumber: "6282387025429",
+      whatsappMessage: "Halo Studio Yoga Senja, saya ingin reservasi kelas coba dan tanya jadwal minggu ini.",
+      heroTitle: "Studio yoga kecil dengan jadwal rapi, kelas tenang, dan reservasi tanpa ribet.",
+      heroLead: "Demo ini dibuat untuk bisnis wellness yang menjual atmosfer: calon peserta langsung melihat jadwal, paket kelas, instruktur, dan cara reservasi kelas coba.",
+      primaryCta: "Reservasi Kelas",
+      secondaryCta: "Lihat Jadwal",
+      accentLabel: "Kelas kecil harian",
+      heroAssetUrl: "/demo/studio-yoga-senja.svg",
+      productsTitle: "Paket kelas dibuat mudah dibandingkan.",
+      products: JSON.stringify([
+        {
+          name: "Drop-In Class",
+          price: "Rp95rb",
+          desc: "Satu sesi kelas kecil untuk mencoba flow yoga sore atau morning stretch.",
+          features: ["Mat tersedia", "Maks. 10 peserta", "Cocok pemula"],
+          popular: true
+        },
+        {
+          name: "Paket 8 Sesi",
+          price: "Rp620rb",
+          desc: "Paket rutin satu bulan dengan jadwal fleksibel untuk membangun kebiasaan.",
+          features: ["Bebas pilih kelas", "Reminder jadwal", "Progress ringan"],
+          popular: false
+        },
+        {
+          name: "Private Breathwork",
+          price: "Rp280rb",
+          desc: "Sesi privat untuk latihan napas, mobilitas, dan relaksasi setelah kerja.",
+          features: ["1:1 dengan instruktur", "Durasi 75 menit", "Jadwal by request"],
+          popular: false
+        }
+      ]),
+      highlights: JSON.stringify([
+        { icon: "Sparkles", text: "Kelas kecil dan tenang" },
+        { icon: "Clock", text: "Jadwal pagi dan sore" },
+        { icon: "Users", text: "Instruktur mendampingi pemula" }
+      ]),
+      stats: JSON.stringify([
+        { icon: "Clock", value: "6 jadwal", label: "kelas mingguan" },
+        { icon: "Users", value: "10 orang", label: "maksimum kelas" },
+        { icon: "Star", value: "4.9/5", label: "review peserta" }
+      ]),
+      proofTitle: "Rasa tenang perlu terlihat sebelum calon peserta datang.",
+      proofItems: JSON.stringify([
+        { icon: "CheckSquare", title: "Jadwal Ringkas", desc: "Slot kelas terlihat jelas agar pengunjung langsung tahu kapan bisa mencoba." },
+        { icon: "ListChecks", title: "Level Kelas Transparan", desc: "Setiap kelas diberi konteks untuk pemula, rutin, atau privat agar tidak salah pilih." },
+        { icon: "MapPin", title: "Lokasi dan Reservasi Mudah", desc: "Informasi studio, kuota, dan tombol reservasi dibuat dekat dengan keputusan booking." }
+      ]),
+      testimonialQuote: "Banyak peserta baru akhirnya berani coba karena jadwal dan level kelas sudah jelas dari awal.",
+      testimonialPerson: "Nadia, instruktur Studio Yoga Senja",
+      finalTitle: "Buat studio wellness terasa tenang sejak halaman pertama.",
+      metaTitle: "Demo Landing Page Studio Yoga Senja | PekanWeb Studio",
+      metaDescription: "Contoh landing page satu halaman untuk studio yoga dan wellness dengan jadwal kelas."
+    },
+    {
+      slug: "aksara-les-privat",
+      businessName: "Aksara Les Privat",
+      businessType: "Les privat & bimbel",
+      theme: "learning",
+      whatsappNumber: "6282387025429",
+      whatsappMessage: "Halo Aksara Les Privat, saya ingin konsultasi program belajar dan jadwal trial untuk anak saya.",
+      heroTitle: "Les privat yang terasa terukur: program, jadwal trial, dan laporan belajar dalam satu alur.",
+      heroLead: "Demo ini dirancang untuk edukasi lokal yang perlu meyakinkan orang tua: program jelas, tutor kredibel, hasil belajar dipantau, dan trial class mudah diambil.",
+      primaryCta: "Konsultasi Belajar",
+      secondaryCta: "Lihat Program",
+      accentLabel: "Trial class terjadwal",
+      heroAssetUrl: "/demo/aksara-les-privat.svg",
+      productsTitle: "Program belajar disusun seperti planner, bukan daftar paket biasa.",
+      products: JSON.stringify([
+        {
+          name: "Trial 90 Menit",
+          price: "Rp75rb",
+          desc: "Sesi awal untuk cek kebutuhan belajar, karakter anak, dan target orang tua.",
+          features: ["Assessment ringan", "Rekomendasi tutor", "Jadwal fleksibel"],
+          popular: true
+        },
+        {
+          name: "Matematika 1:1",
+          price: "Rp520rb/bln",
+          desc: "Pendampingan rutin untuk SD-SMP dengan latihan bertahap dan review mingguan.",
+          features: ["8 pertemuan", "Laporan progress", "Latihan per bab"],
+          popular: false
+        },
+        {
+          name: "Kelas UTBK Mini",
+          price: "Rp780rb/bln",
+          desc: "Kelompok kecil untuk persiapan UTBK dengan target materi dan tryout berkala.",
+          features: ["Maks. 6 siswa", "Bank soal", "Evaluasi skor"],
+          popular: false
+        }
+      ]),
+      highlights: JSON.stringify([
+        { icon: "BookOpen", text: "Program per mapel" },
+        { icon: "Users", text: "Tutor terkurasi" },
+        { icon: "CheckSquare", text: "Laporan progress rutin" }
+      ]),
+      stats: JSON.stringify([
+        { icon: "Users", value: "1:1", label: "opsi privat" },
+        { icon: "BookOpen", value: "4 mapel", label: "program aktif" },
+        { icon: "ListChecks", value: "Mingguan", label: "progress report" }
+      ]),
+      proofTitle: "Orang tua butuh bukti bahwa belajar anak dipantau.",
+      proofItems: JSON.stringify([
+        { icon: "ListChecks", title: "Learning Roadmap", desc: "Halaman menjelaskan alur assessment, jadwal, latihan, dan laporan agar ekspektasi jelas." },
+        { icon: "Star", title: "Tutor Terlihat Kredibel", desc: "Profil pendek tutor dan fokus mapel membuat orang tua lebih nyaman sebelum trial." },
+        { icon: "Send", title: "Brief Trial Langsung ke WhatsApp", desc: "CTA membawa konteks kelas, jenjang, dan kebutuhan anak ke percakapan admin." }
+      ]),
+      testimonialQuote: "Yang paling membantu adalah orang tua sudah paham sistem laporan sebelum chat. Konsultasinya jadi lebih cepat.",
+      testimonialPerson: "Fadli, koordinator tutor Aksara",
+      finalTitle: "Jadikan jasa edukasi terasa rapi, terukur, dan mudah dipercaya.",
+      metaTitle: "Demo Landing Page Aksara Les Privat | PekanWeb Studio",
+      metaDescription: "Contoh landing page satu halaman untuk les privat dan bimbel dengan learning planner."
+    },
+    {
+      slug: "mekar-florist-hampers",
+      businessName: "Mekar Florist & Hampers",
+      businessType: "Florist & hampers event",
+      theme: "florist",
+      whatsappNumber: "6282387025429",
+      whatsappMessage: "Halo Mekar Florist & Hampers, saya ingin pesan bouquet atau hampers untuk momen spesial.",
+      heroTitle: "Bouquet, hampers, dan dekor kecil yang dipilih berdasarkan momen, bukan katalog panjang.",
+      heroLead: "Demo ini menata florist seperti event catalog: pembeli memilih momen, melihat paket yang cocok, memahami timeline order, lalu chat dengan referensi yang jelas.",
+      primaryCta: "Pesan Rangkaian",
+      secondaryCta: "Lihat Paket",
+      accentLabel: "Custom note tersedia",
+      heroAssetUrl: "/demo/mekar-florist-hampers.svg",
+      productsTitle: "Paket hadiah dibuat berdasarkan occasion.",
+      products: JSON.stringify([
+        {
+          name: "Bouquet Signature",
+          price: "Mulai Rp175rb",
+          desc: "Rangkaian bunga segar untuk ulang tahun, wisuda, dan ucapan personal.",
+          features: ["Pilih tone warna", "Kartu ucapan", "Foto sebelum kirim"],
+          popular: true
+        },
+        {
+          name: "Hampers Custom",
+          price: "Mulai Rp260rb",
+          desc: "Paket hadiah dengan snack, bunga kering, kartu, dan packaging premium.",
+          features: ["Isi bisa request", "Box premium", "Ribbon matching"],
+          popular: false
+        },
+        {
+          name: "Dekor Meja Intimate",
+          price: "Mulai Rp650rb",
+          desc: "Dekor bunga kecil untuk dinner, lamaran sederhana, atau event kantor.",
+          features: ["Moodboard awal", "Setup lokasi", "Sewa vas included"],
+          popular: false
+        }
+      ]),
+      highlights: JSON.stringify([
+        { icon: "Gift", text: "Hadiah ulang tahun & wisuda" },
+        { icon: "Camera", text: "Foto preview sebelum kirim" },
+        { icon: "Send", text: "Same-day terbatas" }
+      ]),
+      stats: JSON.stringify([
+        { icon: "Clock", value: "H+0", label: "same-day terbatas" },
+        { icon: "Package", value: "3 paket", label: "buket & hampers" },
+        { icon: "MessageCircleHeart", value: "Custom", label: "note personal" }
+      ]),
+      proofTitle: "Hadiah terasa lebih aman saat ekspektasi visualnya jelas.",
+      proofItems: JSON.stringify([
+        { icon: "ImagePlus", title: "Moodboard Occasion", desc: "Referensi warna dan momen membantu pembeli memilih tanpa harus scroll katalog panjang." },
+        { icon: "Package", title: "Timeline Order Jelas", desc: "Informasi batas same-day, custom note, dan pengiriman mengurangi chat bolak-balik." },
+        { icon: "MessageCircleHeart", title: "Preview Sebelum Kirim", desc: "Bukti foto sebelum pengiriman meningkatkan rasa aman saat membeli hadiah online." }
+      ]),
+      testimonialQuote: "Customer sekarang kirim momen dan tone warna. Admin lebih cepat kasih rekomendasi paket yang pas.",
+      testimonialPerson: "Maya, owner Mekar Florist",
+      finalTitle: "Buat katalog hadiah terasa personal dan mudah dipilih.",
+      metaTitle: "Demo Landing Page Mekar Florist & Hampers | PekanWeb Studio",
+      metaDescription: "Contoh landing page satu halaman untuk florist, hampers, dan event catalog."
+    }
+  ]
+
+  for (const client of additionalClients) {
+    const { slug, ...clientData } = client
+    await prisma.client.upsert({
+      where: { slug },
+      update: clientData,
+      create: { slug, ...clientData }
+    })
+  }
+
   console.log("Seeding finished!")
 }
 

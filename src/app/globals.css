@@ -29,6 +29,9 @@
   --demo-accent-rendang: #b45309;
   --demo-accent-batik: #a16207;
   --demo-accent-cleaning: #0e7490;
+  --demo-accent-wellness: #0f766e;
+  --demo-accent-learning: #2563eb;
+  --demo-accent-florist: #be123c;
 
   /* Functional tokens */
   --focus-ring: var(--blue-700);

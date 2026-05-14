@@ -1,6 +1,7 @@
 .demoCard {
   display: flex;
   height: 100%;
+  min-width: 0;
   flex-direction: column;
   border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
@@ -40,16 +41,19 @@
   margin-bottom: var(--space-2);
   color: var(--foreground);
   font-size: 20px;
+  overflow-wrap: break-word;
 }
 
 .demoCard p {
   color: var(--gray-600);
   font-size: 14px;
   line-height: 1.5;
+  overflow-wrap: break-word;
 }
 
 .demoVisual {
   position: relative;
+  min-width: 0;
   min-height: 240px;
   overflow: hidden;
   border: 1px solid var(--gray-200);
@@ -80,6 +84,8 @@
   color: var(--blue-700);
   font-size: 12px;
   font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: break-word;
 }
 
 .choiceBadge {
@@ -94,12 +100,15 @@
   color: var(--gray-800);
   font-size: 12px;
   font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: break-word;
 }
 
 .demoPreview {
   position: absolute;
   inset: auto 20px 20px;
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 4px;
   border: 1px solid var(--gray-200);
@@ -121,17 +130,20 @@
   color: var(--foreground);
   font-size: 18px;
   line-height: 1.2;
+  overflow-wrap: break-word;
 }
 
 .demoPreview small {
   margin-top: 4px;
   color: var(--gray-600);
   font-size: 12px;
+  overflow-wrap: break-word;
 }
 
 .demoContent {
   display: flex;
   flex: 1;
+  min-width: 0;
   flex-direction: column;
   gap: 16px;
 }
@@ -161,6 +173,7 @@
   color: var(--gray-600);
   font-size: 12px;
   font-weight: 600;
+  overflow-wrap: break-word;
 }
 
 .demoStats {
@@ -176,6 +189,7 @@
   color: var(--blue-700);
   font-size: 11px;
   font-weight: 700;
+  overflow-wrap: break-word;
 }
 
 .demoAction {
@@ -195,16 +209,66 @@
   background-color: #dbeafe;
 }
 
+.wellnessDemo {
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--demo-accent-wellness) 18%, white), transparent 34%),
+    linear-gradient(135deg, color-mix(in srgb, var(--demo-accent-wellness) 12%, white), var(--white) 56%, var(--blue-50));
+}
+
+.learningDemo {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--demo-accent-learning) 13%, white) 1px, transparent 1px),
+    linear-gradient(180deg, var(--white), color-mix(in srgb, var(--demo-accent-learning) 10%, white));
+  background-size: 32px 32px, auto;
+}
+
+.floristDemo {
+  background:
+    radial-gradient(circle at 82% 22%, color-mix(in srgb, var(--demo-accent-florist) 18%, white), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--demo-accent-florist) 11%, white), var(--white) 52%, color-mix(in srgb, var(--demo-accent-wellness) 10%, white));
+}
+
 @media (max-width: 640px) {
   .demoCard {
+    width: 100%;
+    overflow: hidden;
     padding: var(--space-4);
   }
 
   .demoVisual {
+    width: 100%;
     min-height: 220px;
+  }
+
+  .demoBadge,
+  .choiceBadge {
+    top: 12px;
+    max-width: calc(50% - 18px);
+    padding: 6px 10px;
+  }
+
+  .demoBadge {
+    left: 12px;
+  }
+
+  .choiceBadge {
+    right: 12px;
+  }
+
+  .demoPreview {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    padding: 14px;
   }
 
   .demoSections {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 479px) {
+  .demoCard {
+    max-width: 320px;
   }
 }

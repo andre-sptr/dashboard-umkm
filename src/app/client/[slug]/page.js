@@ -105,6 +105,9 @@ export default async function ClientPage({ params }) {
     rendang: CulinaryDemo,
     batik: LookbookDemo,
     cleaning: ServiceDemo,
+    wellness: WellnessDemo,
+    learning: LearningDemo,
+    florist: FloristDemo,
   }[demo.theme] || GeneralDemo;
 
   const pageClass = [styles.page, styles[demo.theme], styles[`${demo.theme}Page`]].filter(Boolean).join(' ');
@@ -407,6 +410,169 @@ function ServiceDemo({ demo }) {
             <h2>{demo.proofTitle}</h2>
             <ProofItems items={demo.proofItems} mode="checklist" />
           </div>
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function WellnessDemo({ demo }) {
+  const featuredClass = demo.products?.[0];
+
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.wellnessHero}`}>
+        <div className={`container ${styles.wellnessHeroGrid}`}>
+          <div className={styles.wellnessVisual}>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.wellnessImage} />
+            {featuredClass && (
+              <div className={styles.wellnessScheduleCard}>
+                <span>Jadwal cepat</span>
+                <strong>{featuredClass.name}</strong>
+                <small>{featuredClass.price}</small>
+              </div>
+            )}
+          </div>
+
+          <div className={styles.wellnessCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HighlightList items={demo.highlights} className={styles.wellnessHighlights} />
+            <HeroActions demo={demo} />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.wellnessScheduleSection} id="paket">
+        <div className={`container ${styles.wellnessScheduleGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya jadwal kelas</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo wellness dibuat seperti studio appointment: atmosfer dulu, pilihan kelas ringkas, lalu reservasi kelas coba tanpa membuat pengunjung membaca terlalu banyak.</p>
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+          <ProductCards products={demo.products} mode="wellness" />
+        </div>
+      </section>
+
+      <section className={styles.wellnessProofSection}>
+        <div className={`container ${styles.wellnessProofGrid}`}>
+          <div>
+            <Eyebrow className={styles.demoEyebrow}>Rasa aman sebelum ikut kelas</Eyebrow>
+            <h2>{demo.proofTitle}</h2>
+            <ProofItems items={demo.proofItems} mode="wellness" />
+          </div>
+          <Testimonial testimonial={demo.testimonial} compact />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function LearningDemo({ demo }) {
+  const primaryProgram = demo.products?.[0];
+
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.learningHero}`}>
+        <div className={`container ${styles.learningHeroGrid}`}>
+          <div className={styles.learningCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+
+          <div className={styles.learningBoard}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.learningImage} />
+            {primaryProgram && (
+              <div className={styles.learningBoardFooter}>
+                <span>Program awal</span>
+                <strong>{primaryProgram.name}</strong>
+                <small>{primaryProgram.desc}</small>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.learningProgramSection} id="paket">
+        <div className={`container ${styles.learningProgramGrid}`}>
+          <div className={styles.plannerIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya learning planner</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo edukasi dibuat untuk orang tua yang butuh kepastian: program jelas, hasil belajar terukur, jadwal trial mudah, dan tutor terasa kredibel sejak halaman pertama.</p>
+          </div>
+          <ProductCards products={demo.products} mode="learning" />
+        </div>
+      </section>
+
+      <section className={styles.learningProofSection}>
+        <div className={`container ${styles.learningProofGrid}`}>
+          <div className={styles.learningProofIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Progress yang terlihat</Eyebrow>
+            <h2>{demo.proofTitle}</h2>
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+          <ProofItems items={demo.proofItems} mode="learning" />
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function FloristDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.floristHero}`}>
+        <div className={`container ${styles.floristHeroInner}`}>
+          <div className={styles.floristCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+          </div>
+
+          <div className={styles.floristStage}>
+            <div className={styles.floristImageWrap}>
+              <span className={styles.assetLabel}>{demo.accentLabel}</span>
+              <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.floristImage} />
+            </div>
+            <div className={styles.floristOccasionPanel}>
+              <span>Occasion finder</span>
+              <h2>Pilih momen, baru pilih rangkaian.</h2>
+              <HighlightList items={demo.highlights} className={styles.floristHighlights} />
+              <StatStrip stats={demo.stats} variant="stacked" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.floristCatalogSection} id="paket">
+        <div className={`container ${styles.floristCatalogGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya event catalog</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo florist dibuat seperti katalog berbasis momen: pengunjung memilih hadiah ulang tahun, ucapan kantor, atau dekor kecil, lalu langsung diarahkan ke chat order.</p>
+          </div>
+          <ProductCards products={demo.products} mode="florist" />
+        </div>
+      </section>
+
+      <section className={styles.floristProofSection}>
+        <div className={`container ${styles.floristProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="florist" />
           <Testimonial testimonial={demo.testimonial} />
         </div>
       </section>

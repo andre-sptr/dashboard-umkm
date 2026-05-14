@@ -11,8 +11,8 @@ export default function PortfolioSection() {
         <Reveal>
           <div className={styles.sectionHeader}>
             <Eyebrow>Project demo</Eyebrow>
-            <h2>Tiga gaya demo berbeda supaya calon client bisa pilih arah website.</h2>
-            <p>Setiap demo punya layout, ritme konten, dan fokus konversi yang berbeda: promo menu, lookbook produk, atau booking jasa.</p>
+            <h2>Enam gaya demo berbeda supaya calon client bisa pilih arah website.</h2>
+            <p>Setiap demo punya layout, ritme konten, dan fokus konversi yang berbeda: promo menu, lookbook produk, booking jasa, jadwal wellness, learning planner, atau event catalog.</p>
           </div>
         </Reveal>
         <div className={styles.demoGrid}>

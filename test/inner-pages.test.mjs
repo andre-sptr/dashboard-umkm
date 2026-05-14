@@ -33,15 +33,15 @@ test('inner page styles use light surfaces without dark rgba panel leftovers', (
   }
 });
 
-test('demo page reuses live demo projects plus one placeholder card', () => {
+test('demo page reuses six live demo projects without placeholder cards', () => {
   const page = read('src/app/demo/page.js');
   const css = read('src/app/demo/demo.module.css');
 
   assert.match(page, /demoProjects/);
   assert.match(page, /PortfolioCard/);
   assert.match(page, /Demo dashboard/);
-  assert.match(page, /\[\.\.\.demoProjects,\s*comingSoon\]\.map/);
-  assert.match(page, /isPlaceholder:\s*true/);
+  assert.match(page, /demoProjects\.map/);
+  assert.doesNotMatch(page, /comingSoon|isPlaceholder:\s*true/);
   assert.doesNotMatch(page, /Warung Kopi Nuri|Batik Riau Abadi|Klinik Cantik Pekanbaru|Jasa Servis AC Lancang|Pekanbaru Tour Guide|Agro Riau Mandiri/);
   assert.doesNotMatch(css, /\.projectCard|\.projectImage|\.mockTop|\.mockBody|\.category/);
 });

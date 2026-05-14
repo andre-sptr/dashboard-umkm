@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" role="img" aria-labelledby="title desc">
+  <title id="title">Aksara Les Privat visual</title>
+  <desc id="desc">Structured education dashboard with lesson planner, progress chart, and trial class card.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/>
+      <stop offset="0.58" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#1e40af"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="840" fill="url(#bg)"/>
+  <circle cx="760" cy="118" r="168" fill="#2563eb" opacity=".12"/>
+  <circle cx="126" cy="690" r="196" fill="#f59e0b" opacity=".16"/>
+  <g transform="translate(94 98)">
+    <rect x="0" y="0" width="712" height="518" rx="42" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <rect x="38" y="44" width="636" height="88" rx="26" fill="url(#blue)"/>
+    <text x="76" y="96" fill="#ffffff" font-family="Arial, sans-serif" font-size="28" font-weight="700">Learning planner</text>
+    <rect x="38" y="166" width="292" height="286" rx="28" fill="#eff6ff"/>
+    <rect x="368" y="166" width="306" height="132" rx="28" fill="#f8fafc" stroke="#dbeafe" stroke-width="3"/>
+    <rect x="368" y="320" width="306" height="132" rx="28" fill="#fff7ed" stroke="#fed7aa" stroke-width="3"/>
+    <text x="72" y="218" fill="#1e40af" font-family="Arial, sans-serif" font-size="24" font-weight="700">Trial 90 menit</text>
+    <rect x="72" y="252" width="210" height="16" rx="8" fill="#93c5fd"/>
+    <rect x="72" y="286" width="172" height="16" rx="8" fill="#bfdbfe"/>
+    <rect x="72" y="338" width="218" height="70" rx="20" fill="#ffffff"/>
+    <text x="96" y="381" fill="#0f172a" font-family="Arial, sans-serif" font-size="20" font-weight="700">Assessment awal</text>
+    <text x="404" y="216" fill="#0f172a" font-family="Arial, sans-serif" font-size="21" font-weight="700">Progress anak</text>
+    <rect x="404" y="248" width="210" height="14" rx="7" fill="#dbeafe"/>
+    <rect x="404" y="248" width="142" height="14" rx="7" fill="#2563eb"/>
+    <text x="404" y="372" fill="#0f172a" font-family="Arial, sans-serif" font-size="21" font-weight="700">Rapor mingguan</text>
+    <circle cx="596" cy="386" r="32" fill="#f59e0b"/>
+    <path d="M582 388l10 10 22-28" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(160 660)">
+    <rect width="580" height="92" rx="28" fill="#ffffff" stroke="#bfdbfe" stroke-width="3"/>
+    <rect x="34" y="28" width="130" height="36" rx="18" fill="#eff6ff"/>
+    <rect x="190" y="28" width="150" height="36" rx="18" fill="#fff7ed"/>
+    <rect x="366" y="28" width="180" height="36" rx="18" fill="#eff6ff"/>
+    <text x="60" y="52" fill="#1e40af" font-family="Arial, sans-serif" font-size="16" font-weight="700">1:1 privat</text>
+    <text x="218" y="52" fill="#92400e" font-family="Arial, sans-serif" font-size="16" font-weight="700">4 mapel</text>
+    <text x="392" y="52" fill="#1e40af" font-family="Arial, sans-serif" font-size="16" font-weight="700">Laporan rutin</text>
+  </g>
+</svg>

@@ -24,6 +24,7 @@
 
 .heroInner {
   position: relative;
+  min-width: 0;
   max-width: 920px;
 }
 
@@ -31,6 +32,7 @@
   max-width: 860px;
   margin-bottom: var(--space-4);
   color: var(--gray-900);
+  overflow-wrap: break-word;
 }
 
 .hero p:last-child {
@@ -38,6 +40,7 @@
   color: var(--gray-600);
   font-size: 16px;
   line-height: 1.6;
+  overflow-wrap: break-word;
 }
 
 .portfolioSection {
@@ -49,6 +52,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-5);
+  min-width: 0;
+}
+
+.grid > * {
+  min-width: 0;
 }
 
 @media (max-width: 1023px) {
@@ -60,6 +68,17 @@
 @media (max-width: 640px) {
   .hero {
     padding: var(--section-gap-mobile) 0;
+  }
+
+  .hero h1 {
+    max-width: 11em;
+    font-size: 30px;
+    line-height: 1.16;
+  }
+
+  .hero p:last-child {
+    max-width: 34ch;
+    font-size: 15px;
   }
 
   .portfolioSection {

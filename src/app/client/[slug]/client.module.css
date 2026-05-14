@@ -30,6 +30,21 @@
   --demo-soft: color-mix(in srgb, var(--demo-accent-cleaning) 8%, var(--gray-50));
 }
 
+.wellness {
+  --demo-accent: var(--demo-accent-wellness);
+  --demo-soft: color-mix(in srgb, var(--demo-accent-wellness) 8%, var(--gray-50));
+}
+
+.learning {
+  --demo-accent: var(--demo-accent-learning);
+  --demo-soft: color-mix(in srgb, var(--demo-accent-learning) 7%, var(--gray-50));
+}
+
+.florist {
+  --demo-accent: var(--demo-accent-florist);
+  --demo-soft: color-mix(in srgb, var(--demo-accent-florist) 7%, var(--gray-50));
+}
+
 .default {
   --demo-accent: var(--blue-600);
 }
@@ -75,7 +90,10 @@
 
 .heroCopy h1,
 .lookbookCopy h1,
-.servicePanel h1 {
+.servicePanel h1,
+.wellnessCopy h1,
+.learningCopy h1,
+.floristCopy h1 {
   max-width: 820px;
   margin-top: var(--space-5);
   margin-bottom: var(--space-5);
@@ -263,6 +281,12 @@
 .flavorProofSection,
 .editorialProofSection,
 .sopSection,
+.wellnessScheduleSection,
+.wellnessProofSection,
+.learningProgramSection,
+.learningProofSection,
+.floristCatalogSection,
+.floristProofSection,
 .finalSection {
   padding: var(--section-gap-desktop) 0;
 }
@@ -278,6 +302,12 @@
 .flavorGrid,
 .editorialProofGrid,
 .sopGrid,
+.wellnessScheduleGrid,
+.wellnessProofGrid,
+.learningProgramGrid,
+.learningProofGrid,
+.floristCatalogGrid,
+.floristProofGrid,
 .proofGrid {
   display: grid;
   gap: var(--space-9);
@@ -286,6 +316,9 @@
 .menuLayout,
 .collectionLayout,
 .servicePlannerGrid,
+.wellnessScheduleGrid,
+.learningProgramGrid,
+.floristCatalogGrid,
 .sectionGrid {
   grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
   align-items: start;
@@ -304,6 +337,9 @@
 .flavorGrid h2,
 .editorialProofGrid h2,
 .sopPanel h2,
+.wellnessProofGrid h2,
+.learningProofIntro h2,
+.floristOccasionPanel h2,
 .finalContent h2 {
   color: var(--demo-text);
 }
@@ -311,6 +347,7 @@
 .sectionIntro p,
 .plannerIntro p,
 .proofItem p,
+.floristOccasionPanel p,
 .finalContent p {
   color: var(--demo-muted);
   font-size: 16px;
@@ -808,6 +845,315 @@
   box-shadow: none;
 }
 
+.wellnessHero {
+  background:
+    radial-gradient(circle at 14% 18%, var(--demo-accent-soft), transparent 34%),
+    linear-gradient(135deg, var(--white), var(--demo-soft));
+}
+
+.wellnessHeroGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(420px, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.wellnessVisual {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+}
+
+.wellnessImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.wellnessScheduleCard {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: grid;
+  gap: 4px;
+  width: min(320px, calc(100% - 40px));
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--white) 94%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+
+.wellnessScheduleCard span,
+.learningBoardFooter span,
+.floristOccasionPanel span {
+  color: var(--demo-accent);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.wellnessScheduleCard strong {
+  color: var(--gray-900);
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.wellnessScheduleCard small,
+.learningBoardFooter small {
+  color: var(--gray-600);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.wellnessCopy {
+  position: relative;
+  z-index: 1;
+}
+
+.wellnessHighlights {
+  margin-bottom: var(--space-6);
+}
+
+.wellnessScheduleSection {
+  background: var(--white);
+}
+
+.wellnessProducts,
+.learningProducts,
+.floristProducts {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.wellnessProducts .productCard,
+.learningProducts .productCard,
+.floristProducts .productCard {
+  align-content: start;
+}
+
+.wellnessProducts .productHeader,
+.learningProducts .productHeader,
+.floristProducts .productHeader {
+  display: grid;
+  padding-right: 0;
+}
+
+.wellnessProducts .popularBadge,
+.learningProducts .popularBadge,
+.floristProducts .popularBadge {
+  position: static;
+  width: fit-content;
+}
+
+.wellnessProofSection {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--demo-soft);
+}
+
+.wellnessProofGrid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+  align-items: stretch;
+}
+
+.wellnessProofGrid h2 {
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.wellnessProof .proofItem {
+  border-left: 4px solid var(--demo-accent);
+  box-shadow: none;
+}
+
+.learningHero {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--demo-accent) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, var(--white), var(--demo-soft));
+  background-size: 44px 44px, auto;
+}
+
+.learningHeroGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  gap: var(--space-9);
+  align-items: center;
+}
+
+.learningCopy {
+  position: relative;
+  z-index: 1;
+}
+
+.learningBoard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+}
+
+.learningImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+}
+
+.learningBoardFooter {
+  position: absolute;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  display: grid;
+  gap: 4px;
+  width: min(380px, calc(100% - 48px));
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-sm);
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--white) 94%, transparent);
+  box-shadow: var(--shadow-md);
+}
+
+.learningBoardFooter strong {
+  color: var(--gray-900);
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.learningProgramSection {
+  background: var(--white);
+}
+
+.learningProducts .productCard {
+  border-top: 4px solid var(--demo-accent);
+}
+
+.learningProofSection {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--demo-soft);
+}
+
+.learningProofGrid {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: start;
+}
+
+.learningProofIntro {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.learningProofIntro h2 {
+  margin-bottom: var(--space-2);
+}
+
+.learningProof {
+  grid-template-columns: 1fr;
+}
+
+.learningProofGrid .testimonial {
+  grid-column: 2;
+}
+
+.floristHero {
+  background:
+    radial-gradient(circle at 86% 20%, var(--demo-accent-soft), transparent 32%),
+    linear-gradient(180deg, var(--demo-soft), var(--white));
+}
+
+.floristHeroInner {
+  position: relative;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.floristCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+}
+
+.floristStage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.24fr) minmax(320px, 0.76fr);
+  gap: var(--space-5);
+  align-items: stretch;
+}
+
+.floristImageWrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  box-shadow: var(--shadow-xl);
+}
+
+.floristImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.floristOccasionPanel {
+  display: grid;
+  gap: var(--space-5);
+  align-content: center;
+  border: 1px solid var(--demo-line);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  background: color-mix(in srgb, var(--white) 96%, transparent);
+  box-shadow: var(--shadow-lg);
+}
+
+.floristOccasionPanel h2 {
+  font-size: 34px;
+  line-height: 1.18;
+}
+
+.floristHighlights {
+  display: grid;
+}
+
+.floristCatalogSection {
+  background: var(--white);
+}
+
+.floristProducts .productCard {
+  background:
+    linear-gradient(180deg, var(--white), var(--demo-accent-soft)),
+    var(--white);
+}
+
+.floristProofSection {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--demo-soft);
+}
+
+.floristProofGrid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.74fr);
+  align-items: start;
+}
+
+.floristProof {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.floristProofGrid .testimonial {
+  align-self: stretch;
+}
+
 .generalHero {
   background: var(--demo-soft);
 }
@@ -896,6 +1242,15 @@
   .serviceHeroGrid,
   .servicePlannerGrid,
   .sopGrid,
+  .wellnessHeroGrid,
+  .wellnessScheduleGrid,
+  .wellnessProofGrid,
+  .learningHeroGrid,
+  .learningProgramGrid,
+  .learningProofGrid,
+  .floristStage,
+  .floristCatalogGrid,
+  .floristProofGrid,
   .generalHeroGrid,
   .sectionGrid,
   .proofGrid {
@@ -918,17 +1273,28 @@
     grid-column: auto;
   }
 
+  .learningProofGrid .testimonial {
+    grid-column: auto;
+  }
+
   .serviceVisual {
     max-width: 760px;
   }
 
-  .serviceImage {
+  .serviceImage,
+  .wellnessImage,
+  .learningImage,
+  .floristImage {
     min-height: auto;
   }
 
   .serviceProducts,
   .editorialProof,
-  .lookbookProducts {
+  .lookbookProducts,
+  .wellnessProducts,
+  .learningProducts,
+  .floristProducts,
+  .floristProof {
     grid-template-columns: 1fr;
   }
 
@@ -946,6 +1312,12 @@
   .flavorProofSection,
   .editorialProofSection,
   .sopSection,
+  .wellnessScheduleSection,
+  .wellnessProofSection,
+  .learningProgramSection,
+  .learningProofSection,
+  .floristCatalogSection,
+  .floristProofSection,
   .finalSection {
     padding: var(--section-gap-tablet) 0;
   }
@@ -958,6 +1330,13 @@
     position: static;
     width: auto;
     padding: var(--space-4);
+  }
+
+  .wellnessScheduleCard,
+  .learningBoardFooter {
+    position: static;
+    width: auto;
+    margin: var(--space-3);
   }
 
   .menuProducts .productCard {
@@ -991,6 +1370,12 @@
   .flavorProofSection,
   .editorialProofSection,
   .sopSection,
+  .wellnessScheduleSection,
+  .wellnessProofSection,
+  .learningProgramSection,
+  .learningProofSection,
+  .floristCatalogSection,
+  .floristProofSection,
   .finalSection {
     padding: var(--section-gap-mobile) 0;
   }
@@ -1007,6 +1392,7 @@
   .servicePanel,
   .sopPanel,
   .proofPanel,
+  .floristOccasionPanel,
   .finalBox {
     padding: var(--space-5);
   }
