@@ -33,7 +33,7 @@ test('inner page styles use light surfaces without dark rgba panel leftovers', (
   }
 });
 
-test('demo page reuses six live demo projects without placeholder cards', () => {
+test('demo page reuses live demo projects without placeholder cards', () => {
   const page = read('src/app/demo/page.js');
   const css = read('src/app/demo/demo.module.css');
 

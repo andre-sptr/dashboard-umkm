@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" role="img" aria-labelledby="title desc">
+  <title id="title">Teras Kopi Roastery visual</title>
+  <desc id="desc">Roastery roast drop board with coffee bags, tasting notes, and weekly batch cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff7ed"/>
+      <stop offset="0.55" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#7c2d12"/>
+      <stop offset="1" stop-color="#431407"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="840" fill="url(#bg)"/>
+  <circle cx="720" cy="132" r="134" fill="#f59e0b" opacity=".18"/>
+  <circle cx="126" cy="716" r="190" fill="#7c2d12" opacity=".12"/>
+  <g transform="translate(104 96)">
+    <rect x="0" y="0" width="500" height="604" rx="38" fill="#ffffff" stroke="#fed7aa" stroke-width="3"/>
+    <text x="42" y="68" fill="#7c2d12" font-family="Arial, sans-serif" font-size="30" font-weight="800">Roast drop</text>
+    <rect x="42" y="104" width="416" height="118" rx="24" fill="#fff7ed"/>
+    <rect x="42" y="250" width="416" height="118" rx="24" fill="#fffbeb"/>
+    <rect x="42" y="396" width="416" height="118" rx="24" fill="#fff7ed"/>
+    <g fill="#7c2d12" font-family="Arial, sans-serif" font-weight="800">
+      <text x="78" y="154" font-size="26">Kerinci honey</text>
+      <text x="78" y="300" font-size="26">Gayo espresso</text>
+      <text x="78" y="446" font-size="26">Wholesale pack</text>
+    </g>
+    <g fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="700">
+      <text x="78" y="188">orange peel - cocoa - syrup</text>
+      <text x="78" y="334">dark chocolate - spice</text>
+      <text x="78" y="480">sample cupping included</text>
+    </g>
+  </g>
+  <g transform="translate(548 214)">
+    <rect x="28" y="24" width="244" height="344" rx="32" fill="url(#bag)"/>
+    <rect x="66" y="78" width="168" height="92" rx="18" fill="#fff7ed"/>
+    <text x="96" y="118" fill="#7c2d12" font-family="Arial, sans-serif" font-size="22" font-weight="800">250gr</text>
+    <text x="88" y="150" fill="#431407" font-family="Arial, sans-serif" font-size="16" font-weight="700">Friday roast</text>
+    <circle cx="150" cy="252" r="54" fill="#fed7aa" opacity=".78"/>
+    <path d="M126 252c16-26 34-26 48 0-16 25-34 25-48 0z" fill="#7c2d12"/>
+    <rect x="0" y="396" width="302" height="96" rx="24" fill="#ffffff" stroke="#fed7aa" stroke-width="3"/>
+    <text x="36" y="438" fill="#7c2d12" font-family="Arial, sans-serif" font-size="20" font-weight="800">Batch ready</text>
+    <text x="36" y="466" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="700">4 roast profiles</text>
+  </g>
+</svg>

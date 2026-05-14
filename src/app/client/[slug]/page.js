@@ -108,6 +108,15 @@ export default async function ClientPage({ params }) {
     wellness: WellnessDemo,
     learning: LearningDemo,
     florist: FloristDemo,
+    roastery: RoasteryDemo,
+    refill: RefillDemo,
+    clinic: ClinicDemo,
+    ev: EvDemo,
+    furniture: FurnitureDemo,
+    frozen: FrozenDemo,
+    music: MusicDemo,
+    shuttle: ShuttleDemo,
+    farm: FarmDemo,
   }[demo.theme] || GeneralDemo;
 
   const pageClass = [styles.page, styles[demo.theme], styles[`${demo.theme}Page`]].filter(Boolean).join(' ');
@@ -573,6 +582,427 @@ function FloristDemo({ demo }) {
       <section className={styles.floristProofSection}>
         <div className={`container ${styles.floristProofGrid}`}>
           <ProofItems items={demo.proofItems} mode="florist" />
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function MiniProductList({ products = [], label = 'Pilihan utama' }) {
+  if (!products.length) return null;
+
+  return (
+    <div className={styles.miniProductList}>
+      <span>{label}</span>
+      {products.slice(0, 3).map((product) => (
+        <div className={styles.miniProductItem} key={product.name}>
+          <strong>{product.name}</strong>
+          <small>{product.price}</small>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function RoasteryDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.roasteryHero}`}>
+        <div className={`container ${styles.roasteryHeroGrid}`}>
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+
+          <div className={styles.roasteryStage}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <MiniProductList products={demo.products} label="Roast drop" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.roasteryDropSection} id="paket">
+        <div className={`container ${styles.roasteryDropGrid}`}>
+          <div className={styles.roasteryNotePanel}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya roast drop</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo ini memakai ritme product launch: batch terbaru dibuat dominan, catatan rasa cepat terbaca, lalu pembeli diarahkan ke retail pack atau wholesale.</p>
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+          <ProductCards products={demo.products} mode="roastery" />
+        </div>
+      </section>
+
+      <section className={styles.roasteryProofSection}>
+        <div className={`container ${styles.conceptProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="roastery" />
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function RefillDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.refillHero}`}>
+        <div className={`container ${styles.refillHeroGrid}`}>
+          <div className={styles.refillImpactPanel}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <div className={styles.impactMeter}>
+              <strong>Impact meter</strong>
+              <StatStrip stats={demo.stats} variant="stacked" />
+            </div>
+          </div>
+
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.refillShelfSection} id="paket">
+        <div className={`container ${styles.refillShelfGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya impact calculator</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Layout refill dibuat seperti dashboard kecil: pelanggan melihat kategori, estimasi hemat plastik, pilihan pickup, dan manfaat member dalam satu layar keputusan.</p>
+          </div>
+          <ProductCards products={demo.products} mode="refill" />
+        </div>
+      </section>
+
+      <section className={styles.refillProofSection}>
+        <div className={`container ${styles.refillProofGrid}`}>
+          <Testimonial testimonial={demo.testimonial} compact />
+          <ProofItems items={demo.proofItems} mode="refill" />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function ClinicDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.clinicHero}`}>
+        <div className={`container ${styles.clinicHeroGrid}`}>
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+          </div>
+
+          <div className={styles.triageCard}>
+            <div className={styles.triageHeader}>
+              <span>{demo.accentLabel}</span>
+              <strong>Appointment triage</strong>
+            </div>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <HighlightList items={demo.highlights} className={styles.triageHighlights} />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.clinicCareSection} id="paket">
+        <div className={`container ${styles.clinicCareGrid}`}>
+          <div className={styles.clinicAside}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya appointment triage</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <StatStrip stats={demo.stats} variant="stacked" />
+          </div>
+          <ProductCards products={demo.products} mode="clinic" />
+        </div>
+      </section>
+
+      <section className={styles.clinicProofSection}>
+        <div className={`container ${styles.clinicProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="clinic" />
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function EvDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.evHero}`}>
+        <div className={`container ${styles.evHeroGrid}`}>
+          <div className={styles.diagnosticConsole}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <MiniProductList products={demo.products} label="Diagnostic bay" />
+          </div>
+
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.evServiceSection} id="paket">
+        <div className={`container ${styles.evServiceGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya diagnostic bay</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo ini terasa seperti ruang servis teknis: keluhan dikurasi, estimasi waktu terlihat, dan paket perawatan baterai tidak bercampur dengan jasa umum.</p>
+          </div>
+          <ProductCards products={demo.products} mode="ev" />
+        </div>
+      </section>
+
+      <section className={styles.evProofSection}>
+        <div className={`container ${styles.conceptProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="ev" />
+          <Testimonial testimonial={demo.testimonial} compact />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function FurnitureDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.furnitureHero}`}>
+        <div className={`container ${styles.furnitureHeroGrid}`}>
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+
+          <div className={styles.materialBoard}>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <div className={styles.materialCard}>
+              <span>{demo.accentLabel}</span>
+              <strong>Room brief + material board</strong>
+              <small>Kirim ukuran, style, dan estimasi budget sebelum chat panjang.</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.furnitureQuoteSection} id="paket">
+        <div className={`container ${styles.furnitureQuoteGrid}`}>
+          <ProductCards products={demo.products} mode="furniture" />
+          <div className={styles.quotePanel}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya quote studio</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Layout furniture dibuat seperti studio brief: pengunjung tidak hanya melihat produk, tetapi diarahkan mengirim ukuran, ruang, material, dan referensi gaya.</p>
+            <StatStrip stats={demo.stats} variant="stacked" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.furnitureProofSection}>
+        <div className={`container ${styles.furnitureProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="furniture" />
+          <Testimonial testimonial={demo.testimonial} />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function FrozenDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.frozenHero}`}>
+        <div className={`container ${styles.frozenHeroGrid}`}>
+          <div className={styles.freezerBoard}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <StatStrip stats={demo.stats} variant="floating" />
+          </div>
+
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.frozenCatalogSection} id="paket">
+        <div className={`container ${styles.frozenCatalogGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya cold-chain catalog</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo frozen dibuat seperti inventory board: stok harian, standar suhu, dan zona kirim menjadi bukti kualitas sebelum calon pembeli memilih paket.</p>
+          </div>
+          <ProductCards products={demo.products} mode="frozen" />
+        </div>
+      </section>
+
+      <section className={styles.frozenProofSection}>
+        <div className={`container ${styles.conceptProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="frozen" />
+          <Testimonial testimonial={demo.testimonial} compact />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function MusicDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.musicHero}`}>
+        <div className={`container ${styles.musicHeroGrid}`}>
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+          </div>
+
+          <div className={styles.studioBoard}>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <MiniProductList products={demo.products} label="Room slot" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.musicSchedulerSection} id="paket">
+        <div className={`container ${styles.musicSchedulerGrid}`}>
+          <div className={styles.schedulerPanel}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya studio scheduler</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <HighlightList items={demo.highlights} className={styles.floristHighlights} />
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+          <ProductCards products={demo.products} mode="music" />
+        </div>
+      </section>
+
+      <section className={styles.musicProofSection}>
+        <div className={`container ${styles.musicProofGrid}`}>
+          <Testimonial testimonial={demo.testimonial} />
+          <ProofItems items={demo.proofItems} mode="music" />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function ShuttleDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.shuttleHero}`}>
+        <div className={`container ${styles.shuttleHeroGrid}`}>
+          <div className={styles.routeBoard}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <MiniProductList products={demo.products} label="Rute hari ini" />
+          </div>
+
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <StatStrip stats={demo.stats} variant="strip" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.shuttleRouteSection} id="paket">
+        <div className={`container ${styles.shuttleRouteGrid}`}>
+          <div className={styles.sectionIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya route board</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo shuttle dibuat seperti papan keberangkatan: rute, jam, kursi, titik jemput, dan reservasi diletakkan dalam urutan baca yang cepat.</p>
+          </div>
+          <ProductCards products={demo.products} mode="shuttle" />
+        </div>
+      </section>
+
+      <section className={styles.shuttleProofSection}>
+        <div className={`container ${styles.conceptProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="shuttle" />
+          <Testimonial testimonial={demo.testimonial} compact />
+        </div>
+      </section>
+
+      <FinalCta demo={demo} />
+    </>
+  );
+}
+
+function FarmDemo({ demo }) {
+  return (
+    <>
+      <section className={`${styles.variantHero} ${styles.farmHero}`}>
+        <div className={`container ${styles.farmHeroGrid}`}>
+          <div className={styles.heroCopy}>
+            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+            <h1>{demo.heroTitle}</h1>
+            {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
+            <HeroActions demo={demo} />
+            <HighlightList items={demo.highlights} />
+          </div>
+
+          <div className={styles.harvestBoard}>
+            <span className={styles.assetLabel}>{demo.accentLabel}</span>
+            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.conceptImage} />
+            <StatStrip stats={demo.stats} variant="stacked" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.farmHarvestSection} id="paket">
+        <div className={`container ${styles.farmHarvestGrid}`}>
+          <div className={styles.harvestIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Gaya harvest calendar</Eyebrow>
+            <h2>{demo.productsTitle}</h2>
+            <p>Demo urban farm dibuat mengikuti siklus panen: calon pembeli memilih jadwal, tipe langganan, dan kebutuhan dapur tanpa merasa sedang melihat katalog biasa.</p>
+          </div>
+          <ProductCards products={demo.products} mode="farm" />
+        </div>
+      </section>
+
+      <section className={styles.farmProofSection}>
+        <div className={`container ${styles.farmProofGrid}`}>
+          <ProofItems items={demo.proofItems} mode="farm" />
           <Testimonial testimonial={demo.testimonial} />
         </div>
       </section>

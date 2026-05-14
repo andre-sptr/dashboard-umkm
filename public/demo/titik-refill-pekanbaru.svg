@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" role="img" aria-labelledby="title desc">
+  <title id="title">Titik Refill Pekanbaru visual</title>
+  <desc id="desc">Refill store impact dashboard with reusable bottles, product shelf, and pickup slot panel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ecfdf5"/>
+      <stop offset="0.62" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#cffafe"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="840" fill="url(#bg)"/>
+  <circle cx="736" cy="142" r="146" fill="#15803d" opacity=".12"/>
+  <circle cx="142" cy="710" r="188" fill="#0891b2" opacity=".13"/>
+  <g transform="translate(104 104)">
+    <rect x="0" y="0" width="390" height="560" rx="38" fill="#ffffff" stroke="#bbf7d0" stroke-width="3"/>
+    <text x="36" y="64" fill="#15803d" font-family="Arial, sans-serif" font-size="28" font-weight="800">Impact meter</text>
+    <circle cx="196" cy="214" r="118" fill="#dcfce7"/>
+    <circle cx="196" cy="214" r="82" fill="#ffffff"/>
+    <text x="144" y="206" fill="#15803d" font-family="Arial, sans-serif" font-size="48" font-weight="900">42</text>
+    <text x="124" y="244" fill="#475569" font-family="Arial, sans-serif" font-size="18" font-weight="700">botol hemat</text>
+    <rect x="36" y="382" width="318" height="54" rx="18" fill="#f0fdf4"/>
+    <rect x="36" y="454" width="250" height="54" rx="18" fill="#ecfeff"/>
+    <text x="62" y="416" fill="#166534" font-family="Arial, sans-serif" font-size="18" font-weight="800">Pickup Jumat</text>
+    <text x="62" y="488" fill="#0e7490" font-family="Arial, sans-serif" font-size="18" font-weight="800">Member refill</text>
+  </g>
+  <g transform="translate(546 122)">
+    <rect x="0" y="0" width="250" height="492" rx="34" fill="#ffffff" stroke="#bbf7d0" stroke-width="3"/>
+    <rect x="42" y="60" width="54" height="210" rx="26" fill="#15803d" opacity=".82"/>
+    <rect x="114" y="30" width="54" height="240" rx="26" fill="#0891b2" opacity=".75"/>
+    <rect x="186" y="92" width="38" height="178" rx="19" fill="#ca8a04" opacity=".62"/>
+    <rect x="30" y="314" width="190" height="34" rx="17" fill="#dcfce7"/>
+    <rect x="30" y="372" width="150" height="34" rx="17" fill="#cffafe"/>
+    <text x="30" y="438" fill="#15803d" font-family="Arial, sans-serif" font-size="22" font-weight="800">Isi ulang</text>
+  </g>
+</svg>

@@ -14,8 +14,8 @@ export default function Demo() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <Eyebrow>Demo dashboard</Eyebrow>
-          <h1>Pilih arah website dari enam demo yang sengaja dibuat berbeda.</h1>
-          <p>Bandingkan gaya promo kuliner, lookbook produk, booking jasa, jadwal wellness, learning planner, dan event catalog. Setiap demo punya struktur halaman berbeda supaya pemilik UMKM bisa memilih rasa yang paling cocok.</p>
+          <h1>Pilih arah website dari 15 demo yang sengaja dibuat berbeda.</h1>
+          <p>Bandingkan gaya promo menu, lookbook, booking jasa, jadwal kelas, event catalog, roast drop, impact calculator, appointment triage, diagnostic bay, quote studio, cold-chain catalog, studio scheduler, route board, dan harvest calendar.</p>
         </div>
       </section>
 

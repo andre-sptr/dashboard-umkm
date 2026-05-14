@@ -4,8 +4,37 @@ import { test } from 'node:test';
 
 const read = (path) => readFileSync(path, 'utf8');
 
-const themeNames = ['rendang', 'batik', 'cleaning', 'wellness', 'learning', 'florist'];
-const newDemoSlugs = ['studio-yoga-senja', 'aksara-les-privat', 'mekar-florist-hampers'];
+const themeNames = [
+  'rendang',
+  'batik',
+  'cleaning',
+  'wellness',
+  'learning',
+  'florist',
+  'roastery',
+  'refill',
+  'clinic',
+  'ev',
+  'furniture',
+  'frozen',
+  'music',
+  'shuttle',
+  'farm',
+];
+const newDemoSlugs = [
+  'studio-yoga-senja',
+  'aksara-les-privat',
+  'mekar-florist-hampers',
+  'teras-kopi-roastery',
+  'titik-refill-pekanbaru',
+  'dentara-gigi-keluarga',
+  'garasi-ev-riau',
+  'rakara-custom-furniture',
+  'sagara-frozen-seafood',
+  'musikala-studio',
+  'rutekita-shuttle',
+  'terra-microgreens',
+];
 
 test('demo pages use shared primitives instead of local eyebrow and button chrome', () => {
   const page = read('src/app/client/[slug]/page.js');
@@ -21,6 +50,15 @@ test('demo pages use shared primitives instead of local eyebrow and button chrom
   assert.match(page, /WellnessDemo/);
   assert.match(page, /LearningDemo/);
   assert.match(page, /FloristDemo/);
+  assert.match(page, /RoasteryDemo/);
+  assert.match(page, /RefillDemo/);
+  assert.match(page, /ClinicDemo/);
+  assert.match(page, /EvDemo/);
+  assert.match(page, /FurnitureDemo/);
+  assert.match(page, /FrozenDemo/);
+  assert.match(page, /MusicDemo/);
+  assert.match(page, /ShuttleDemo/);
+  assert.match(page, /FarmDemo/);
   assert.doesNotMatch(page, /styles\.brandLine/);
   assert.doesNotMatch(css, /\.brandLine\b|\.primaryButton\b|\.secondaryButton\b/);
 });
@@ -51,12 +89,12 @@ test('demo page CSS is rewritten to light surfaces without hardcoded section pad
   assert.match(css, /color:\s*var\(--gray-900\)/);
 });
 
-test('demo index exposes six live demos with three new sectors', () => {
+test('demo index exposes fifteen live demos with distinct new sectors', () => {
   const data = read('src/data/homeData.js');
   const demoPage = read('src/app/demo/page.js');
   const seed = read('prisma/seed.js');
 
-  assert.equal((data.match(/href:\s*'\/client\//g) ?? []).length, 6);
+  assert.equal((data.match(/href:\s*'\/client\//g) ?? []).length, 15);
   assert.doesNotMatch(demoPage, /comingSoon|isPlaceholder/);
   assert.match(demoPage, /demoProjects\.map/);
 

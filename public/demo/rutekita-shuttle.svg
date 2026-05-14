@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 840" role="img" aria-labelledby="title desc">
+  <title id="title">RuteKita Shuttle visual</title>
+  <desc id="desc">Travel shuttle route board with departure times, pickup points, and seat indicators.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffbeb"/>
+      <stop offset="0.6" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="840" fill="url(#bg)"/>
+  <circle cx="740" cy="130" r="138" fill="#ca8a04" opacity=".16"/>
+  <circle cx="138" cy="704" r="184" fill="#0369a1" opacity=".12"/>
+  <g transform="translate(96 110)">
+    <rect width="536" height="530" rx="40" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
+    <text x="44" y="70" fill="#ca8a04" font-family="Arial, sans-serif" font-size="30" font-weight="900">Route board</text>
+    <rect x="44" y="112" width="448" height="86" rx="22" fill="#fffbeb"/>
+    <rect x="44" y="224" width="448" height="86" rx="22" fill="#f8fafc"/>
+    <rect x="44" y="336" width="448" height="86" rx="22" fill="#fffbeb"/>
+    <g fill="#0f172a" font-family="Arial, sans-serif" font-size="24" font-weight="900">
+      <text x="82" y="164">Pekanbaru - Duri</text>
+      <text x="82" y="276">Pekanbaru - Dumai</text>
+      <text x="82" y="388">Charter custom</text>
+    </g>
+    <g fill="#ca8a04" font-family="Arial, sans-serif" font-size="20" font-weight="900">
+      <text x="386" y="164">07.00</text>
+      <text x="386" y="276">16.00</text>
+      <text x="386" y="388">Flex</text>
+    </g>
+  </g>
+  <g transform="translate(650 238)">
+    <rect width="166" height="230" rx="30" fill="#ffffff" stroke="#fde68a" stroke-width="3"/>
+    <rect x="34" y="76" width="98" height="78" rx="20" fill="#0369a1"/>
+    <circle cx="58" cy="172" r="22" fill="#0f172a"/>
+    <circle cx="110" cy="172" r="22" fill="#0f172a"/>
+    <rect x="48" y="36" width="70" height="42" rx="16" fill="#e0f2fe"/>
+  </g>
+</svg>

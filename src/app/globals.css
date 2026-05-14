@@ -32,6 +32,15 @@
   --demo-accent-wellness: #0f766e;
   --demo-accent-learning: #2563eb;
   --demo-accent-florist: #be123c;
+  --demo-accent-roastery: #7c2d12;
+  --demo-accent-refill: #15803d;
+  --demo-accent-clinic: #0891b2;
+  --demo-accent-ev: #4f46e5;
+  --demo-accent-furniture: #7e22ce;
+  --demo-accent-frozen: #0369a1;
+  --demo-accent-music: #db2777;
+  --demo-accent-shuttle: #ca8a04;
+  --demo-accent-farm: #16a34a;
 
   /* Functional tokens */
   --focus-ring: var(--blue-700);
