@@ -17,7 +17,7 @@ export default function Kontak() {
   const channels = [
     { code: 'LOC', title: 'Area layanan', desc: 'Pekanbaru, Riau · konsultasi online untuk seluruh Indonesia.' },
     { code: 'WA', title: 'WhatsApp', desc: '+62 823 8702 5429' },
-    { code: 'IO', title: 'Response time', desc: 'Rata-rata balasan < 4 jam (jam kerja).' },
+    { code: 'IO', title: 'Response time', desc: 'Rata-rata balasan < 1 jam (jam kerja).' },
   ];
 
   return (

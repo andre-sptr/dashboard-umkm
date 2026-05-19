@@ -15,7 +15,7 @@ export default function Footer() {
               </div>
             </div>
             <p className={styles.description}>
-              Kami merancang landing page premium yang membuat usaha lokal terlihat profesional, dipercaya, dan siap dijual lewat WhatsApp.
+              Kami merancang landing page premium yang membuat usaha lokal terlihat profesional, dipercaya, dan siap dijual.
             </p>
           </div>
 
@@ -45,7 +45,6 @@ export default function Footer() {
               <ul>
                 <li>Pekanbaru, Riau</li>
                 <li>WhatsApp +62 823 8702 5429</li>
-                <li><a href="mailto:hello@pekanweb.studio">hello@pekanweb.studio</a></li>
               </ul>
             </div>
           </div>
@@ -53,9 +52,6 @@ export default function Footer() {
 
         <div className={styles.bottom}>
           <span className={styles.copyright}>© {new Date().getFullYear()} PekanWeb Studio</span>
-          <span className={styles.note}>Built with GSAP &times; Three.js</span>
-          <span className={styles.dot} aria-hidden="true" />
-          <span className={styles.note}>Made in Pekanbaru</span>
         </div>
       </div>
       <div className={styles.bigType} aria-hidden="true">PEKANWEB</div>

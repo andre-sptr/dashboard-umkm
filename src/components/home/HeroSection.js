@@ -60,7 +60,6 @@ export default function HeroSection() {
               <span>Pekanbaru</span>
               <span>Mulai 7 hari</span>
               <span>Bergaransi revisi</span>
-              <span>GSAP × Three.js</span>
             </div>
           </ScrollReveal>
         </div>

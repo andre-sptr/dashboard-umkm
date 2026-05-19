@@ -217,7 +217,7 @@ export const demoProjects = [
 export const processSteps = [
   { title: 'Konsultasi awal', desc: 'Kami gali jenis usaha, target pelanggan, area layanan, dan penawaran utama yang perlu terlihat kuat.' },
   { title: 'Materi & struktur', desc: 'Logo, foto, daftar layanan, harga, testimoni, dan CTA disusun menjadi alur landing page yang mudah dijual.' },
-  { title: 'Development', desc: 'Pembangunan sistem dengan desain eksklusif yang ringan, responsif, dan mencerminkan identitas unik bisnis Anda secara konsisten.' },
+  { title: 'Development', desc: 'Pembangunan sistem dengan desain eksklusif dan mencerminkan identitas unik bisnis Anda secara konsisten.' },
   { title: 'Review & launch', desc: 'Setelah revisi final, website dipublikasikan dengan WhatsApp aktif dan opsi AI atau WA chatbot sesuai paket.' },
 ];
 
