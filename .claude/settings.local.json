@@ -4,7 +4,9 @@
       "Bash(rtk ls *)",
       "Bash(rtk read *)",
       "Bash(npm install *)",
-      "Bash(timeout 90 npx next build)"
+      "Bash(timeout 90 npx next build)",
+      "Skill(claude-api)",
+      "Skill(claude-api:*)"
     ]
   }
 }

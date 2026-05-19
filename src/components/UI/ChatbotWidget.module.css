@@ -227,6 +227,29 @@
   box-shadow: 0 12px 30px rgba(0, 229, 255, 0.4);
 }
 
+.spin {
+  display: inline-block;
+  animation: spin 0.9s linear infinite;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 @media (max-width: 640px) {
   .toggle, .window { bottom: 18px; left: 18px; }
   .window { width: calc(100vw - 36px); }

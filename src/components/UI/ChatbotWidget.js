@@ -1,48 +1,68 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send } from 'lucide-react';
+import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
 import styles from './ChatbotWidget.module.css';
+
+const INITIAL_MESSAGE = {
+  role: 'assistant',
+  content:
+    'Halo! Saya AI assistant PekanWeb Studio. Tanya saja soal paket, harga, proses kerja, atau apapun seputar landing page UMKM Anda.',
+};
 
 export default function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { text: 'Halo! Ini contoh AI assistant yang bisa Anda miliki di website UMKM Anda. Coba tanya tentang harga atau waktu pengerjaan.', isBot: true },
-  ]);
+  const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const abortRef = useRef(null);
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages, isOpen]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isOpen, isLoading]);
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  useEffect(() => () => abortRef.current?.abort(), []);
 
-    // Add user message
-    setMessages(prev => [...prev, { text: input, isBot: false }]);
-    const currentInput = input;
+  const handleSend = async () => {
+    const trimmed = input.trim();
+    if (!trimmed || isLoading) return;
+
+    const userMsg = { role: 'user', content: trimmed };
+    const nextHistory = [...messages, userMsg];
+    setMessages(nextHistory);
     setInput('');
+    setError(null);
+    setIsLoading(true);
 
-    // Simulate AI thinking and response
-    setTimeout(() => {
-      let botResponse = 'Terima kasih atas pertanyaannya! Tim spesialis kami akan memberikan solusi terbaik untuk itu. Ingin langsung berkonsultasi via WhatsApp?';
-      
-      const lowerInput = currentInput.toLowerCase();
-      if (lowerInput.includes('harga') || lowerInput.includes('biaya')) {
-        botResponse = 'Harga pembuatan landing page kami mulai dari Rp 1.000.000 (Paket Starter). Anda bisa mencoba fitur kalkulator di halaman utama untuk estimasinya!';
-      } else if (lowerInput.includes('lama') || lowerInput.includes('waktu')) {
-        botResponse = 'Waktu pengerjaan standar kami adalah 7 hari kerja sejak materi lengkap kami terima.';
-      } else if (lowerInput.includes('ai') || lowerInput.includes('bot')) {
-        botResponse = 'Betul! Website yang kami buat bisa diintegrasikan dengan AI Chatbot seperti saya ini untuk melayani pelanggan Anda 24/7.';
+    const controller = new AbortController();
+    abortRef.current = controller;
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          // Skip pesan greeting awal (bukan dari user)
+          messages: nextHistory.slice(1),
+        }),
+        signal: controller.signal,
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || 'Gagal menghubungi AI.');
       }
 
-      setMessages(prev => [...prev, { text: botResponse, isBot: true }]);
-    }, 1000);
+      setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }]);
+    } catch (err) {
+      if (err.name === 'AbortError') return;
+      setError(err.message || 'Terjadi kesalahan.');
+    } finally {
+      setIsLoading(false);
+      abortRef.current = null;
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -50,79 +70,91 @@ export default function ChatbotWidget() {
       setIsOpen(false);
       return;
     }
-
-    if (e.key === 'Enter') {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
       handleSend();
     }
   };
 
   return (
     <>
-      {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={`${styles.toggle} ${isOpen ? styles.toggleHidden : ''}`}
-        aria-label="Buka Live Chatbot AI"
+        aria-label="Buka AI Assistant"
         aria-expanded={isOpen}
       >
-        <MessageSquare size={28} />
+        <MessageSquare size={26} />
       </button>
 
-      {/* Chat Window */}
       <div
         className={`${styles.window} ${isOpen ? styles.windowOpen : ''}`}
         onKeyDown={handleKeyDown}
+        role="dialog"
+        aria-label="AI Assistant"
       >
-        {/* Header */}
         <div className={styles.header}>
           <div className={styles.headerIdentity}>
             <span className={styles.statusDot} aria-hidden="true"></span>
             <div>
               <div className={styles.titleRow}>
                 <h3 className={styles.title}>AI Assistant</h3>
-                <span className={styles.demoBadge}>Demo</span>
+                <span className={styles.demoBadge}>Haiku 4.5</span>
               </div>
-              <span className={styles.statusText}>Online 24/7</span>
+              <span className={styles.statusText}>Online · powered by Claude</span>
             </div>
           </div>
-          <button 
+          <button
             onClick={() => setIsOpen(false)}
             className={styles.closeButton}
-            aria-label="Tutup Live Chatbot AI"
+            aria-label="Tutup AI Assistant"
           >
             <X size={20} />
           </button>
         </div>
 
-        {/* Messages */}
         <div className={styles.messages}>
           {messages.map((msg, idx) => (
-            <div 
-              key={idx} 
-              className={`${styles.bubble} ${msg.isBot ? styles.botBubble : styles.userBubble}`}
+            <div
+              key={idx}
+              className={`${styles.bubble} ${
+                msg.role === 'assistant' ? styles.botBubble : styles.userBubble
+              }`}
             >
-              {msg.text}
+              {msg.content}
             </div>
           ))}
+          {isLoading && (
+            <div className={`${styles.bubble} ${styles.botBubble}`} aria-live="polite">
+              <Loader2 size={16} className={styles.spin} /> Mengetik…
+            </div>
+          )}
+          {error && (
+            <div className={`${styles.bubble} ${styles.botBubble}`} role="alert">
+              {error}
+            </div>
+          )}
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input */}
         <div className={styles.inputBar}>
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Coba tanya 'Berapa harganya?'"
+            placeholder="Tanya soal paket, harga, proses…"
             className={styles.input}
+            disabled={isLoading}
+            maxLength={500}
           />
           <button
             onClick={handleSend}
             className={styles.sendButton}
             aria-label="Kirim pesan"
+            disabled={isLoading || !input.trim()}
           >
-            <Send size={18} />
+            {isLoading ? <Loader2 size={18} className={styles.spin} /> : <Send size={18} />}
           </button>
         </div>
       </div>
