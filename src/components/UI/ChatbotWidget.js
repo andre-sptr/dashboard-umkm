@@ -2,7 +2,15 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import styles from './ChatbotWidget.module.css';
+
+const markdownComponents = {
+  a: ({ href, children }) => (
+    <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
+  ),
+};
 
 const INITIAL_MESSAGE = {
   role: 'assistant',
@@ -89,7 +97,6 @@ export default function ChatbotWidget() {
 
       <div
         className={`${styles.window} ${isOpen ? styles.windowOpen : ''}`}
-        onKeyDown={handleKeyDown}
         role="dialog"
         aria-label="AI Assistant"
       >
@@ -121,7 +128,15 @@ export default function ChatbotWidget() {
                 msg.role === 'assistant' ? styles.botBubble : styles.userBubble
               }`}
             >
-              {msg.content}
+              {msg.role === 'assistant' ? (
+                <div className={styles.markdown}>
+                  <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                    {msg.content}
+                  </ReactMarkdown>
+                </div>
+              ) : (
+                msg.content
+              )}
             </div>
           ))}
           {isLoading && (
