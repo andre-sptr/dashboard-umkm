@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk ls *)",
+      "Bash(rtk read *)",
+      "Bash(npm install *)",
+      "Bash(timeout 90 npx next build)"
+    ]
+  }
+}

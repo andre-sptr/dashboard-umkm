@@ -1,6 +1,7 @@
 import { valueProps } from '@/data/homeData';
 import Eyebrow from '@/components/UI/Eyebrow';
-import Reveal from '@/components/UI/Reveal';
+import ScrollReveal from '@/components/fx/ScrollReveal';
+import SplitHeading from '@/components/fx/SplitHeading';
 import styles from '@/app/page.module.css';
 
 export default function SolutionSection() {
@@ -9,32 +10,34 @@ export default function SolutionSection() {
   return (
     <section className={styles.solutionSection}>
       <div className="container">
-        <Reveal>
-          <div className={styles.sectionHeader}>
-            <Eyebrow>Solusi yang langsung terasa</Eyebrow>
-            <h2>Landing page yang bekerja seperti front office digital.</h2>
-            <p>Dirancang untuk menjelaskan nilai bisnis Anda dengan cepat, terlihat premium, dan mengarahkan calon pelanggan ke percakapan WhatsApp atau bantuan AI chatbot.</p>
-          </div>
-        </Reveal>
+        <div className={styles.sectionHeader}>
+          <Eyebrow>Solusi yang langsung terasa</Eyebrow>
+          <SplitHeading as="h2">
+            Landing page yang bekerja seperti front office digital.
+          </SplitHeading>
+          <ScrollReveal>
+            <p>
+              Dirancang untuk menjelaskan nilai bisnis Anda dengan cepat, terlihat premium, dan mengarahkan calon pelanggan ke percakapan WhatsApp atau bantuan AI chatbot.
+            </p>
+          </ScrollReveal>
+        </div>
         <div className={styles.valueGrid}>
-          <Reveal>
+          <ScrollReveal>
             <article className={`${styles.valueCard} ${styles.featuredValue}`}>
               <span>{featuredValue.metric}</span>
               <h3>{featuredValue.title}</h3>
               <p>{featuredValue.desc}</p>
             </article>
-          </Reveal>
-          <div className={styles.supportingValues}>
-            {supportingValues.map((item, index) => (
-              <Reveal key={item.title} delay={(index + 1) * 100}>
-                <article className={styles.valueCard}>
-                  <span>{item.metric}</span>
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                </article>
-              </Reveal>
+          </ScrollReveal>
+          <ScrollReveal stagger={0.1} className={styles.supportingValues}>
+            {supportingValues.map((item) => (
+              <article className={styles.valueCard} key={item.title}>
+                <span>{item.metric}</span>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </article>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

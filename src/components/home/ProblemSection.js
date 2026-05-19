@@ -1,28 +1,27 @@
 import { painPoints } from '@/data/homeData';
 import Eyebrow from '@/components/UI/Eyebrow';
-import Reveal from '@/components/UI/Reveal';
+import ScrollReveal from '@/components/fx/ScrollReveal';
+import SplitHeading from '@/components/fx/SplitHeading';
 import styles from '@/app/page.module.css';
 
 export default function ProblemSection() {
   return (
     <section className={styles.problemSection}>
       <div className={`container ${styles.problemGrid}`}>
-        <Reveal>
-          <div>
-            <Eyebrow>Masalah yang sering terjadi</Eyebrow>
-            <h2>Bisnis bagus bisa terlihat biasa saja kalau halaman digitalnya tidak meyakinkan.</h2>
-          </div>
-        </Reveal>
-        <div className={styles.problemList}>
-          {painPoints.map((point, index) => (
-            <Reveal key={point} delay={(index + 1) * 100}>
-              <div className={styles.problemItem}>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{point}</p>
-              </div>
-            </Reveal>
-          ))}
+        <div>
+          <Eyebrow>Friction yang nyata</Eyebrow>
+          <SplitHeading as="h2">
+            Bisnis bagus bisa terlihat biasa kalau halaman digitalnya tidak meyakinkan.
+          </SplitHeading>
         </div>
+        <ScrollReveal stagger={0.12} className={styles.problemList}>
+          {painPoints.map((point, index) => (
+            <div className={styles.problemItem} key={point}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <p>{point}</p>
+            </div>
+          ))}
+        </ScrollReveal>
       </div>
     </section>
   );

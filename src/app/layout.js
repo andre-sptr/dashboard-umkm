@@ -4,10 +4,12 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/UI/WhatsAppButton";
 import ChatbotWidget from "@/components/UI/ChatbotWidget";
+import ThreeBackground from "@/components/fx/ThreeBackground";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -44,6 +46,7 @@ export default function RootLayout({ children }) {
     <html lang="id" suppressHydrationWarning>
       <body className={plusJakartaSans.variable}>
         <a href="#main" className="skip-link">Lewati ke konten utama</a>
+        <ThreeBackground />
         <Navbar />
         <main id="main" className="site-main">
           {children}

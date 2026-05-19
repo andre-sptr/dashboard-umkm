@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Button from '@/components/UI/Button';
 import Eyebrow from '@/components/UI/Eyebrow';
-import Reveal from '@/components/UI/Reveal';
+import MagneticButton from '@/components/fx/MagneticButton';
+import ScrollReveal from '@/components/fx/ScrollReveal';
+import SplitHeading from '@/components/fx/SplitHeading';
 import styles from '@/app/page.module.css';
 
 const ADD_ONS = [
@@ -28,9 +29,8 @@ export default function PricingSection() {
     return acc + (addon ? addon.price : 0);
   }, 0);
 
-  const formatRupiah = (number) => {
-    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
-  };
+  const formatRupiah = (number) =>
+    new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
 
   const currentWhatsappMessage = `Halo PekanWeb Studio, saya tertarik dengan paket Landing Page UMKM. Estimasi simulasi harga yang saya buat adalah ${formatRupiah(totalPrice)}.`;
   const dynamicWhatsappUrl = `https://wa.me/6282387025429?text=${encodeURIComponent(currentWhatsappMessage)}`;
@@ -38,20 +38,21 @@ export default function PricingSection() {
   return (
     <section className={styles.pricingSection}>
       <div className={`container ${styles.pricingBox}`}>
-        <Reveal>
-          <div>
-            <Eyebrow>Investasi awal</Eyebrow>
-            <h2>Simulasikan investasi landing page UMKM Anda.</h2>
+        <div>
+          <Eyebrow>Pricing simulator</Eyebrow>
+          <SplitHeading as="h2">
+            Simulasikan investasi landing page Anda.
+          </SplitHeading>
+          <ScrollReveal>
             <p>
-              Sesuaikan dengan kebutuhan bisnis Anda. Paket dasar sudah mencakup landing page, integrasi tombol WhatsApp, dan desain responsif.
+              Sesuaikan dengan kebutuhan bisnis Anda. Paket dasar sudah mencakup landing page, integrasi tombol WhatsApp, dan desain responsif premium.
             </p>
-            
             <div className={styles.addonList}>
               <h3 className={styles.addonTitle}>Tambahan Opsional:</h3>
               {ADD_ONS.map((addon) => (
                 <label key={addon.id} className={styles.addonOption}>
-                  <input 
-                    type="checkbox" 
+                  <input
+                    type="checkbox"
                     checked={selectedAddons.includes(addon.id)}
                     onChange={() => handleToggleAddon(addon.id)}
                     className={styles.addonCheckbox}
@@ -63,18 +64,18 @@ export default function PricingSection() {
                 </label>
               ))}
             </div>
-          </div>
-        </Reveal>
-        <Reveal delay={200}>
+          </ScrollReveal>
+        </div>
+        <ScrollReveal delay={0.2}>
           <div className={styles.pricePanel}>
             <span>Estimasi Total</span>
             <strong className={styles.priceValue}>{formatRupiah(totalPrice)}</strong>
             <small>Termasuk paket dasar {formatRupiah(basePrice)}</small>
-            <Button as="a" href={dynamicWhatsappUrl} target="_blank" rel="noopener noreferrer" fullWidth>
-              Kirim Simulasi via WA
-            </Button>
+            <MagneticButton as="a" href={dynamicWhatsappUrl} target="_blank" rel="noopener noreferrer" fullWidth>
+              Kirim Simulasi via WA →
+            </MagneticButton>
           </div>
-        </Reveal>
+        </ScrollReveal>
       </div>
     </section>
   );

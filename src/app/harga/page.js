@@ -1,6 +1,8 @@
 import Card from '@/components/UI/Card';
-import Button from '@/components/UI/Button';
 import Eyebrow from '@/components/UI/Eyebrow';
+import MagneticButton from '@/components/fx/MagneticButton';
+import ScrollReveal from '@/components/fx/ScrollReveal';
+import SplitHeading from '@/components/fx/SplitHeading';
 import styles from './harga.module.css';
 
 const whatsappNumber = '6282387025429';
@@ -48,18 +50,22 @@ export default function Harga() {
     <div className={styles.main}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <Eyebrow>Pricing command center</Eyebrow>
-          <h1>Paket website yang jelas, premium, dan siap dipakai jualan.</h1>
-          <p>Mulai dari landing page ringkas dengan AI chatbot sampai paket Pro dengan WA chatbot yang terhubung ke produk UMKM Anda.</p>
+          <Eyebrow>Pricing / 3 tiers</Eyebrow>
+          <SplitHeading as="h1">
+            Paket website yang jelas, premium, dan siap dipakai jualan.
+          </SplitHeading>
+          <ScrollReveal>
+            <p>Mulai dari landing page ringkas dengan AI chatbot sampai paket Pro dengan WA chatbot yang terhubung ke produk UMKM Anda.</p>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className={styles.pricingSection}>
         <div className="container">
-          <div className={styles.grid}>
+          <ScrollReveal stagger={0.12} className={styles.grid}>
             {plans.map((plan) => (
-              <Card key={plan.name} className={`${styles.planCard} ${plan.isPopular ? styles.popular : ''}`} padding="none">
-                {plan.isPopular && <div className={styles.badge}>Paling Populer</div>}
+              <div key={plan.name} className={`${styles.planCard} ${plan.isPopular ? styles.popular : ''}`}>
+                {plan.isPopular && <div className={styles.badge}>Most popular</div>}
                 <div className={styles.cardTop}>
                   <span className={styles.planLabel}>{plan.label}</span>
                   <h2>{plan.name}</h2>
@@ -82,21 +88,22 @@ export default function Harga() {
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    as="a"
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo PekanWeb Studio, saya ingin konsultasi paket ${plan.name} untuk UMKM saya.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant={plan.isPopular ? 'primary' : 'secondary'}
-                    className={styles.cta}
-                    fullWidth
-                  >
-                    Pilih Paket {plan.name}
-                  </Button>
+                  <div className={styles.cta}>
+                    <MagneticButton
+                      as="a"
+                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Halo PekanWeb Studio, saya ingin konsultasi paket ${plan.name} untuk UMKM saya.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant={plan.isPopular ? 'primary' : 'secondary'}
+                      fullWidth
+                    >
+                      Pilih Paket {plan.name} →
+                    </MagneticButton>
+                  </div>
                 </div>
-              </Card>
+              </div>
             ))}
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </div>

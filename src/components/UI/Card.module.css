@@ -1,69 +1,44 @@
 .card {
   position: relative;
   border-radius: var(--radius-lg);
-  background: var(--gray-50);
-  color: var(--gray-900);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-0);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   overflow: hidden;
   transition:
-    border-color var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+    border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out),
+    background 0.4s var(--ease-out);
 }
 
-/* Feature Card Default (Lifted) */
-.card {
-  border: 1px solid var(--gray-200);
-  box-shadow: var(--shadow-md);
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 50%);
+  pointer-events: none;
 }
 
 .hover:hover {
-  border-color: var(--blue-500);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-4px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 229, 255, 0.1);
 }
 
-/* Depth Variants */
-.flat {
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  box-shadow: none;
-}
+.flat { background: transparent; border: 1px solid var(--border-soft); }
+.raised { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+.floating { box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+.nested { background: rgba(255, 255, 255, 0.02); border-radius: var(--radius-md); }
 
-.raised {
-  box-shadow: var(--shadow-sm);
-}
-
-.floating {
-  box-shadow: var(--shadow-lg);
-}
-
-/* Nested Container Style */
-.nested {
-  background: var(--gray-100);
-  border-radius: var(--radius-md);
-  border: none;
-  box-shadow: none;
-}
-
-/* Padding Variants */
-.none {
-  padding: 0;
-}
-
-.sm {
-  padding: var(--space-3);
-}
-
-.md {
-  padding: var(--space-5);
-}
-
-.lg {
-  padding: var(--space-6);
-}
+.none { padding: 0; }
+.sm { padding: var(--space-4); }
+.md { padding: var(--space-5); }
+.lg { padding: var(--space-6); }
 
 @media (max-width: 479px) {
-  .md, .lg {
-    padding: var(--space-4);
-  }
+  .md, .lg { padding: var(--space-5); }
 }
