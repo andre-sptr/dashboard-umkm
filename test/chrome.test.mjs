@@ -74,6 +74,21 @@ test('root layout has a skip link targeting the main content', () => {
   assert.doesNotMatch(layout, /<main[^>]*style=\{\{/);
 });
 
+test('root layout opts into smooth scroll behavior for Next route transitions', () => {
+  const layout = read('src/app/layout.js');
+
+  assert.match(layout, /<html[^>]*data-scroll-behavior=["']smooth["']/);
+});
+
+test('three background uses Timer instead of deprecated Clock', () => {
+  const background = read('src/components/fx/ThreeBackground.js');
+
+  assert.match(background, /new THREE\.Timer\(\)/);
+  assert.match(background, /timer\.update\(/);
+  assert.match(background, /timer\.getElapsed\(\)/);
+  assert.doesNotMatch(background, /THREE\.Clock|getElapsedTime/);
+});
+
 test('footer uses a light surface without dark leftovers', () => {
   const footerCss = read('src/components/layout/Footer.module.css');
 

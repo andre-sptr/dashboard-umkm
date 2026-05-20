@@ -132,9 +132,12 @@ export default function ThreeBackground() {
     window.addEventListener('pointermove', onMove);
 
     let rafId;
-    const clock = new THREE.Clock();
-    const animate = () => {
-      const t = clock.getElapsedTime();
+    const timer = new THREE.Timer();
+    timer.connect(document);
+
+    const animate = (timestamp) => {
+      timer.update(timestamp);
+      const t = timer.getElapsed();
       material.uniforms.uTime.value = t;
       points.rotation.y = t * 0.04;
       points.rotation.x = Math.sin(t * 0.1) * 0.06;
@@ -165,6 +168,7 @@ export default function ThreeBackground() {
       geometry.dispose();
       ringGeo.dispose();
       material.dispose();
+      timer.dispose();
       renderer.dispose();
       if (renderer.domElement.parentNode === container) {
         container.removeChild(renderer.domElement);

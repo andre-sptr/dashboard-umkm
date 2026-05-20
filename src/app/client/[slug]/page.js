@@ -271,53 +271,127 @@ function Testimonial({ testimonial, compact = false }) {
 
 function CulinaryDemo({ demo }) {
   const firstProduct = demo.products?.[0];
+  const featuredProducts = demo.products?.slice(0, 3) || [];
+  const orderSteps = [
+    {
+      icon: 'MessageCircleHeart',
+      title: 'Pilih menu dan jumlah',
+      desc: 'Calon pembeli langsung melihat paket nasi box, hampers, atau rendang vakum sebelum chat.',
+    },
+    {
+      icon: 'Clock',
+      title: 'Konfirmasi jadwal masak',
+      desc: 'Admin memastikan tanggal, alamat, dan kebutuhan acara agar produksi tidak mendadak.',
+    },
+    {
+      icon: 'Truck',
+      title: 'Kirim rapi ke lokasi',
+      desc: 'Pesanan dikemas hangat atau vakum, lalu dikirim dengan instruksi penyajian yang jelas.',
+    },
+  ];
+  const kitchenPromises = [
+    { icon: 'Flame', title: 'Batch rempah harian', desc: 'Rendang dimasak bertahap agar bumbu pekat dan daging tetap empuk.' },
+    { icon: 'Package', title: 'Kemasan siap acara', desc: 'Pilihan box kantor, hampers, dan vacuum pack dibuat mudah dibandingkan.' },
+    { icon: 'CheckCircle', title: 'Order tidak bertele-tele', desc: 'CTA WhatsApp membawa konteks pesanan sehingga admin bisa langsung konfirmasi.' },
+  ];
 
   return (
     <>
       <section className={`${styles.variantHero} ${styles.culinaryHero}`}>
         <div className={`container ${styles.culinaryHeroGrid}`}>
-          <div className={styles.heroCopy}>
-            {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+          <div className={`${styles.heroCopy} ${styles.culinaryHeroCopy}`}>
+            <div className={styles.culinaryMetaRow}>
+              {demo.businessType && <Eyebrow className={styles.demoEyebrow}>{demo.businessType}</Eyebrow>}
+              <span className={styles.culinaryAvailability}>
+                <Clock size={16} />
+                Pre-order aman H-1
+              </span>
+            </div>
             <h1>{demo.heroTitle}</h1>
             {demo.heroLead && <p className={styles.heroLead}>{demo.heroLead}</p>}
             <HeroActions demo={demo} />
-            <HighlightList items={demo.highlights} />
+            <HighlightList items={demo.highlights} className={styles.culinaryHighlights} />
+            <StatStrip stats={demo.stats} variant="culinaryInline" />
           </div>
 
-          <div className={styles.culinaryBoard}>
-            <span className={styles.assetLabel}>{demo.accentLabel}</span>
-            <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.heroImage} />
-            {firstProduct && (
-              <div className={styles.orderTicket}>
-                <span>Menu utama</span>
-                <strong>{firstProduct.name}</strong>
-                <small>{firstProduct.price}</small>
+          <div className={styles.culinaryStage} aria-label={`Preview menu ${demo.title}`}>
+            <div className={styles.culinaryBoard}>
+              <span className={styles.assetLabel}>{demo.accentLabel}</span>
+              <Image src={demo.heroAsset} width={900} height={840} alt={`Visual ${demo.title}`} priority className={styles.heroImage} />
+              {firstProduct && (
+                <div className={styles.orderTicket}>
+                  <span>Favorit kantor</span>
+                  <strong>{firstProduct.name}</strong>
+                  <small>{firstProduct.price}</small>
+                </div>
+              )}
+            </div>
+            {featuredProducts.length > 0 && (
+              <div className={styles.culinaryQuickMenu}>
+                <span>Siap dipesan</span>
+                {featuredProducts.map((product) => (
+                  <div className={styles.culinaryQuickItem} key={product.name}>
+                    <strong>{product.name}</strong>
+                    <small>{product.price}</small>
+                  </div>
+                ))}
               </div>
             )}
           </div>
         </div>
       </section>
 
-      <section className={styles.menuSection} id="paket">
-        <div className={`container ${styles.menuLayout}`}>
-          <div className={styles.sectionIntro}>
-            <Eyebrow className={styles.demoEyebrow}>Gaya menu restoran</Eyebrow>
+      <section className={styles.culinaryMenuSection} id="paket">
+        <div className={`container ${styles.culinaryMenuLayout}`}>
+          <div className={styles.culinaryMenuIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Menu jualan utama</Eyebrow>
             <h2>{demo.productsTitle}</h2>
-            <p>Demo kuliner dibuat seperti halaman promo menu: cepat menggugah selera, harga langsung terlihat, lalu pengunjung diarahkan ke order WhatsApp.</p>
+            <p>Halaman kuliner harus cepat menjawab tiga hal: apa yang paling enak, berapa harganya, dan bagaimana cara pesan. Bagian menu dibuat seperti etalase order, bukan daftar panjang yang melelahkan.</p>
           </div>
-          <ProductCards products={demo.products} mode="menu" />
+          <ProductCards products={demo.products} mode="culinaryMenu" />
         </div>
       </section>
 
-      <section className={styles.flavorProofSection}>
-        <div className={`container ${styles.flavorGrid}`}>
-          <div>
-            <Eyebrow className={styles.demoEyebrow}>Bukti sebelum order</Eyebrow>
-            <h2>{demo.proofTitle}</h2>
-            <ProofItems items={demo.proofItems} mode="timeline" />
+      <section className={styles.culinaryOrderSection}>
+        <div className={`container ${styles.culinaryOrderGrid}`}>
+          <div className={styles.culinaryOrderIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Alur pesan</Eyebrow>
+            <h2>Dari lapar ke WhatsApp dibuat sependek mungkin.</h2>
+            <p>Landing page makanan tidak perlu terasa seperti company profile. Ritmenya dibuat untuk mengubah minat menjadi chat pesanan dengan konteks yang sudah jelas.</p>
           </div>
-          <div className={styles.flavorAside}>
-            <StatStrip stats={demo.stats} variant="stacked" />
+          <div className={styles.culinarySteps}>
+            {orderSteps.map((step, i) => (
+              <article className={styles.culinaryStep} key={step.title}>
+                <span className={styles.culinaryStepNumber}>{String(i + 1).padStart(2, '0')}</span>
+                <DynamicIcon name={step.icon} size={26} className={styles.culinaryStepIcon} />
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.culinaryProofSection}>
+        <div className={`container ${styles.culinaryProofGrid}`}>
+          <div className={styles.culinaryProofIntro}>
+            <Eyebrow className={styles.demoEyebrow}>Bukti rasa</Eyebrow>
+            <h2>{demo.proofTitle}</h2>
+            <p>Calon pembeli makanan biasanya butuh rasa aman sebelum transfer. Bukti visual, testimoni, dan alur pesan dibuat muncul sebelum CTA akhir.</p>
+            <ProofItems items={demo.proofItems} mode="culinaryProof" />
+          </div>
+          <div className={styles.culinaryTrustPanel}>
+            <div className={styles.kitchenPromiseList}>
+              {kitchenPromises.map((item) => (
+                <div className={styles.kitchenPromiseItem} key={item.title}>
+                  <DynamicIcon name={item.icon} size={22} className={styles.proofIcon} />
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
             <Testimonial testimonial={demo.testimonial} compact />
           </div>
         </div>

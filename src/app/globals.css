@@ -22,6 +22,29 @@
   --accent-lime: #b8ff3c;
   --accent-amber: #ffb74d;
 
+  /* Demo client accent tokens */
+  --demo-accent-rendang: #b7432b;
+  --demo-accent-batik: #7c3aed;
+  --demo-accent-cleaning: #0ea5e9;
+  --demo-accent-wellness: #14b8a6;
+  --demo-accent-learning: #2563eb;
+  --demo-accent-florist: #db2777;
+  --demo-accent-roastery: #8b5e34;
+  --demo-accent-refill: #16a34a;
+  --demo-accent-clinic: #0891b2;
+  --demo-accent-ev: #22c55e;
+  --demo-accent-furniture: #a16207;
+  --demo-accent-frozen: #0284c7;
+  --demo-accent-music: #9333ea;
+  --demo-accent-shuttle: #f97316;
+  --demo-accent-farm: #65a30d;
+
+  /* Dapur Rendang Riau palette */
+  --demo-rendang-cream: #fff4df;
+  --demo-rendang-ink: #261511;
+  --demo-rendang-leaf: #24513a;
+  --demo-rendang-gold: #d89b2b;
+
   /* Brand gradient */
   --grad-primary: linear-gradient(135deg, #00e5ff 0%, #8b5cf6 50%, #ff2bd6 100%);
   --grad-soft: linear-gradient(135deg, rgba(0, 229, 255, 0.18), rgba(139, 92, 246, 0.18));

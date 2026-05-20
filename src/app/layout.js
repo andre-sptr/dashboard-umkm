@@ -43,7 +43,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" suppressHydrationWarning>
+    <html lang="id" data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={plusJakartaSans.variable}>
         <a href="#main" className="skip-link">Lewati ke konten utama</a>
         <ThreeBackground />
