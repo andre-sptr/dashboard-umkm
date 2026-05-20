@@ -85,31 +85,6 @@ test('button primitive uses display font, 44px touch targets, and focus-visible 
   assert.match(css, /\.button:focus-visible\s*\{[^}]*outline:\s*2px solid var\(--focus-ring\)/s);
 });
 
-test('portfolio card primitive reifies demo content classes without inline styles', () => {
-  assert.ok(existsSync('src/components/UI/PortfolioCard.js'));
-  assert.ok(existsSync('src/components/UI/PortfolioCard.module.css'));
-
-  const component = read('src/components/UI/PortfolioCard.js');
-  const css = read('src/components/UI/PortfolioCard.module.css');
-
-  assert.match(component, /demo\s*=\s*\{\}/);
-  assert.match(component, /demo\.sections/);
-  assert.match(component, /demo\.stats/);
-  assert.match(component, /Wrapper = isLinked \? Link : 'article'/);
-  assert.match(component, /'aria-label': `Lihat demo \$\{demo\.title\}`/);
-  assert.match(component, /ctaLabel/);
-  assert.doesNotMatch(component, /style=\{\{/);
-
-  for (const className of ['demoContent', 'demoSections', 'demoStats', 'demoVisual', 'demoBadge', 'placeholderCard']) {
-    assert.match(component, new RegExp(`styles\\.${className}`));
-    assert.match(css, new RegExp(`\\.${className}\\s*\\{`));
-  }
-
-  assert.match(css, /background:\s*var\(--white\)/);
-  assert.match(css, /@media \(max-width:\s*640px\)/);
-  assert.doesNotMatch(css, /--border|--text-muted|--surface-container-low/);
-});
-
 test('whatsapp button is a light-surface green affordance with no orange leftovers', () => {
   const css = read('src/components/UI/WhatsAppButton.module.css');
 
@@ -154,14 +129,11 @@ test('chatbot widget uses CSS module light surfaces and explicit demo disclosure
 test('UI primitives import and render standalone with representative props', () => {
   const Eyebrow = importProjectModule('src/components/UI/Eyebrow.js').default;
   const Button = importProjectModule('src/components/UI/Button.js').default;
-  const PortfolioCard = importProjectModule('src/components/UI/PortfolioCard.js').default;
   const WhatsAppButton = importProjectModule('src/components/UI/WhatsAppButton.js').default;
   const ChatbotWidget = importProjectModule('src/components/UI/ChatbotWidget.js').default;
-  const { demoProjects } = importProjectModule('src/data/homeData.js');
 
   const eyebrow = renderToStaticMarkup(React.createElement(Eyebrow, null, 'Demo UMKM'));
   const button = renderToStaticMarkup(React.createElement(Button, { as: 'a', href: '/kontak' }, 'Konsultasi'));
-  const card = renderToStaticMarkup(React.createElement(PortfolioCard, { demo: demoProjects[0] }));
   const whatsapp = renderToStaticMarkup(React.createElement(WhatsAppButton, {
     phoneNumber: '628123456789',
     message: 'Halo',
@@ -171,39 +143,8 @@ test('UI primitives import and render standalone with representative props', () 
   assert.match(eyebrow, /Demo UMKM/);
   assert.match(button, /href="\/kontak"/);
   assert.match(button, /Konsultasi/);
-  assert.match(card, /href="\/client\/dapur-rendang-riau"/);
-  assert.match(card, /Dapur Rendang Riau/);
-  assert.match(card, /Gaya promo menu/);
-  assert.match(card, /Lihat Detail Demo/);
   assert.match(whatsapp, /href="https:\/\/wa\.me\/628123456789\?text=Halo"/);
   assert.match(whatsapp, /Chat PekanWeb/);
   assert.match(chatbot, /AI Assistant/);
   assert.match(chatbot, /Demo/);
-});
-
-test('portfolio card renders linked and placeholder modes without fake hrefs', () => {
-  const PortfolioCard = importProjectModule('src/components/UI/PortfolioCard.js').default;
-  const { demoProjects } = importProjectModule('src/data/homeData.js');
-  const linked = renderToStaticMarkup(React.createElement(PortfolioCard, { demo: demoProjects[1] }));
-  const placeholderDemo = {
-    ...demoProjects[2],
-    title: 'Coming Soon UMKM',
-    href: undefined,
-    isPlaceholder: true,
-  };
-  const placeholder = renderToStaticMarkup(React.createElement(PortfolioCard, {
-    demo: placeholderDemo,
-    ctaLabel: 'Coming soon',
-  }));
-
-  assert.match(linked, /<a /);
-  assert.match(linked, /href="\/client\/loka-batik-pekanbaru"/);
-  assert.match(linked, /Gaya lookbook premium/);
-  assert.match(linked, /Lihat Detail Demo/);
-  assert.match(placeholder, /<article /);
-  assert.match(placeholder, /Coming Soon UMKM/);
-  assert.match(placeholder, /Coming soon/);
-  assert.match(placeholder, /aria-disabled="true"/);
-  assert.doesNotMatch(placeholder, /<a /);
-  assert.doesNotMatch(placeholder, /href="#"/);
 });

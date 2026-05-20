@@ -3,7 +3,6 @@ import styles from './page.module.css';
 import HeroSection from '@/components/home/HeroSection';
 import ProblemSection from '@/components/home/ProblemSection';
 import SolutionSection from '@/components/home/SolutionSection';
-import PortfolioSection from '@/components/home/PortfolioSection';
 import PricingSection from '@/components/home/PricingSection';
 import ProcessSection from '@/components/home/ProcessSection';
 import FaqSection from '@/components/home/FaqSection';
@@ -20,7 +19,6 @@ export default function Home() {
       <HeroSection />
       <ProblemSection />
       <SolutionSection />
-      <PortfolioSection />
       <PricingSection />
       <ProcessSection />
       <FaqSection />

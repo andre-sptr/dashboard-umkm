@@ -25,7 +25,6 @@ test('all home sections consume the shared Eyebrow primitive', () => {
     'HeroSection',
     'ProblemSection',
     'SolutionSection',
-    'PortfolioSection',
     'PricingSection',
     'ProcessSection',
     'FaqSection',
@@ -65,15 +64,6 @@ test('pricing section has tokenized addon controls without inline styling or ora
     assert.match(css, new RegExp(`\\.${className}\\s*\\{`));
   }
   assert.match(css, /accent-color:\s*var\(--accent-warm\)/);
-});
-
-test('portfolio section renders demo projects through the PortfolioCard primitive', () => {
-  const portfolio = read('src/components/home/PortfolioSection.js');
-
-  assert.match(portfolio, /PortfolioCard/);
-  assert.match(portfolio, /<PortfolioCard demo=\{demo\}/);
-  assert.doesNotMatch(portfolio, /style=\{\{/);
-  assert.doesNotMatch(portfolio, /styles\.demoContent|styles\.demoSections|styles\.demoStats/);
 });
 
 test('home page has alternating light section surfaces', () => {

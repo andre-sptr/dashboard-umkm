@@ -16,7 +16,7 @@ export function CommandCenterMockup() {
       </div>
       <div className={styles.productPreview}>
         <div className={styles.previewNav}>
-          <span>Dapur Rendang Riau</span>
+          <span>UMKM Pekanbaru</span>
           <small>online · WA ready</small>
         </div>
         <div className={styles.previewHero}>
@@ -51,9 +51,6 @@ export default function HeroSection() {
             <div className={styles.heroCta}>
               <MagneticButton as="a" href={whatsappUrl} target="_blank" rel="noopener noreferrer" size="lg">
                 Konsultasi via WhatsApp →
-              </MagneticButton>
-              <MagneticButton as="a" href="#client" variant="secondary" size="lg">
-                Lihat Showcase
               </MagneticButton>
             </div>
             <div className={styles.trustBar} aria-label="Sinyal layanan PekanWeb Studio">

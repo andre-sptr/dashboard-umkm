@@ -234,7 +234,6 @@
 /* ===== Section base ===== */
 .problemSection,
 .solutionSection,
-.portfolioSection,
 .pricingSection,
 .processSection,
 .faqSection,
@@ -244,7 +243,7 @@
 }
 
 @media (max-width: 1023px) {
-  .problemSection, .solutionSection, .portfolioSection,
+  .problemSection, .solutionSection,
   .pricingSection, .processSection, .faqSection, .finalCta {
     padding: var(--space-9) 0;
   }
@@ -391,13 +390,6 @@
 }
 
 .valueCard p { color: var(--text-2); }
-
-/* ===== Portfolio ===== */
-.demoGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
-}
 
 /* ===== Pricing ===== */
 .pricingBox {
@@ -652,14 +644,12 @@
 
   .valueGrid { grid-template-columns: 1fr; }
   .supportingValues { grid-template-columns: repeat(3, 1fr); }
-  .demoGrid { grid-template-columns: repeat(2, 1fr); }
   .processGrid { grid-template-columns: repeat(2, 1fr); }
 
   .commandShell { transform: none; }
 }
 
 @media (max-width: 767px) {
-  .demoGrid,
   .processGrid,
   .supportingValues,
   .previewSections {

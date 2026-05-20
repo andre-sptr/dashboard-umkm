@@ -1,40 +1,4 @@
 .main {
   position: relative;
-  padding-top: 120px;
-}
-
-.hero {
-  position: relative;
-  padding: 60px 0 64px;
-  overflow: hidden;
-}
-
-.heroInner {
-  max-width: 920px;
-}
-
-.heroInner h1 { margin: 16px 0 24px; }
-
-.heroInner p {
-  font-size: clamp(15px, 1.3vw, 18px);
-  color: var(--text-1);
-  max-width: 760px;
-}
-
-.portfolioSection {
-  padding: 40px 0 var(--space-10);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-5);
-}
-
-@media (max-width: 1023px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; }
+  min-height: 120px;
 }

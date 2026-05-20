@@ -6,7 +6,6 @@ const read = (path) => readFileSync(path, 'utf8');
 
 const innerPages = [
   ['proses', 'src/app/proses/page.js', 'src/app/proses/proses.module.css'],
-  ['demo', 'src/app/demo/page.js', 'src/app/demo/demo.module.css'],
   ['harga', 'src/app/harga/page.js', 'src/app/harga/harga.module.css'],
   ['kontak', 'src/app/kontak/page.js', 'src/app/kontak/kontak.module.css'],
 ];
@@ -33,17 +32,12 @@ test('inner page styles use light surfaces without dark rgba panel leftovers', (
   }
 });
 
-test('demo page reuses live demo projects without placeholder cards', () => {
+test('demo page is intentionally empty while showcase is paused', () => {
   const page = read('src/app/demo/page.js');
   const css = read('src/app/demo/demo.module.css');
 
-  assert.match(page, /demoProjects/);
-  assert.match(page, /PortfolioCard/);
-  assert.match(page, /Demo dashboard/);
-  assert.match(page, /demoProjects\.map/);
-  assert.doesNotMatch(page, /comingSoon|isPlaceholder:\s*true/);
-  assert.doesNotMatch(page, /Warung Kopi Nuri|Batik Riau Abadi|Klinik Cantik Pekanbaru|Jasa Servis AC Lancang|Pekanbaru Tour Guide|Agro Riau Mandiri/);
-  assert.doesNotMatch(css, /\.projectCard|\.projectImage|\.mockTop|\.mockBody|\.category/);
+  assert.doesNotMatch(page, /demoProjects|PortfolioCard|Showcase \/ 15 directions/);
+  assert.doesNotMatch(css, /\.portfolioSection|\.grid|\.hero\b|\.projectCard|\.projectImage|\.mockTop|\.mockBody|\.category/);
 });
 
 test('kontak page states the WhatsApp handoff honestly', () => {
